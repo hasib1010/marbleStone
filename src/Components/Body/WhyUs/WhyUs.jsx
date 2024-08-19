@@ -9,8 +9,8 @@ import { FaSearch } from "react-icons/fa";
 
 const WhyUs = () => {
     return (
-        <div className='flex flex-col md:flex-col lg:flex-row items-center mb-20 px-4 md:px-0'>
-            <div className='flex flex-col lg:gap-4 p-0 '>
+        <div className='flex flex-col md:flex-col lg:flex-row lg:gap-12 lg:justify-between items-center mb-20 px-4 md:px-0'>
+            <div className='flex flex-col lg:gap-4 p-0 lg:w-1/2'>
                 <div className='flex items-center gap-2 bg-[#EEEFF1] w-fit px-3 py-2 rounded-full mx-auto md:mx-0'>
                     <FaSearch className='text-2xl p-2 bg-slate-300 rounded-full text-white' />
                     <p className='text-base font-medium'>Why us?</p>
@@ -18,7 +18,7 @@ const WhyUs = () => {
                 <h4 className='text-3xl md:text-5xl font-medium leading-snug text-center md:text-left'>
                     Innovation defines our <br className='hidden md:block' /> real estate
                 </h4>
-                <p className='text-center md:text-left'>
+                <p className='text-center lg:text-center mx-auto md:text-left w-2/3'>
                     Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa.
                 </p>
                 <ul className='list-none flex flex-col gap-2'>
@@ -36,26 +36,30 @@ const WhyUs = () => {
                     </li>
                 </ul>
             </div>
-            <div className='relative w-full  mt-8 md:mt-0'>
-                <img className='w-full rounded-lg' src={image} alt="Property" />
-                <div className='absolute lg:top-1/2 md:top-1/2 top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:p-4 p-5 md:p-1 '>
+            <div className='relative w-fit h-fit mt-8 md:mt-0 lg:fit'>
+                <img className='w-fit rounded-lg' src={image} alt="Property" />
+                <div className='absolute lg:top-1/2 lg:left-1 md:top-1/2 top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:p-4 p-5 md:p-1'>
                     <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
-                        <MdBathtub className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> <span className='text-sm md:text-base font-medium'>2 Bathrooms</span>
+                        <MdBathtub className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> 
+                        <span className='text-sm md:text-base font-medium'>2 Bathrooms</span>
                     </p>
                 </div>
-                <div className='absolute lg:top-1/2 md:top-5 top-4 left-1/2 transform -translate-x-1/2 translate-y-1/2 lg:p-4 p-5 md:p-1'>
+                <div className='absolute lg:-bottom-40 lg:left-32 md:top-5 top-4 left-1/2 transform -translate-x-1/2 translate-y-1/2 lg:p-4 p-5 md:p-1'>
                     <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
-                        <IoCarSport className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> <span className='text-sm md:text-base font-medium'>4 Parking zones</span>
+                        <IoCarSport className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> 
+                        <span className='text-sm md:text-base font-medium'>4 Parking zones</span>
                     </p>
                 </div>
-                <div className='absolute lg:bottom-1/4 bottom-1/4 left-1/4 md:bottom-11 md:-top-20 transform -translate-x-1/2 translate-y-1/2 lg:p-4 p-5 md:p-1'>
+                <div className='absolute lg:-bottom-96 lg:left-96 w-fit bottom-1/4 left-1/4 md:bottom-11 md:-top-20 transform -translate-x-1/2 translate-y-1/2 lg:p-4 p-5 md:p-1'>
                     <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
-                        <FaBed className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> <span className='text-sm md:text-base font-medium'>4 Bedrooms</span>
+                        <FaBed className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> 
+                        <span className='text-sm md:text-base font-medium'>4 Bedrooms</span>
                     </p>
                 </div>
-                <div className='absolute bottom-1/4 right-1/4 md:bottom-3 w-fit md:left-6 transform translate-x-1/2 -translate-y-1/2 lg:p-4 p-5 md:p-1'>
-                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
-                        <LuScale3D className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> <span className='text-sm md:text-base font-medium'>4 Floors</span>
+                <div className='absolute lg:top-20 lg:left-[95%]  lg:w-36 sm:right-72 sm:bottom-1/4 md:bottom-3   md:left-6 h-fit md:p-1  lg:p-1'>
+                    <p className='flex lg:p-2 items-center lg:gap-2 gap-2 bg-white rounded-xl shadow-xl'>
+                        <LuScale3D className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' />
+                        <span className='text-sm md:text-base font-medium'>2,553 sqtf</span>
                     </p>
                 </div>
             </div>
