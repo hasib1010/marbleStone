@@ -4,7 +4,7 @@ import FaqSection from './Faq';
 
 const OurProcess = () => {
     return (
-        <div className='px-4 md:px-8 lg:px-16 py-8'>
+        <div className='px-4 md:px-8 lg:px-5 py-2'>
             <div className='flex items-center gap-4 md:gap-5 bg-[#EEEFF1] w-fit px-3 py-2 rounded-full mx-auto'>
                 <FaUsersGear className='text-4xl md:text-2xl bg-slate-400 text-white rounded-full' />
                 <p className='text-base md:text-lg font-medium'>Our Process</p>
@@ -15,7 +15,7 @@ const OurProcess = () => {
             <p className='text-base md:text-lg tracking-wider font-normal text-center'>
                 Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in <br className='hidden md:block' /> eu vel morbi dui nunc tellus. Non a massa maecenas massa.
             </p>
-            <div className='mt-8'>
+            <div className='mt-1'>
                 <FaqSection />
             </div>
         </div>

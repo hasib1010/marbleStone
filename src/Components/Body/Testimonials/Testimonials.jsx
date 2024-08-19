@@ -4,7 +4,7 @@ import Carusel2 from './Carusel';
 
 const Testimonials = () => {
     return (
-        <section className="py-8 md:py-16 lg:py-24">
+        <section className="py-8 md:py-16 lg:py-0">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
                     <h3 className='flex items-center justify-center gap-3 bg-[#EEEFF1] w-fit px-4 py-2 rounded-full font-medium mx-auto mb-4'>

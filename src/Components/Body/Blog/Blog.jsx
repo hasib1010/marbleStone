@@ -38,7 +38,7 @@ const BlogCard = ({ image, category, title, date, symbol: Symbol }) => {
 
 const BlogSection = () => {
     return (
-        <div className="text-gray-800 mt-8 md:mt-16">
+        <div className="text-gray-800 mt-0 md:mt-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between mb-6">
                     <span className="bg-[#EEEFF1] py-2 px-3 rounded-full flex items-center justify-center gap-2 text-lg md:text-xl font-medium">

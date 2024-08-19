@@ -18,16 +18,18 @@ const Footer = () => {
                         <p className='text-base md:text-lg'>Lorem ipsum dolor sit amet consectetur. Egestas eu amet dictum tellus. Purus morbi lorem viverra cras.</p>
 
                         <div className='flex flex-col md:flex-row items-center gap-4 md:gap-6'>
-                            <input
-                                type="email"
-                                placeholder="Enter your email address"
-                                className='bg-gray-800 border-none text-white px-4 py-2 rounded-full w-full md:w-auto placeholder-white placeholder:text-sm md:placeholder:text-base'
-                            />
-                            <button className='bg-white text-[#14161C] text-base font-medium rounded-full px-4 py-2 flex items-center gap-2 hover:bg-gray-600'>
-                                Subscribe
-                                <HiOutlineArrowSmRight className='text-xl' />
-                            </button>
-                        </div>
+            <div className='relative w-full max-w-md flex items-center'>
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    className='bg-gray-800 border-none  text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow   '
+                />
+                <button className='bg-white text-[#14161C] absolute -top-1 -right-6  text-base font-medium rounded-full px-4 py-[12px] flex items-center gap-2 hover:bg-gray-600'>
+                    Subscribe
+                    <HiOutlineArrowSmRight className='text-xl' />
+                </button>
+            </div>
+        </div>
                         <div className='flex gap-4 text-xl'>
                             <FaFacebookF />
                             <BsTwitterX />

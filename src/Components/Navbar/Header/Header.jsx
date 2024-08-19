@@ -22,7 +22,7 @@ const Header = () => {
                             Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas a aliquam arcu arcu nunc pretium id semper ut volutpat. Id gravida aenean.
                         </p>
                         <div className="">
-                            <button className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                            <button className="flex items-center gap-2 px-2 py-2 sm:px-2 sm:py-2 md:px-2 md:py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                                 <div className="w-8 sm:w-10 md:w-14"></div>
                                 <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
                             </button>

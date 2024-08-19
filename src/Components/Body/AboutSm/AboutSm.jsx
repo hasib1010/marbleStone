@@ -10,7 +10,7 @@ import Marquee from "react-fast-marquee";
 
 const AboutSm = () => {
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div className="max-w-[1400px] mx-auto px-4 md:px-8 mt-32">
       <p className="text-center text-[#A4A6B0]">As seen on:</p>
 
       <Marquee>
@@ -38,7 +38,7 @@ const AboutSm = () => {
       </Marquee>
 
       <div className="mt-[40px] md:mt-[80px] flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex flex-col sm:flex-row gap-8">
+        <div className="flex flex-row gap-8">
           <div>
             <h2 className="text-lg sm:text-xl font-medium">Our Project</h2>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium">

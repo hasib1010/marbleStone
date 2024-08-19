@@ -9,16 +9,16 @@ import { FaSearch } from "react-icons/fa";
 
 const WhyUs = () => {
     return (
-        <div className='flex flex-col md:flex-col lg:flex-row lg:gap-12 lg:justify-between items-center mb-20 px-4 md:px-0'>
-            <div className='flex flex-col lg:gap-4 p-0 lg:w-1/2'>
-                <div className='flex items-center gap-2 bg-[#EEEFF1] w-fit px-3 py-2 rounded-full mx-auto md:mx-0'>
-                    <FaSearch className='text-2xl p-2 bg-slate-300 rounded-full text-white' />
+        <div className='flex flex-col md:flex-col lg:flex-row lg:gap-12 lg:justify-between items-center mb-10 px-4 md:px-0'>
+            <div className='flex flex-col lg:gap-4 p-0 lg:w-1/2 '>
+                <div className='flex items-center gap-2  w-fit  bg-[#EEEFF1]  py-2 px-2 rounded-full  md:mx-0'>
+                    <FaSearch className='text-3xl p-2 bg-slate-300 rounded-full text-white' />
                     <p className='text-base font-medium'>Why us?</p>
                 </div>
-                <h4 className='text-3xl md:text-5xl font-medium leading-snug text-center md:text-left'>
+                <h4 className='text-3xl md:text-5xl font-medium  text-left md:text-left lg:text-left'>
                     Innovation defines our <br className='hidden md:block' /> real estate
                 </h4>
-                <p className='text-center lg:text-center mx-auto md:text-left w-2/3'>
+                <p className='text-left lg:text-left  w-2/3 md:text-left '>
                     Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa.
                 </p>
                 <ul className='list-none flex flex-col gap-2'>
