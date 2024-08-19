@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;  
+@import 'daisyui/dist/full.css';
+
+
+ .carousel-indicators{
+  display: none;
+ }
+ footer{
+  width: 98%;
+ }
