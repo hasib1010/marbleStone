@@ -3,8 +3,8 @@ import Navbar2 from './Components/Navbar/Navbar2';
 import { FaArrowRight } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import image1 from "./assets/images/aboutimg/img1.png"
-import image2 from "./assets/images/aboutimg/img2.png"
-import { FaStar } from "react-icons/fa6";
+import image2 from "./assets/images/aboutimg/img2.png" 
+import OurValue from './Components/Pages/About/OurValue/OurValue';
 const About = () => {
 
     const [activeButton, setActiveButton] = useState("cta1");
@@ -72,9 +72,10 @@ const About = () => {
                     <img src={image2} alt="" />
                 </div>
             </div>
-            <div className='text-center mt-8'>
-                About
+            <div className='max-w-[1400px] mx-auto'>
+            <OurValue></OurValue>    
             </div>
+          
         </div>
     );
 }
