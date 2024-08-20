@@ -9,6 +9,7 @@ import {
 import ErrorPage from './Components/Error/ErrorPage.jsx';
 import Root from './Root.jsx';
 import About from './About.jsx';
+import Blog from './Components/Pages/Blogs/Blog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
       },{
         path: "/about",
         element:<About></About>,
-      },
+      },{
+        path:"/blogs",
+        element: <Blog></Blog>
+      }
     ],
   },
 ]);

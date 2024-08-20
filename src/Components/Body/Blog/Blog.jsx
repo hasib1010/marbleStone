@@ -7,6 +7,7 @@ import { GrAnnounce } from "react-icons/gr";
 import { MdArticle } from "react-icons/md";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { FaPencilAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const BlogCard = ({ image, category, title, date, symbol: Symbol }) => {
     return (
@@ -48,9 +49,8 @@ const BlogSection = () => {
                 </div>
                 <div className="flex flex-col md:flex-row items-center justify-between mb-8">
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-0">Read our latest blog</h1>
-                    <a href="#" className="text-gray-600 hover:text-gray-800 text-sm font-semibold">
-                        Browse all articles &rarr;
-                    </a>
+                    <Link className="text-gray-600 hover:text-gray-800 text-sm font-semibold" to={'/blogs'}>Browse all articles &rarr;</Link>
+                     
                 </div>
                 <div className="grid gap-8 md:grid-cols-3">
                     <BlogCard
@@ -81,4 +81,3 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-    
