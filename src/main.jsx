@@ -10,6 +10,7 @@ import ErrorPage from './Components/Error/ErrorPage.jsx';
 import Root from './Root.jsx';
 import About from './About.jsx'; 
 import BlogMain from './Components/Pages/Blogs/BlogMain.jsx';
+import BlogLayout from './Components/Pages/Blogs/BlogLayout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path:"/blogs",
         loader: ()=>fetch('data.json'),
         element: <BlogMain></BlogMain>
+      },
+      {
+        path:"/blogs/:id",
+        element:<BlogLayout></BlogLayout>
       }
     ],
   },

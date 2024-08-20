@@ -9,7 +9,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { FaPencilAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const BlogCard = ({ image, category, title, date, symbol: Symbol }) => {
+const BlogCard = ({ image, category, title, date, symbol: Symbol, id }) => {
     return (
         <div className="bg-white rounded-lg shadow-md overflow-hidden relative">
             <img src={image} alt={title} className="w-full h-48 object-cover md:h-64" />
@@ -28,9 +28,9 @@ const BlogCard = ({ image, category, title, date, symbol: Symbol }) => {
                             />
                         </svg> {date}
                     </p>
-                    <a href="#" className="text-black hover:underline text-sm flex items-center">
+                    <Link to={`/blogs/${id}`}   className="text-black hover:underline text-sm flex items-center">
                         Read more <RiArrowRightSLine className="text-xl ml-2" />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -59,6 +59,7 @@ const BlogSection = () => {
                         category="Resources"
                         title="Here's how to decorate your new home from scratch"
                         date="Mar 30, 2025"
+                        id= '1'
                     />
                     <BlogCard
                         image={card2}
@@ -66,6 +67,7 @@ const BlogSection = () => {
                         category="News"
                         title="Home buying basics: How many bedrooms and bathrooms?"
                         date="Mar 28, 2025"
+                        id = '2'
                     />
                     <BlogCard
                         image={card3}
@@ -73,6 +75,7 @@ const BlogSection = () => {
                         category="Articles"
                         title="First-time homebuyer's guide: Steps for beginners"
                         date="Mar 26, 2025"
+                        id= '3'
                     />
                 </div>
             </div>

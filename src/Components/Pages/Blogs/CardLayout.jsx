@@ -37,9 +37,10 @@ const CardLayout = ({ blog }) => {
                         <p className="text-[#A4A6B0] text-xl font-medium flex items-center gap-2 mb-4">
                             <FaRegCalendarAlt /> {published_date}
                         </p>
-                        <Link className='text-black flex items-center gap-3 font-medium hover:underline'>
+                        <Link to={`/blogs/${blog.id}`} className='text-black flex items-center gap-3 font-medium hover:underline'>
                             Read More <MdKeyboardArrowRight />
                         </Link>
+                        
                     </div>
                 </div>
 
