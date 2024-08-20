@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import ErrorPage from './Components/Error/ErrorPage.jsx';
 import Root from './Root.jsx';
-import About from './About.jsx';
-import Blog from './Components/Pages/Blogs/Blog.jsx';
+import About from './About.jsx'; 
+import BlogMain from './Components/Pages/Blogs/BlogMain.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       },{
         path:"/blogs",
         loader: ()=>fetch('data.json'),
-        element: <Blog></Blog>
+        element: <BlogMain></BlogMain>
       }
     ],
   },
