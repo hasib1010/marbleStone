@@ -11,7 +11,7 @@ import Footer from './Components/Footer/Footer';
 
 const App = () => {
   return (
-    <div className='bg-[#fefcfc]'>
+    <div className='bg-[#FAFAFB]'>
       <Header></Header>
       <div className='max-w-[1400px] mx-auto'>
         <AboutSm></AboutSm>
@@ -20,8 +20,7 @@ const App = () => {
         <OurProcess></OurProcess>
         <Testimonials></Testimonials>
         <BlogSection></BlogSection>
-      </div>
-      <Footer></Footer>
+      </div> 
     </div>
   );
 }

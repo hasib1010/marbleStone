@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar';
-import arrow from './../../../assets/logo/Element.png'
-import arrow2 from './../../../assets/logo/Chevron right.png'
+import arrow from './../../../assets/logo/Element.png' 
 
 const Header = () => {
     return (
