@@ -11,8 +11,8 @@ const FaqSection = () => {
     };
 
     return (
-        <section className="py-8 md:py-16 lg:py-24">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <section className="py-4 md:py-4 lg:py-8">
+            <div className="mx-auto max-w-7xl p-4 sm:p-6 lg:p-10">
                 <div className="flex flex-col gap-8 lg:gap-16 xl:gap-28 lg:flex-row items-center lg:justify-between">
 
                     <div className="w-full lg:w-1/2">
@@ -32,9 +32,9 @@ const FaqSection = () => {
                                         content: "After your visit, if you decide to move forward, we'll guide you through the purchasing process. Our team will handle the paperwork, negotiations, and inspections to ensure a smooth transaction. With our streamlined approach, you could be settling into your new home in less than a month!"
                                     }
                                 ].map((item, index) => (
-                                    <div key={index} className={`accordion p-8 shadow-sm px-6 rounded-lg bg-white ${openIndex === index ? 'active' : ''}`}>
+                                    <div key={index} className={`accordion lg:p-12 md:p-4 p-3 shadow-sm  rounded-lg bg-white ${openIndex === index ? 'active' : ''}`}>
                                         <button
-                                            className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-gray-400"
+                                            className="accordion-toggle group inline-flex text-left items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-gray-400"
                                             onClick={() => handleToggle(index)}
                                             aria-controls={`collapse-${index}`}
                                         >
@@ -51,7 +51,7 @@ const FaqSection = () => {
                                             style={{ transition: 'max-height 0.3s ease' }}
                                             aria-labelledby={`heading-${index}`}
                                         >
-                                            <p className="text-base text-gray-600 font-normal">{item.content}</p>
+                                            <p className="text-sm lg:text-base md:text-base text-gray-600 font-normal">{item.content}</p>
                                         </div>
                                     </div>
                                 ))}
