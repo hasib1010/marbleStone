@@ -13,7 +13,7 @@ const Carusel = () => {
     const swiperRef = useRef(null);
 
     return (
-        <div className='w-full max-w-[800px] mx-auto relative mb-11 bg-white rounded-lg shadow-md'>
+        <div className='w-full max-w-[800px] mx-auto relative  bg-white rounded-lg shadow-md'>
             {/* Navigation Buttons */}
             <div className='absolute inset-y-1/2 flex justify-between w-full px-2 lg:px-4'>
                 <GrFormPrevious
@@ -41,7 +41,7 @@ const Carusel = () => {
             >
                 {/* Slide 1 */}
                 <SwiperSlide>
-                    <div className='flex flex-col md:flex-row items-center justify-center gap-4 p-4 md:p-6 lg:p-8'>
+                    <div className='flex flex-col w-[95%] h-fit  mx-auto md:flex-row items-center justify-center gap-4 p-4 md:p-6 lg:px-8'>
                         <img className='w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full shadow-lg' src={person1} alt="Person 1" />
                         <div className='flex flex-col gap-2 text-center md:text-left'>
                             <h3 className='text-base md:text-lg lg:text-xl font-semibold'>"The service was exceptional, beyond my expectations!"</h3>
@@ -53,7 +53,7 @@ const Carusel = () => {
 
                 {/* Slide 2 */}
                 <SwiperSlide>
-                    <div className='flex flex-col md:flex-row items-center justify-center gap-4 p-4 md:p-6 lg:p-8'>
+                    <div className='flex flex-col w-[95%] h-fit  mx-auto md:flex-row items-center justify-center gap-4 p-4 md:p-6 lg:px-8'>
                         <img className='w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full shadow-lg' src={person2} alt="Person 2" />
                         <div className='flex flex-col gap-2 text-center md:text-left'>
                             <h3 className='text-base md:text-lg lg:text-xl font-semibold'>"Professional and reliable, couldn't be happier!"</h3>
@@ -65,7 +65,7 @@ const Carusel = () => {
 
                 {/* Slide 3 */}
                 <SwiperSlide>
-                    <div className='flex flex-col md:flex-row items-center justify-center gap-4 p-4 md:p-6 lg:p-8'>
+                    <div className='flex flex-col w-[95%] h-fit  mx-auto md:flex-row items-center justify-center gap-4 p-4 md:p-6 lg:px-8'>
                         <img className='w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full shadow-lg' src={person1} alt="Person 3" />
                         <div className='flex flex-col gap-2 text-center md:text-left'>
                             <h3 className='text-base md:text-lg lg:text-xl font-semibold'>"Excellent experience from start to finish!"</h3>

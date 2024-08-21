@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import image2 from "./../../../assets/images/card.png";
 import image from "./../../../assets/images/img2.png";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const FaqSection = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -11,7 +12,7 @@ const FaqSection = () => {
 
     return (
         <section className="py-8 md:py-16 lg:py-24">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
                 <div className="flex flex-col gap-8 lg:gap-16 xl:gap-28 lg:flex-row items-center lg:justify-between">
 
                     <div className="w-full lg:w-1/2">
@@ -31,29 +32,18 @@ const FaqSection = () => {
                                         content: "After your visit, if you decide to move forward, we'll guide you through the purchasing process. Our team will handle the paperwork, negotiations, and inspections to ensure a smooth transaction. With our streamlined approach, you could be settling into your new home in less than a month!"
                                     }
                                 ].map((item, index) => (
-                                    <div key={index} className={`accordion pb-8 shadow-xl px-2 rounded-md border-solid border-gray-200 ${openIndex === index ? 'active' : ''}`}>
+                                    <div key={index} className={`accordion p-8 shadow-sm px-6 rounded-lg bg-white ${openIndex === index ? 'active' : ''}`}>
                                         <button
-                                            className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600"
+                                            className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-gray-400"
                                             onClick={() => handleToggle(index)}
                                             aria-controls={`collapse-${index}`}
                                         >
                                             <h5 className='text-xl font-medium'>{index + 1}. {item.title}</h5>
-                                            <svg
-                                                className={`text-gray-900 transition duration-500 group-hover:text-indigo-600 ${openIndex === index ? 'rotate-180' : ''}`}
-                                                width="22"
-                                                height="22"
-                                                viewBox="0 0 22 22"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
-                                                    stroke="currentColor"
-                                                    strokeWidth="1.6"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                            </svg>
+                                            {openIndex === index ? (
+                                                <FaMinus className="text-gray-900 transition duration-500 group-hover:text-gray-400" />
+                                            ) : (
+                                                <FaPlus className="text-gray-900 transition duration-500 group-hover:text-gray-400" />
+                                            )}
                                         </button>
                                         <div
                                             id={`collapse-${index}`}
