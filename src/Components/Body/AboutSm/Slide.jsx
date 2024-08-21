@@ -15,15 +15,15 @@ const Carusel = () => {
     return (
         <div className='w-full max-w-[800px] mx-auto relative  bg-white rounded-lg shadow-md'>
             {/* Navigation Buttons */}
-            <div className='absolute inset-y-1/2 flex justify-between w-full px-2 lg:px-4'>
+            <div className='absolute top-1/2 left-1 md:-left-3 lg:-left-4 transform -translate-y-1/2 z-30'>
                 <GrFormPrevious
-                    className='text-2xl bg-white rounded-full z-30 shadow-sm cursor-pointer'
-                    style={{ left: '10px', transform: 'translateY(-50%)' }}
+                    className='text-2xl bg-white rounded-full shadow-sm cursor-pointer'
                     onClick={() => swiperRef.current.swiper.slidePrev()}
                 />
+            </div>
+            <div className='absolute top-1/2 right-1 md:-right-3 lg:-right-4 transform -translate-y-1/2 z-30'>
                 <MdNavigateNext
-                    className='text-2xl bg-white rounded-full z-30 shadow-sm cursor-pointer'
-                    style={{ right: '10px', transform: 'translateY(-50%)' }}
+                    className='text-2xl bg-white rounded-full shadow-sm cursor-pointer'
                     onClick={() => swiperRef.current.swiper.slideNext()}
                 />
             </div>
