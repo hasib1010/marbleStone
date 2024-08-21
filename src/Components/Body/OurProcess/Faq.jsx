@@ -38,7 +38,7 @@ const FaqSection = () => {
                                             onClick={() => handleToggle(index)}
                                             aria-controls={`collapse-${index}`}
                                         >
-                                            <h5 className='text-xl font-medium'>{index + 1}. {item.title}</h5>
+                                            <h5 className='lg:text-xl md:text-xl text-base font-medium'>{index + 1}. {item.title}</h5>
                                             {openIndex === index ? (
                                                 <FaMinus className="text-gray-900 transition duration-500 group-hover:text-gray-400" />
                                             ) : (
@@ -51,7 +51,7 @@ const FaqSection = () => {
                                             style={{ transition: 'max-height 0.3s ease' }}
                                             aria-labelledby={`heading-${index}`}
                                         >
-                                            <p className="text-sm lg:text-base md:text-base text-gray-600 font-normal">{item.content}</p>
+                                            <p className="text-sm lg:text-base md:text-base mt-4 text-gray-600 font-normal">{item.content}</p>
                                         </div>
                                     </div>
                                 ))}
