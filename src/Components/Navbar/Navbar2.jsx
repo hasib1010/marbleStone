@@ -1,42 +1,41 @@
-import React from 'react';
-import logo from "./../../assets/logo/Group2.png";
-import arrow from './../../assets/logo/Element.png'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from "./../../assets/logo/Group2.png";
+import arrow from './../../assets/logo/Element.png';
 
 const Navbar2 = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className='bg-[#FAFAFB]'>
-            <div className="container px-5 mx-auto ">
+        <div className='relative bg-[#FAFAFB]'>
+            <div className="container px-5 mx-auto">
                 <div className="flex items-center justify-between py-7">
                     <Link to={'/'}>
                         <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                     </Link>
                     <div className="hidden lg:flex items-center space-x-12">
-                        <Link>
+                        <Link to='/property-management'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Property Management</li>
                         </Link>
-                        <Link>
+                        <Link to='/owners'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Owners</li>
                         </Link>
-                        <Link>
+                        <Link to='/residents'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Residents</li>
                         </Link>
-                        <Link>
+                        <Link to='/rentals'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Rentals</li>
                         </Link>
-                        <Link>
+                        <Link to='/apply'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Apply</li>
                         </Link>
-                        <Link>
+                        <Link to='/resources'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Resources</li>
                         </Link>
                         <Link to={'/about'}>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">About</li>
                         </Link>
-                        <Link>
+                        <Link to='/contact'>
                             <li className="list-none text-[#19213D] text-[16px] font-medium leading-5">Contact</li>
                         </Link>
                         <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white">
@@ -56,39 +55,48 @@ const Navbar2 = () => {
 
                 {/* Mobile and Tablet Menu */}
                 {isOpen && (
-                    <div className="lg:hidden bg-gray-800 text-white">
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Property Management</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Owners</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Residents</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Rentals</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Apply</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Resources</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">About</li>
-                        </Link>
-                        <Link>
-                            <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Contact</li>
-                        </Link>
-                        <button className="flex items-center justify-center gap-2 px-4 py-2 mt-4 w-full rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white">
-                            Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                    <div className="absolute top-0 left-0 w-full h-fit bg-gray-800 text-white z-40">
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
                         </button>
+                        <div className="flex flex-col items-center py-16">
+                            <Link to='/property-management' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Property Management</li>
+                            </Link>
+                            <Link to='/owners' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Owners</li>
+                            </Link>
+                            <Link to='/residents' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Residents</li>
+                            </Link>
+                            <Link to='/rentals' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Rentals</li>
+                            </Link>
+                            <Link to='/apply' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Apply</li>
+                            </Link>
+                            <Link to='/resources' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Resources</li>
+                            </Link>
+                            <Link to={'/about'} onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">About</li>
+                            </Link>
+                            <Link to='/contact' onClick={() => setIsOpen(false)}>
+                                <li className="list-none px-4 py-2 text-[16px] font-medium leading-5 hover:bg-gray-700">Contact</li>
+                            </Link>
+                            <button className="flex items-center justify-center gap-2 px-4 py-2 mt-4 w-full rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                                Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>
         </div>
-
     );
 }
 

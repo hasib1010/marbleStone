@@ -1,17 +1,26 @@
 import React from 'react';
 import Navbar from '../Navbar';
-import arrow from './../../../assets/logo/Element.png'
+import arrow from './../../../assets/logo/Element.png';
 
 const Header = () => {
     return (
-        <div className="mx-auto mb-20 bg-[#FAFAFB]
+        <div className="relative mx-auto lg:mb-20 bg-[#FAFAFB]
             h-[400px] sm:h-[500px] md:h-[700px] lg:h-[900px] xl:h-[1086px]
             bg-[url('./assets/images/banner.png')] 
             bg-no-repeat bg-center bg-cover 
             rounded-[5px] md:rounded-[8px] lg:rounded-[10px] 
             w-[95%] md:w-[97%] lg:w-[98%]">
-            <Navbar />
-            <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+            
+            {/* Navbar */}
+            <div className="relative z-40">
+                <Navbar />
+            </div>
+            
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00000080] to-[#000000D9] z-10" />
+            
+            {/* Content */}
+            <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 z-20">
                 <div className="flex flex-col lg:flex-row justify-between mt-[24px] md:mt-[44px]">
                     <h3 className="text-[36px] md:text-[48px] lg:text-[72px] font-medium text-white leading-tight lg:leading-[82.8px]">
                         Discover Your Dream Home <br className="hidden lg:block" /> in Chicago's Southside
@@ -31,6 +40,6 @@ const Header = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Header;

@@ -18,7 +18,7 @@ const WhyUs = () => {
                 <h4 className='text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 mt-4'>
                     Innovation Defines Our <br className='hidden md:block' /> Real Estate
                 </h4>
-                <p className='text-base lg:text-lg text-gray-600 mt-2 w-2/3'>
+                <p className='text-base lg:text-lg text-gray-600 mt-2 lg:w-2/3'>
                     Discover how our commitment to innovation and quality sets us apart. We use cutting-edge technology and sustainable practices to create spaces that inspire and exceed expectations.
                 </p>
                 <ul className='list-none flex flex-col gap-4 mt-4'>
@@ -43,25 +43,25 @@ const WhyUs = () => {
             <div className='relative w-fit h-fit mt-8 md:mt-0 lg:fit'>
                 <img className='w-fit rounded-lg' src={image} alt="Property" />
                 <div className='absolute lg:top-1/2 lg:left-1 md:top-1/2 top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:p-4 p-5 md:p-1'>
-                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
+                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl md:p-2 p-1  shadow-xl'>
                         <MdBathtub className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> 
                         <span className='text-sm md:text-base font-medium'>2 Bathrooms</span>
                     </p>
                 </div>
                 <div className='absolute lg:-bottom-40 lg:left-32 md:top-5 top-4 left-1/2 transform -translate-x-1/2 translate-y-1/2 lg:p-4 p-5 md:p-1'>
-                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
+                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl  md:p-2 p-1 shadow-xl'>
                         <IoCarSport className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> 
                         <span className='text-sm md:text-base font-medium'>4 Parking zones</span>
                     </p>
                 </div>
                 <div className='absolute lg:-bottom-96 lg:left-96 w-fit bottom-1/4 left-1/4 md:bottom-11 md:-top-20 transform -translate-x-1/2 translate-y-1/2 lg:p-4 p-5 md:p-1'>
-                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl shadow-xl'>
+                    <p className='flex items-center lg:gap-3 gap-2 bg-white lg:p-3 rounded-xl md:p-2 p-1  shadow-xl'>
                         <FaBed className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' /> 
                         <span className='text-sm md:text-base font-medium'>4 Bedrooms</span>
                     </p>
                 </div>
                 <div className='absolute lg:top-20 lg:left-[95%]  lg:w-36 sm:right-72 sm:bottom-1/4 md:bottom-3   md:left-6 h-fit md:p-1  lg:p-1'>
-                    <p className='flex lg:p-2 items-center lg:gap-2 gap-2 bg-white rounded-xl shadow-xl'>
+                    <p className='flex lg:p-2 items-center lg:gap-2 gap-2 bg-white rounded-xl md:p-2 p-1  shadow-xl'>
                         <LuScale3D className='text-white bg-slate-400 text-2xl md:text-3xl p-1 rounded-full' />
                         <span className='text-sm md:text-base font-medium'>2,553 sqtf</span>
                     </p>

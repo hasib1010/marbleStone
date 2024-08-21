@@ -75,7 +75,7 @@ const FaqSection = () => {
                             alt="FAQ illustration"
                             className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-xl"
                         />
-                        <img className='absolute bottom-0 right-0 md:bottom-[-10%] md:right-[-10%] lg:bottom-[-10%] lg:right-[-15%] w-1/2 md:w-1/3 lg:w-2/4 drop-shadow-xl' src={image2} alt="Additional illustration" />
+                        <img className='absolute -bottom-16 right-0 md:bottom-[-10%] md:right-[-5%] lg:bottom-[-10%] lg:right-[-15%] w-1/3 md:w-1/3 lg:w-2/4 drop-shadow-xl' src={image2} alt="Additional illustration" />
                     </div>
 
                 </div>

@@ -28,7 +28,7 @@ const BlogCard = ({ image, category, title, date, symbol: Symbol, id }) => {
                             />
                         </svg> {date}
                     </p>
-                    <Link to={`/blogs/${id}`}   className="text-black hover:underline text-sm flex items-center">
+                    <Link to={`/blogs/${id}`} className="text-black hover:underline text-sm flex items-center">
                         Read more <RiArrowRightSLine className="text-xl ml-2" />
                     </Link>
                 </div>
@@ -50,16 +50,16 @@ const BlogSection = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between mb-8">
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-0">Read our latest blog</h1>
                     <Link className="text-gray-600 hover:text-gray-800 text-sm font-semibold" to={'/blogs'}>Browse all articles &rarr;</Link>
-                     
+
                 </div>
-                <div className="grid gap-8 md:grid-cols-3">
+                <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3 grid-cols-1 my-5">
                     <BlogCard
                         image={card1}
                         symbol={IoIosSettings}
                         category="Resources"
                         title="Here's how to decorate your new home from scratch"
                         date="Mar 30, 2025"
-                        id= '1'
+                        id='1'
                     />
                     <BlogCard
                         image={card2}
@@ -67,7 +67,7 @@ const BlogSection = () => {
                         category="News"
                         title="Home buying basics: How many bedrooms and bathrooms?"
                         date="Mar 28, 2025"
-                        id = '2'
+                        id='2'
                     />
                     <BlogCard
                         image={card3}
@@ -75,7 +75,7 @@ const BlogSection = () => {
                         category="Articles"
                         title="First-time homebuyer's guide: Steps for beginners"
                         date="Mar 26, 2025"
-                        id= '3'
+                        id='3'
                     />
                 </div>
             </div>

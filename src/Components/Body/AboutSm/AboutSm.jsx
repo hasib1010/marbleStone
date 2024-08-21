@@ -36,9 +36,9 @@ const AboutSm = () => {
         </div>
       </Marquee>
 
-      <div className="mt-[40px] md:mt-[80px] flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex flex-col md:flex-row gap-8 w-full md:w-[50%]">
-          <div className="flex-1">
+      <div className="mt-[40px] md:mt-[80px] flex  md:flex-col lg:flex-row flex-col items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row gap-8 w-full md:w-[50%] items-center">
+          <div className="flex-1 lg:text-left md:text-left text-center w-64">
             <h2 className="text-lg sm:text-xl font-medium text-[#333]">Projects Completed</h2>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#000]">
               10k<span className="text-[#A4A6B0]">+</span>
@@ -47,7 +47,7 @@ const AboutSm = () => {
               Over 10,000 projects successfully completed, showcasing our dedication and expertise in delivering high-quality results.
             </p>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 lg:text-left md:text-left text-center w-64">
             <h2 className="text-lg sm:text-xl font-medium text-[#333]">Satisfied Customers</h2>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#000]">
               200k<span className="text-[#A4A6B0]">+</span>

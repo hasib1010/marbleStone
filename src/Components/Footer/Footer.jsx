@@ -20,18 +20,20 @@ const Footer = () => {
                         </p>
 
                         <div className='flex flex-col md:flex-row items-center gap-4 md:gap-6'>
-                            <div className='relative w-full max-w-md flex items-center'>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email address"
-                                    className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow'
-                                />
-                                <button className='bg-white text-[#14161C] absolute -top-1 -right-6 text-base font-medium rounded-full px-4 py-[12px] flex items-center gap-2 hover:bg-gray-600'>
-                                    Subscribe
-                                    <HiOutlineArrowSmRight className='text-xl' />
-                                </button>
-                            </div>
-                        </div>
+    <div className='flex items-center w-full max-w-full overflow-hidden'>
+        <input
+            type="email"
+            placeholder="Enter your email address"
+            className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow'
+        />
+        <button className='bg-white text-[#14161C] text-base font-medium rounded-r-full px-4 py-2 flex items-center gap-2 hover:bg-gray-600'>
+            Subscribe
+            <HiOutlineArrowSmRight className='text-xl' />
+        </button>
+    </div>
+</div>
+
+
                         <div className='flex gap-4 text-xl'>
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><BsTwitterX /></a>
