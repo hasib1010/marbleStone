@@ -24,7 +24,7 @@ const PostLayout = ({ blog }) => {
     };
 
     return (
-        <div className='bg-[#FAFAFB] py-14'>
+        <div className='bg-[#FAFAFB] lg:py-14 md:py-5 py4'>
             <div className='container mx-auto px-5'>
                 <div className='flex items-center gap-3'>
                     <p className='bg-[#A4A6B0] text-white font-medium w-fit px-4 py-1 rounded-full flex items-center'>
@@ -78,31 +78,32 @@ const PostLayout = ({ blog }) => {
                     }
                 </div>
 
-                <div className='bg-[#14161C] container mx-auto p-28 rounded-2xl text-white relative my-20 flex flex-row-reverse'>
+                <div className='bg-[#14161C] container mx-auto lg:p-28 md:p-10 p-7 rounded-2xl text-white relative lg:my-20 md:my-5 my-3 flex lg:flex-row-reverse md:flex-col flex-col justify-between'>
+                    <div className='relative lg:absolute md:relative mt-4 lg:-top-10 lg:left-0'>
+                        <img src={mac} alt='Mac' />
+                    </div>
                     <div className='max-w-[447px] flex flex-col gap-7'>
                         <div className='flex items-center px-4 text-white gap-2 py-[10px] bg-[#202127] w-fit rounded-full'>
                             <FaStar className='p-1 text-3xl rounded-full bg-[#464851]' />
                             <p>Newsletter</p>
                         </div>
-                        <h5 className='text-5xl'>Subscribe to Our Weekly Newsletter</h5>
-                        <p>Stay updated with the latest trends, tips, and insights in real estate by subscribing to our newsletter. Receive expert advice, market analysis, and exclusive offers directly in your inbox. Don't miss out on valuable information that could help you make informed decisions about buying, selling, or investing in real estate.</p>
+                        <h5 className='lg:text-5xl'>Subscribe to Our Weekly Newsletter</h5>
+                        <p>
+                            Get the latest updates, exclusive content, and insightful articles directly in your inbox. Don't miss out on the trends and tips that matter most.
+                        </p>
                         <div className='relative w-full max-w-md flex items-center'>
                             <input
-                                type="email"
-                                placeholder="Enter your email address"
+                                type='email'
+                                placeholder='Enter your email address'
                                 className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow h-12 focus:outline-none'
                             />
-                            <button
-                                className='bg-white text-[#14161C] absolute top-0 focus:border-none focus:ring-0 -right-6 text-base font-medium rounded-full px-4 py-[12px] flex items-center gap-2 hover:bg-gray-600 h-12'
-                            >
+                            <button className='bg-white text-[#14161C] absolute top-0 -right-6 text-base font-medium rounded-full px-4 py-[12px] flex items-center gap-2 hover:bg-gray-600 h-12'>
                                 Subscribe
                                 <HiOutlineArrowSmRight className='text-xl' />
                             </button>
                         </div>
                     </div>
-                    <div className='absolute -top-10 left-0'>
-                        <img src={mac} alt="Mac illustration" />
-                    </div>
+
                 </div>
             </div>
         </div>

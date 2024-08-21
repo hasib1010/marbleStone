@@ -58,7 +58,7 @@ const BlogMain = () => {
                         </button>
                     </div>
                 </div>
-                <div className='relative lg:absolute md:absolute mt-4 lg:-top-10 lg:right-0'>
+                <div className='relative lg:absolute md:relative mt-4 lg:-top-10 lg:right-0'>
                     <img src={mac} alt='Mac' />
                 </div>
             </div>

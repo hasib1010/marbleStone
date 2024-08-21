@@ -9,7 +9,7 @@ import { PiBagSimpleFill, PiChatCircleTextFill } from "react-icons/pi";
 
 const Footer = () => {
     return (
-        <footer className='bg-[#14161C] text-white mx-6 md:py-24 rounded-2xl'>
+        <footer className='bg-[#14161C] text-white mx-6 p-8 rounded-2xl'>
             <div className='container mx-auto px-4'>
                 <div className='flex flex-col md:flex-row justify-between gap-12'>
                     {/* Newsletter and Social Media */}
@@ -20,18 +20,18 @@ const Footer = () => {
                         </p>
 
                         <div className='flex flex-col md:flex-row items-center gap-4 md:gap-6'>
-    <div className='flex items-center w-full max-w-full overflow-hidden'>
-        <input
-            type="email"
-            placeholder="Enter your email address"
-            className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow'
-        />
-        <button className='bg-white text-[#14161C] text-base font-medium rounded-r-full px-4 py-2 flex items-center gap-2 hover:bg-gray-600'>
-            Subscribe
-            <HiOutlineArrowSmRight className='text-xl' />
-        </button>
-    </div>
-</div>
+                            <div className='flex items-center w-full max-w-full overflow-hidden'>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email address"
+                                    className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow'
+                                />
+                                <button className='bg-white text-[#14161C] text-base font-medium rounded-r-full px-4 py-2 flex items-center gap-2 hover:bg-gray-600'>
+                                    Subscribe
+                                    <HiOutlineArrowSmRight className='text-xl' />
+                                </button>
+                            </div>
+                        </div>
 
 
                         <div className='flex gap-4 text-xl'>
