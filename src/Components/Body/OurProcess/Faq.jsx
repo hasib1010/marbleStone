@@ -12,7 +12,7 @@ const FaqSection = () => {
     return (
         <section className="py-8 md:py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col gap-8 lg:gap-16 xl:gap-28 lg:flex-row lg:justify-between">
+                <div className="flex flex-col gap-8 lg:gap-16 xl:gap-28 lg:flex-row items-center lg:justify-between">
 
                     <div className="w-full lg:w-1/2">
                         <div className="lg:max-w-xl">
@@ -20,15 +20,15 @@ const FaqSection = () => {
                                 {[
                                     {
                                         title: "Search for your favorite house in your location",
-                                        content: "Lorem ipsum dolor sit amet consectetur vitae purus quis metus sed semper diam iaculis duis vitae purus amet sagittis leo elit vitae dolor."
+                                        content: "Start by exploring properties in your preferred neighborhoods. Our advanced search filters help you find homes that match your criteria, whether it's location, size, or amenities. Use our interactive maps to see nearby schools, parks, and shopping areas."
                                     },
                                     {
                                         title: "Make a visit appointment with one of our agents",
-                                        content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit dolorum, cupiditate voluptates beatae sapiente aut unde blanditiis eveniet corrupti voluptatum!"
+                                        content: "Once you've found potential homes, schedule a visit with one of our experienced agents. They will provide you with a personalized tour of the property, answer all your questions, and offer expert advice to help you make an informed decision."
                                     },
                                     {
                                         title: "Get your dream house in a month, or less",
-                                        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsam, quod commodi laborum autem dolores tempora! Voluptatem, deleniti. Eius delectus necessitatibus velit dolor animi dolorum magni rerum commodi aut recusandae!"
+                                        content: "After your visit, if you decide to move forward, we'll guide you through the purchasing process. Our team will handle the paperwork, negotiations, and inspections to ensure a smooth transaction. With our streamlined approach, you could be settling into your new home in less than a month!"
                                     }
                                 ].map((item, index) => (
                                     <div key={index} className={`accordion pb-8 shadow-xl px-2 rounded-md border-solid border-gray-200 ${openIndex === index ? 'active' : ''}`}>
@@ -72,10 +72,10 @@ const FaqSection = () => {
                     <div className="w-full lg:w-1/2 relative flex justify-center items-center">
                         <img
                             src={image}
-                            alt="FAQ tailwind section"
+                            alt="FAQ illustration"
                             className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-xl"
                         />
-                        <img className='absolute bottom-0 right-0 md:bottom-[-10%] md:right-[-10%] lg:bottom-[-10%] lg:right-[-15%] w-1/2 md:w-1/3 lg:w-2/4 drop-shadow-xl' src={image2} alt="" />
+                        <img className='absolute bottom-0 right-0 md:bottom-[-10%] md:right-[-10%] lg:bottom-[-10%] lg:right-[-15%] w-1/2 md:w-1/3 lg:w-2/4 drop-shadow-xl' src={image2} alt="Additional illustration" />
                     </div>
 
                 </div>

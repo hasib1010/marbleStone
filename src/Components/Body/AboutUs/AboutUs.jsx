@@ -6,29 +6,32 @@ import arrow from './../../../assets/logo/Element.png';
 
 const AboutUs = () => {
     return (
-        <div className='flex flex-col-reverse md:flex-row justify-center md:justify-between gap-16 items-center h-fit  lg:mb-10 md:mb-10 mb-7 px-4 md:px-0'>
+        <div className='flex flex-col-reverse md:flex-row justify-center md:justify-between gap-16 items-center h-fit lg:mb-10 md:mb-10 mb-7 px-4 md:px-0'>
+            {/* Image Section */}
             <div className='relative w-full mt-3 md:w-[600px] flex-1'>
-                <img className='w-full rounded-xl' src={image} alt="Main Banner" />
-                <img className='absolute top-16 right-0 md:right-[-10px] w-[100px] md:w-[200px]' src={image2} alt="Phone Illustration" />
+                <img className='w-full rounded-xl shadow-lg' src={image} alt="Main Banner" />
+                <img className='absolute top-16 right-0 md:right-[-10px] w-[100px] md:w-[200px] shadow-md' src={image2} alt="Phone Illustration" />
             </div>  
-            <div className='flex flex-col gap-4  md:text-left flex-1 text-left'>
-                <div className='flex items-center gap-3 bg-[#EEEFF1] w-fit px-3 py-2 rounded-full  md:mx-0'>
+
+            {/* Content Section */}
+            <div className='flex flex-col gap-4 text-center md:text-left flex-1'>
+                <div className='flex items-center gap-3 bg-[#EEEFF1] w-fit px-4 py-2 rounded-full mx-auto md:mx-0'>
                     <img className='w-8 bg-slate-400 p-2 rounded-full' src={unknown} alt="Icon" />
-                    <p className='text-base font-medium'>About Us</p>
+                    <p className='text-base font-medium text-gray-700'>About Us</p>
                 </div>
-                <h3 className='text-3xl md:text-5xl font-medium'>
-                    The heart of real <br className='md:hidden sm:hidden' /> estate innovation
+                <h3 className='text-3xl md:text-5xl font-semibold text-gray-800'>
+                    Leading the Way in Real <br className='md:hidden' /> Estate Innovation
                 </h3>
-                <p className='w-full md:w-[422px]  md:mx-0 text-left'>
-                    Lorem ipsum dolor sit amet consectetur. Gravida elementum dolor semper felis pulvinar feugiat risus adipiscing dictum. Ultricies nec elementum nisi ut. Cras diam odio sed auctor pellentesque. Sit nisl ipsum.
+                <p className='text-base md:text-lg text-gray-600 leading-relaxed'>
+                    At the forefront of real estate, we combine cutting-edge technology with unparalleled expertise to deliver exceptional service. Our mission is to redefine the real estate experience through innovation, transparency, and client-centric solutions.
                     <br /><br />
                     <div className='flex justify-center md:justify-start items-center gap-4'>
-                        <button className='flex items-center gap-2 pl-4 pr-2 py-2 rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white'>
+                        <button className='flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white hover:bg-[#b02e1e] transition-colors'>
                             <img className='bg-white p-2 rounded-full' src={arrow} alt="Arrow Icon" />
                             <span>Learn More</span>
                         </button>
-                    </div> </p>
-
+                    </div>
+                </p>
             </div>
         </div>
     );

@@ -10,29 +10,33 @@ import { FaSearch } from "react-icons/fa";
 const WhyUs = () => {
     return (
         <div className='flex flex-col md:flex-col lg:flex-row lg:gap-12 lg:justify-between items-center mb-10 px-4 md:px-0'>
-            <div className='flex flex-col lg:gap-4 p-0 lg:w-1/2 '>
-                <div className='flex items-center gap-2  w-fit  bg-[#EEEFF1]  py-2 px-2 rounded-full  md:mx-0'>
-                    <FaSearch className='text-3xl p-2 bg-slate-300 rounded-full text-white' />
-                    <p className='text-base font-medium'>Why us?</p>
+            <div className='flex flex-col lg:gap-6 p-4 lg:w-1/2'>
+                <div className='flex w-fit items-center gap-2 bg-[#EEEFF1] py-2 px-4 rounded-full'>
+                    <FaSearch className='text-3xl p-2 w-fit bg-slate-300 rounded-full text-white' />
+                    <p className='text-base font-medium'>Why Us?</p>
                 </div>
-                <h4 className='text-3xl md:text-5xl font-medium  text-left md:text-left lg:text-left'>
-                    Innovation defines our <br className='hidden md:block' /> real estate
+                <h4 className='text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 mt-4'>
+                    Innovation Defines Our <br className='hidden md:block' /> Real Estate
                 </h4>
-                <p className='text-left lg:text-left  w-2/3 md:text-left '>
-                    Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa.
+                <p className='text-base lg:text-lg text-gray-600 mt-2 w-2/3'>
+                    Discover how our commitment to innovation and quality sets us apart. We use cutting-edge technology and sustainable practices to create spaces that inspire and exceed expectations.
                 </p>
-                <ul className='list-none flex flex-col gap-2'>
-                    <li className='cursor-pointer flex items-center gap-2 text-lg md:text-xl font-medium'>
-                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' /> Green building materials and eco-friendly architecture.
+                <ul className='list-none flex flex-col gap-4 mt-4'>
+                    <li className='flex items-center gap-3 text-lg md:text-xl font-medium'>
+                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' />
+                        Green building materials and eco-friendly architecture.
                     </li>
-                    <li className='cursor-pointer flex items-center gap-2 text-lg md:text-xl font-medium'>
-                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' /> Integration of IoT and smart home systems.
+                    <li className='flex items-center gap-3 text-lg md:text-xl font-medium'>
+                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' />
+                        Integration of IoT and smart home systems.
                     </li>
-                    <li className='cursor-pointer flex items-center gap-2 text-lg md:text-xl font-medium'>
-                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' /> Designed to foster social interaction and connectivity.
+                    <li className='flex items-center gap-3 text-lg md:text-xl font-medium'>
+                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' />
+                        Designed to foster social interaction and connectivity.
                     </li>
-                    <li className='cursor-pointer flex items-center gap-2 text-lg md:text-xl font-medium'>
-                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' /> High-end finishes and attention to detail in every project.
+                    <li className='flex items-center gap-3 text-lg md:text-xl font-medium'>
+                        <img src={unknown2} alt="Checkbox" className='w-6 h-6' />
+                        High-end finishes and attention to detail in every project.
                     </li>
                 </ul>
             </div>

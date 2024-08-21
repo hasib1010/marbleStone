@@ -38,9 +38,9 @@ const LatestPost = ({ blogData }) => {
     return (
         <div>
             <div className='container mx-auto my-20'>
-                <div className='flex items-center justify-between p-2'>
-                    <h3 className='text-5xl font-medium'>Latest Post</h3>
-                    <div className='flex items-center gap-6 px-10 border rounded-full bg-white py-4'>
+                <div className='flex lg:flex-row md:flex-row flex-col m-3 items-center justify-between p-2'>
+                    <h3 className='lg:text-5xl md:text-5xl text-xl font-medium'>Latest Post</h3>
+                    <div className='flex items-center lg:gap-6 lg:px-10 border rounded-full bg-white py-4'>
                         <div
                             onClick={() => handleClick('All')}
                             className={`flex items-center gap-2 cursor-pointer font-medium rounded-full px-2 p-1 ${selected === 'All' ? 'bg-black text-white' : 'text-[#A4A6B0]'}`}
@@ -72,7 +72,7 @@ const LatestPost = ({ blogData }) => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-3 w-fit gap-20 my-20 mx-auto'>
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-fit gap-20 my-20 mx-auto'>
                     {
                         currentBlogs.map((blog, index) =>
                             <CardLayout key={index} blog={blog} />
@@ -80,9 +80,9 @@ const LatestPost = ({ blogData }) => {
                     }
                 </div>
 
-                {/* Pagination */}
+             
                 <div className='flex justify-between items-center gap-4 mt-8'>
-                    {/* Previous Button */}
+                   
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
@@ -92,7 +92,7 @@ const LatestPost = ({ blogData }) => {
                     </button>
 
                     {/* Page Number Display */}
-                    <span className='text-xl font-medium'>
+                      <span className='text-xl font-medium'>
                         {currentPage}/{totalPages}
                     </span>
 

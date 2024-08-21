@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import "./blogslide.css"
+import "./blogslide.css";
 import { Pagination, Navigation } from 'swiper/modules';
 import { GrFormPrevious } from "react-icons/gr";
 import { MdNavigateNext } from "react-icons/md";
@@ -18,7 +18,7 @@ const BlogSlide = ({ blogData }) => {
 
 
     return (
-        <div className='container mx-auto relative max-h-[490px] shadow-md rounded-lg  sm:h-fit lg:min-h-[430px]   lg:mb-11 bg-white'>
+        <div className='container   relative max-h-[490px]  lg:mx-auto md:mx-auto shadow-md rounded-lg  h-auto lg:min-h-[430px]   lg:mb-11 bg-white'>
             <GrFormPrevious
                 className='absolute top-1/2 -left-5 text-4xl bg-white rounded-full z-30 shadow-sm   cursor-pointer'
                 onClick={() => swiperRef.current.swiper.slidePrev()}
@@ -44,10 +44,10 @@ const BlogSlide = ({ blogData }) => {
 
                     <SwiperSlide key={blog.id} blog={blog}>
                         <div className='relative'>
-                            <img className='w-full h-[490px]' src={blog.blog_banner_image} alt="" />
-                            <div className="absolute shadow-lg top-[30%] right-20 rounded-lg bg-white px-12 py-10">
+                            <img className='w-full lg:h-[490px] md:h-64 h-36' src={blog.blog_banner_image} alt="" />
+                            <div className="lg:absolute md:absolute relative shadow-lg lg:top-[30%] lg:right-20  rounded-lg bg-white px-12 py-10">
                                 <h4 className='max-w-[480px] font-medium  lg:text-3xl'>{blog.title}</h4>
-                                <p className='py-6 text-base font-normal'>{
+                                <p className='lg:py-6 text-base font-normal'>{
                                     blog.subtitles[0] 
                                 } <br />
                                  {blog.subtitles[1]}
@@ -64,10 +64,7 @@ const BlogSlide = ({ blogData }) => {
                             </div>
                         </div>
                     </SwiperSlide>
-                ))}
-
-
-
+                ))}  
             </Swiper>
         </div>
     );

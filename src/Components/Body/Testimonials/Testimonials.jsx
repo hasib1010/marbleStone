@@ -4,7 +4,7 @@ import Carusel2 from './Carusel';
 
 const Testimonials = () => {
     return (
-        <section className="py-8 md:py-16 lg:py-0">
+        <section className="py-8 md:py-16 lg:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
                     <h3 className='flex items-center justify-center gap-3 bg-[#EEEFF1] w-fit px-4 py-2 rounded-full font-medium mx-auto mb-4'>
@@ -12,11 +12,10 @@ const Testimonials = () => {
                         Testimonials
                     </h3>
                     <h4 className='text-3xl md:text-4xl lg:text-5xl font-medium mb-4'>
-                        Look at what people <br /> say about us
+                        Hear from our happy clients
                     </h4>
                     <p className='text-base md:text-lg lg:text-xl mb-4'>
-                        Lorem ipsum dolor sit amet consectetur. Id eu mi ac ac aliquam etiam <br /> 
-                        ultrices augue convallis nunc ultrices amet consequat adipiscing.
+                        We take pride in providing exceptional service to our clients. Read what they have to say about their experiences with us and how we’ve helped them find their dream homes.
                     </p>
                 </div>
 

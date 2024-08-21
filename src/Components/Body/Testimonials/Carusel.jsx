@@ -15,11 +15,11 @@ const Carusel2 = () => {
     return (
         <div className='lg:w-full shadow-md rounded-lg lg:max-w-[860px] sm:h-fit lg:min-h-[430px] mx-auto relative lg:mb-11 bg-white'>
             <GrFormPrevious
-                className='absolute -top-12 right-10 text-4xl bg-white rounded-full z-30 shadow-sm   cursor-pointer'
+                className='absolute top-1/2 -left-10 text-4xl bg-white rounded-full z-30 shadow-sm cursor-pointer'
                 onClick={() => swiperRef.current.swiper.slidePrev()}
             />
             <MdNavigateNext
-                className='absolute -top-12 text-4xl bg-white rounded-full z-30 shadow-sm  -right-0 cursor-pointer'
+                className='absolute top-1/2 -right-10 text-4xl bg-white rounded-full z-30 shadow-sm cursor-pointer'
                 onClick={() => swiperRef.current.swiper.slideNext()}
             />
 
@@ -37,31 +37,31 @@ const Carusel2 = () => {
             >
                 <SwiperSlide>
                     <div className='flex flex-col lg:flex-row items-center justify-center gap-6 lg:p-20 sm:gap-8 lg:gap-12 lg:h-full'>
-                        <img className='w-16 h-16 sm:w-20 sm:h-20 rounded-full' src={person2} alt="Person 2" />
+                        <img className=' lg:w-40 lg:h-40 md:h-28 md:w-28 h-20 w-20 rounded-full' src={person1} alt="Person 2" />
                         <div className='flex flex-col gap-3 text-center lg:text-left'>
                             <h3 className='text-lg sm:text-xl lg:text-2xl font-medium'>
-                                “Navigating properties made easy, unbeatable USA options.”
+                                “Exceptional service and support. The team made finding my dream home effortless!”
                             </h3>
                             <p className='font-normal text-sm sm:text-base'>
-                                Sem egestas elit pretium turpis eu quis tristique phasellus pellentesque elementum pharetra iaculis metus pretium.
+                                I was amazed at how smooth the process was. From browsing listings to closing the deal, every step was handled with care and professionalism.
                             </p>
-                            <h4 className='text-lg sm:text-xl font-medium'>Andy Smith</h4>
-                            <h4 className='text-base sm:text-lg'>Chicago, IL</h4>
+                            <h4 className='text-lg sm:text-xl font-medium'>Emily Johnson</h4>
+                            <h4 className='text-base sm:text-lg'>San Francisco, CA</h4>
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='flex flex-col lg:flex-row items-center justify-center gap-6 lg:p-20 sm:gap-8 lg:gap-12 lg:h-full'>
-                        <img className='w-20 h-14 rounded-full' src={person1} alt="Person 1" />
+                        <img className='lg:w-40 lg:h-40 md:h-28 md:w-28 h-20 w-20 rounded-full' src={person2} alt="Person 1" />
                         <div className='flex flex-col gap-3 text-center lg:text-left'>
                             <h3 className='text-lg sm:text-xl lg:text-2xl font-medium'>
-                                “Navigating properties made easy, unbeatable USA options.”
+                                “The best real estate experience I’ve ever had. Highly recommend their services!”
                             </h3>
                             <p className='font-normal text-sm sm:text-base'>
-                                Sem egestas elit pretium turpis eu quis tristique phasellus pellentesque elementum pharetra iaculis metus pretium.
+                                The level of expertise and dedication from the team was beyond my expectations. They were always available to answer my questions and guide me through the process.
                             </p>
-                            <h4 className='text-lg sm:text-xl font-medium'>Andy Smith</h4>
-                            <h4 className='text-base sm:text-lg'>Chicago, IL</h4>
+                            <h4 className='text-lg sm:text-xl font-medium'>John Doe</h4>
+                            <h4 className='text-base sm:text-lg'>New York, NY</h4>
                         </div>
                     </div>
                 </SwiperSlide>

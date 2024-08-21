@@ -68,7 +68,7 @@ const PostLayout = ({ blog }) => {
                         content.map((article, index) => (
                             <div key={index}>
                                 <h2 className='text-5xl  my-4 font-medium' >{article.subtitle}</h2>
-                                <p><span className='text-green-700'>{article.paragraph}</span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque aliquid id error laudantium tempore explicabo veniam inventore, quo recusandae! Voluptatem iste quas voluptate unde similique? Expedita consectetur, ipsum, magnam velit fugit asperiores alias illo totam veritatis laborum quidem rem quos soluta quaerat ipsam dignissimos in beatae laboriosam reprehenderit! Excepturi illo eos veniam vitae est tempore incidunt alias maxime ad totam magni quasi enim soluta autem vel impedit atque, quam neque nesciunt aliquid quae doloremque libero. Commodi veniam quia suscipit quis illo. Velit quis enim nulla qui labore iure fugiat reiciendis vitae, repellat illo magni laboriosam voluptate minus, at cupiditate esse.</p>
+                                <p><span className=''>{article.paragraph}</span> </p>
                                 {article.blog_image && <img className='my-4 w-full rounded-md' src={article.blog_image} alt={article.subtitle} />}
                                 {article.ads && <p className='my-4 w-full rounded-md bg-black text-white py-8 px-3'>{article.ads}</p>}
                             </div>
@@ -78,14 +78,15 @@ const PostLayout = ({ blog }) => {
 
                 </div>
 
-                <div className='bg-[#14161C] container mx-auto   p-28 rounded-2xl text-white relative my-20 flex flex-row-reverse'>
+                <div className='bg-[#14161C] container mx-auto p-28 rounded-2xl text-white relative my-20 flex flex-row-reverse'>
 
                     <div className='max-w-[447px] flex flex-col gap-7'>
                         <div className='flex items-center px-4 text-white gap-2 py-[10px] bg-[#202127] w-fit rounded-full'>
-                            <FaStar className='p-1 text-3xl rounded-full bg-[#464851]'></FaStar> <p>Newsletter</p>
+                            <FaStar className='p-1 text-3xl rounded-full bg-[#464851]'></FaStar>
+                            <p>Newsletter</p>
                         </div>
-                        <h5 className='text-5xl '>Subscribe to our weekly newsletter</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur. Volutpat et lacinia sit aenean consequat. Id tellus eget libero eget non odio tristique.</p>
+                        <h5 className='text-5xl'>Subscribe to Our Weekly Newsletter</h5>
+                        <p>Stay updated with the latest trends, tips, and insights in real estate by subscribing to our newsletter. Receive expert advice, market analysis, and exclusive offers directly in your inbox. Don't miss out on valuable information that could help you make informed decisions about buying, selling, or investing in real estate.</p>
                         <div className='relative w-full max-w-md flex items-center'>
                             <input
                                 type="email"
@@ -101,9 +102,10 @@ const PostLayout = ({ blog }) => {
                         </div>
                     </div>
                     <div className='absolute -top-10 left-0'>
-                        <img src={mac} alt="" />
+                        <img src={mac} alt="Mac illustration" />
                     </div>
                 </div>
+
 
             </div>
 

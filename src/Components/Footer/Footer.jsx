@@ -15,26 +15,28 @@ const Footer = () => {
                     {/* Newsletter and Social Media */}
                     <div className='flex flex-col gap-6 md:w-1/3'>
                         <h5 className='text-2xl md:text-4xl font-normal'>Discover exclusive real estate opportunities</h5>
-                        <p className='text-base md:text-lg'>Lorem ipsum dolor sit amet consectetur. Egestas eu amet dictum tellus. Purus morbi lorem viverra cras.</p>
+                        <p className='text-base md:text-lg'>
+                            Stay updated with the latest real estate trends, exclusive listings, and valuable tips. Subscribe to our newsletter for all the latest updates delivered straight to your inbox.
+                        </p>
 
                         <div className='flex flex-col md:flex-row items-center gap-4 md:gap-6'>
-            <div className='relative w-full max-w-md flex items-center'>
-                <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className='bg-gray-800 border-none  text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow   '
-                />
-                <button className='bg-white text-[#14161C] absolute -top-1 -right-6  text-base font-medium rounded-full px-4 py-[12px] flex items-center gap-2 hover:bg-gray-600'>
-                    Subscribe
-                    <HiOutlineArrowSmRight className='text-xl' />
-                </button>
-            </div>
-        </div>
+                            <div className='relative w-full max-w-md flex items-center'>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email address"
+                                    className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow'
+                                />
+                                <button className='bg-white text-[#14161C] absolute -top-1 -right-6 text-base font-medium rounded-full px-4 py-[12px] flex items-center gap-2 hover:bg-gray-600'>
+                                    Subscribe
+                                    <HiOutlineArrowSmRight className='text-xl' />
+                                </button>
+                            </div>
+                        </div>
                         <div className='flex gap-4 text-xl'>
-                            <FaFacebookF />
-                            <BsTwitterX />
-                            <FaInstagram />
-                            <FaLinkedinIn />
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><BsTwitterX /></a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
                         </div>
                     </div>
 
@@ -44,34 +46,33 @@ const Footer = () => {
                             <h4 className='text-xl font-medium mb-4'>Main Page</h4>
                             <ul className='space-y-2 text-sm'>
                                 <li><Link to='/'>Home</Link></li>
-                                <li><Link>About</Link></li>
-                                <li><Link>Properties</Link></li>
-                                <li><Link>Location CMS</Link></li>
-                                <li><Link>Property CSM</Link></li>
-                                <li><Link>Type CMS Sales</Link></li>
-                                <li><Link>Property single</Link></li>
+                                <li><Link to='/about'>About</Link></li>
+                                <li><Link to='/properties'>Properties</Link></li>
+                                <li><Link to='/locations'>Location CMS</Link></li>
+                                <li><Link to='/property-csm'>Property CSM</Link></li>
+                                <li><Link to='/type-cms-sales'>Type CMS Sales</Link></li>
+                                <li><Link to='/property-single'>Property Single</Link></li>
                             </ul>
                         </div>
                         <div className='flex flex-col gap-4'>
                             <h4 className='text-xl font-medium mb-4'>Agents</h4>
                             <ul className='space-y-2 text-sm'>
-                                <li><Link>Agents</Link></li>
-                                <li><Link>Agents single</Link></li>
-                                <li><Link>Blog</Link></li>
-                                <li><Link>Blog post</Link></li>
-                                <li><Link>Post a free property</Link></li>
-                                <li><Link>Post a paid property</Link></li>
-                                <li><Link>Contact</Link></li>
+                                <li><Link to='/agents'>Agents</Link></li>
+                                <li><Link to='/agent-single'>Agent Single</Link></li>
+                                <li><Link to='/blog'>Blog</Link></li>
+                                <li><Link to='/blog-post'>Blog Post</Link></li>
+                                <li><Link to='/post-free-property'>Post a Free Property</Link></li>
+                                <li><Link to='/post-paid-property'>Post a Paid Property</Link></li>
+                                <li><Link to='/contact'>Contact</Link></li>
                             </ul>
                         </div>
                         <div className='flex flex-col gap-4'>
                             <h4 className='text-xl font-medium mb-4'>Resources</h4>
                             <ul className='space-y-2 text-sm'>
-                                <li><Link>FAQs</Link></li>
-                                <li><Link>Property Management</Link></li>
-                                <li><Link>Owner Resource Page</Link></li>
-                                <li><Link>Resident Resource Page</Link></li>
-                                <li><Link>Resident Resource Page</Link></li>
+                                <li><Link to='/faqs'>FAQs</Link></li>
+                                <li><Link to='/property-management'>Property Management</Link></li>
+                                <li><Link to='/owner-resource-page'>Owner Resource Page</Link></li>
+                                <li><Link to='/resident-resource-page'>Resident Resource Page</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -96,7 +97,7 @@ const Footer = () => {
                             <div className='flex items-center space-x-3'>
                                 <PiBagSimpleFill className='text-3xl' />
                                 <div>
-                                    <p className='text-base font-normal text-[#A4A6B0]'>Sales executives</p>
+                                    <p className='text-base font-normal text-[#A4A6B0]'>Sales Executives</p>
                                     <p className='text-base font-normal'>sales@home.com</p>
                                 </div>
                             </div>
@@ -104,13 +105,13 @@ const Footer = () => {
                                 <FaPhoneAlt className='text-3xl' />
                                 <div>
                                     <p className='text-base font-normal text-[#A4A6B0]'>Phone number</p>
-                                    <p className='text-base font-normal'>(123) 456 - 7890</p>
+                                    <p className='text-base font-normal'>(123) 456-7890</p>
                                 </div>
                             </div>
                             <div className='flex items-center space-x-3'>
                                 <PiChatCircleTextFill className='text-3xl' />
                                 <div>
-                                    <p className='text-base font-normal text-[#A4A6B0]'>Help & support</p>
+                                    <p className='text-base font-normal text-[#A4A6B0]'>Help & Support</p>
                                     <p className='text-base font-normal'>support@home.com</p>
                                 </div>
                             </div>
