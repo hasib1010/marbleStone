@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const BlogCard = ({ image, category, title, date, symbol: Symbol, id }) => {
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden relative">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden relative ">
             <img src={image} alt={title} className="w-full h-48 object-cover md:h-64" />
             <div className="p-4 md:p-6">
                 <span className="bg-white text-black absolute top-3 left-3 text-sm md:text-base font-medium py-1 px-2 rounded-full flex items-center">

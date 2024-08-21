@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../Navbar';
-import arrow from './../../../assets/logo/Element.png' 
+import arrow from './../../../assets/logo/Element.png'
 
 const Header = () => {
     return (
-        <div className="mx-auto mb-20 
+        <div className="mx-auto mb-20  bg-[#FAFAFB]
     h-[400px] sm:h-[500px] md:h-[700px] lg:h-[900px] xl:h-[1086px]
     bg-[url('./assets/images/banner.png')] 
     bg-no-repeat bg-center bg-cover 

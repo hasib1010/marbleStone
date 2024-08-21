@@ -15,30 +15,30 @@ const Navbar = () => {
                 </Link>
                 <div className="hidden lg:flex items-center space-x-12">
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Property Management</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Property Management</li>
                     </Link>
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Owners</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Owners</li>
                     </Link>
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Residents</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Residents</li>
                     </Link>
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Rentals</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Rentals</li>
                     </Link>
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Apply</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Apply</li>
                     </Link>
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Resources</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Resources</li>
                     </Link>
                     <Link to={'/about'}>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">About</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">About</li>
                     </Link>
                     <Link>
-                        <li className="list-none text-white text-[16px] font-medium leading-5">Contact</li>
+                        <li className="list-none text-white lg:text-[16px] font-medium leading-5">Contact</li>
                     </Link>
-                    <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                    <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                         Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                     </button>
                 </div>
@@ -57,30 +57,30 @@ const Navbar = () => {
             {isOpen && (
                 <div className="lg:hidden bg-gray-800 text-white">
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Property Management</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Property Management</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Owners</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Owners</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Residents</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Residents</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Rentals</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Rentals</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Apply</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Apply</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Resources</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Resources</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">About</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">About</li>
                     </Link>
                     <Link>
-                        <li className="list-none px-4 py-2 text-[16px] font-medium leading-5">Contact</li>
+                        <li className="list-none px-4 py-2 lg:text-[16px] font-medium leading-5">Contact</li>
                     </Link>
-                    <button className="flex items-center justify-center gap-2 px-4 py-2 mt-4 w-full rounded-3xl text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                    <button className="flex items-center justify-center gap-2 px-4 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                         Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                     </button>
                 </div>

@@ -8,7 +8,6 @@
             "blog_banner_image": "https://i.ibb.co/KGgsKwR/5.png",
             "blog_image": "https://i.ibb.co/5vTFwN4/1.jpg",
             "category": "Articles",
-            "category_icon": "https://example.com/icons/articles-icon.png",
             "subtitles": [
                 "Understand Your Budget",
                 "Get Pre-Approved for a Mortgage",
@@ -37,7 +36,6 @@
             "blog_banner_image": "https://i.ibb.co/vQgCkNz/1.jpg",
             "blog_image": "https://i.ibb.co/6P8zmy2/2.jpg",
             "category": "Resources",
-            "category_icon": "https://example.com/icons/resources-icon.png",
             "subtitles": [
                 "Preparing Your Home for Sale",
                 "Pricing Your Home Right",
@@ -66,7 +64,6 @@
             "blog_banner_image": "https://i.ibb.co/KWkvKN9/6.webp",
             "blog_image": "https://i.ibb.co/YZSWp0M/3.jpg",
             "category": "Articles",
-            "category_icon": "https://example.com/icons/articles-icon.png",
             "subtitles": [
                 "Why Invest in Real Estate?",
                 "Types of Real Estate Investments",
@@ -95,7 +92,6 @@
             "blog_banner_image": "https://i.ibb.co/SsjNthY/4.jpg",
             "blog_image": "https://i.ibb.co/02FCwLj/4.jpg",
             "category": "News",
-            "category_icon": "https://example.com/icons/news-icon.png",
             "subtitles": [
                 "Why a Good Agent Matters",
                 "Questions to Ask Potential Agents",
@@ -124,7 +120,6 @@
             "blog_banner_image": "https://i.ibb.co/cgQt3gc/3.webp",
             "blog_image": "https://i.ibb.co/dWmTR4C/5.jpg",
             "category": "News",
-            "category_icon": "https://example.com/icons/news-icon.png",
             "subtitles": [
                 "Current Market Overview",
                 "Predictions for the Rest of the Year",
@@ -153,7 +148,6 @@
             "blog_banner_image": "https://i.ibb.co/cQtpWd0/2.jpg",
             "blog_image": "https://i.ibb.co/df94TnS/6.jpg",
             "category": "Resources",
-            "category_icon": "https://example.com/icons/resources-icon.png",
             "subtitles": [
                 "Why Staging Matters",
                 "Tips for Effective Staging",

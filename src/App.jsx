@@ -11,7 +11,7 @@ import Footer from './Components/Footer/Footer';
 
 const App = () => {
   return (
-    <div className='bg-[#FAFAFB]'>
+    <div className='container mx-auto bg-[#FAFAFB]'>
       <Header></Header>
       <div className='max-w-[1400px] mx-auto'>
         <AboutSm></AboutSm>
