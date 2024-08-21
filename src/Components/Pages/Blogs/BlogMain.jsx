@@ -16,7 +16,7 @@ const BlogMain = () => {
     return (
         <div className=' h-fit bg-[#FAFAFB]'>
             <Navbar2 />  {/* Navbar Component */}
-            <div className='max w-[1400px] mx-auto'>
+            <div className='max container mx-auto'>
                 <h2 className='text-7xl font-medium my-4'>News & articles</h2>
                 <div className='flex justify-between my-7'>
                     <p className='max-w-[562.047px]'>
@@ -33,10 +33,10 @@ const BlogMain = () => {
                         </div>
                     </div>
                 </div>
-                {/* Blog slide show */}
+                 
                 <BlogSlide blogData={blogData} />  {/* Passing the prop */}
             </div>
-            <div className='bg-[#14161C] mx-6 p-28 rounded-2xl text-white relative my-20'>
+            <div className='bg-[#14161C] container mx-auto  p-28 rounded-2xl text-white relative my-20'>
 
                 <div className='max-w-[447px] flex flex-col gap-7'>
                     <div className='flex items-center px-4 text-white gap-2 py-[10px] bg-[#202127] w-fit rounded-full'>

@@ -18,7 +18,7 @@ const BlogSlide = ({ blogData }) => {
 
 
     return (
-        <div className='max-w-[1400px] relative max-h-[490px] shadow-md rounded-lg  sm:h-fit lg:min-h-[430px] mx-auto  lg:mb-11 bg-white'>
+        <div className='container mx-auto relative max-h-[490px] shadow-md rounded-lg  sm:h-fit lg:min-h-[430px]   lg:mb-11 bg-white'>
             <GrFormPrevious
                 className='absolute top-1/2 -left-5 text-4xl bg-white rounded-full z-30 shadow-sm   cursor-pointer'
                 onClick={() => swiperRef.current.swiper.slidePrev()}
