@@ -5,7 +5,7 @@ import arrow from './../../../assets/logo/Element.png';
 const Header = () => {
     return (
         <div className="relative mx-auto lg:mb-20 bg-[#FAFAFB]
-            h-[400px] sm:h-[500px] md:h-[700px] lg:h-[900px] xl:h-[1086px]
+            h-[500px] sm:h-[900px] md:h-[600px] lg:h-[900px] xl:h-[1086px]
             bg-[url('./assets/images/banner.png')] 
             bg-no-repeat bg-center bg-cover 
             rounded-[5px] md:rounded-[8px] lg:rounded-[10px] 
@@ -17,7 +17,7 @@ const Header = () => {
             </div>
             
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00000080] to-[#000000D9] z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1f1f1f80] to-[#282626d9] z-10" />
             
             {/* Content */}
             <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 z-20">

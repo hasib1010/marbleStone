@@ -55,7 +55,7 @@ const Navbar = () => {
 
                 {/* Mobile and Tablet Menu */}
                 {isOpen && (
-                    <div className="absolute top-0 left-0 w-full h-fit bg-gray-800 text-white p-5 rounded-b-lg">
+                    <div className="absolute top-0 left-0 w-full h-fit bg-gray-800 text-white p-5 rounded-b-lg pb-16">
                         <button
                             onClick={() => setIsOpen(false)}
                             className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white"
