@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Olivia Bennett",
+        "username": "oliviabennett_realtor",
+        "email": "olivia.bennett@example.com",
+        "phone": "+1-555-234-5678",
+        "location": "Miami, FL",
+        "position": "Senior Real Estate Agent",
+        "about_me": "I have over 10 years of experience in the real estate market, specializing in luxury properties and investment opportunities. My clients value my dedication and attention to detail.",
+        "experience": [
+            {
+                "company": "Prime Estates Realty",
+                "role": "Senior Real Estate Agent",
+                "years": "2017-Present",
+                "details": "Lead agent for high-profile clients, focusing on luxury residential properties in Miami and surrounding areas."
+            },
+            {
+                "company": "Sunset Realty Group",
+                "role": "Real Estate Agent",
+                "years": "2012-2017",
+                "details": "Specialized in residential properties, helping families find their dream homes in Miami."
+            }
+        ],
+        "profile_picture": "https://i.ibb.co/GJVC4PQ/brixagency-1-4.png"
+    },
+    {
+        "name": "Ethan Clark",
+        "username": "ethanclark_realty",
+        "email": "ethan.clark@example.com",
+        "phone": "+1-555-345-6789",
+        "location": "Los Angeles, CA",
+        "position": "Real Estate Consultant",
+        "about_me": "With a passion for architecture and design, I bring a unique perspective to the real estate industry. I excel at matching clients with properties that fit their lifestyle and aspirations.",
+        "experience": [
+            {
+                "company": "West Coast Realty",
+                "role": "Real Estate Consultant",
+                "years": "2018-Present",
+                "details": "Provided expert advice to clients looking to buy or sell high-end properties in the LA area."
+            },
+            {
+                "company": "Pacific Properties",
+                "role": "Real Estate Agent",
+                "years": "2014-2018",
+                "details": "Focused on residential and commercial properties, building a strong network of satisfied clients."
+            }
+        ],
+        "profile_picture": "https://i.ibb.co/3Wz68JJ/brixagency-1-3.png"
+    },
+    {
+        "name": "Sophia Martinez",
+        "username": "sophia_martinez_re",
+        "email": "sophia.martinez@example.com",
+        "phone": "+1-555-456-7890",
+        "location": "Austin, TX",
+        "position": "Real Estate Agent",
+        "about_me": "Driven by a love for helping people find their perfect home, I have a keen eye for detail and a deep understanding of the local market.",
+        "experience": [
+            {
+                "company": "Lone Star Realty",
+                "role": "Real Estate Agent",
+                "years": "2016-Present",
+                "details": "Assisting clients in buying and selling residential properties, specializing in the vibrant Austin market."
+            },
+            {
+                "company": "Texas Realty Services",
+                "role": "Junior Real Estate Agent",
+                "years": "2013-2016",
+                "details": "Worked alongside senior agents to gain hands-on experience in the real estate industry."
+            }
+        ],
+        "profile_picture": "https://i.ibb.co/V3dcbSG/brixagency-1-1.png"
+    },
+    {
+        "name": "James Taylor",
+        "username": "jamestaylor_homes",
+        "email": "james.taylor@example.com",
+        "phone": "+1-555-567-8901",
+        "location": "New York, NY",
+        "position": "Luxury Real Estate Agent",
+        "about_me": "Specializing in luxury properties in the heart of New York City, I pride myself on delivering exceptional service to high-net-worth clients.",
+        "experience": [
+            {
+                "company": "Manhattan Elite Realty",
+                "role": "Luxury Real Estate Agent",
+                "years": "2015-Present",
+                "details": "Focused on high-end residential and commercial properties, catering to an exclusive clientele."
+            },
+            {
+                "company": "Big Apple Realty",
+                "role": "Real Estate Agent",
+                "years": "2010-2015",
+                "details": "Gained extensive experience in the competitive NYC real estate market, working with diverse clients."
+            }
+        ],
+        "profile_picture": "https://i.ibb.co/n7j5Ybw/brixagency-1-6.png"
+    },
+    {
+        "name": "Emily Johnson",
+        "username": "emilyjohnson_realtor",
+        "email": "emily.johnson@example.com",
+        "phone": "+1-555-678-9012",
+        "location": "Chicago, IL",
+        "position": "Real Estate Broker",
+        "about_me": "As a seasoned real estate broker, I offer expert guidance and negotiation skills to help my clients achieve their real estate goals.",
+        "experience": [
+            {
+                "company": "Windy City Realty",
+                "role": "Real Estate Broker",
+                "years": "2016-Present",
+                "details": "Managed a team of agents, overseeing all aspects of property transactions from listing to closing."
+            },
+            {
+                "company": "Chicago Realty Experts",
+                "role": "Real Estate Agent",
+                "years": "2012-2016",
+                "details": "Worked with buyers and sellers in the Chicago area, building a reputation for excellent client service."
+            }
+        ],
+        "profile_picture": "https://i.ibb.co/sjySTk9/brixagency-1-5.png"
+    },
+    {
+        "name": "Daniel Walker",
+        "username": "danielwalker_re",
+        "email": "daniel.walker@example.com",
+        "phone": "+1-555-789-0123",
+        "location": "San Francisco, CA",
+        "position": "Commercial Real Estate Specialist",
+        "about_me": "With a strong background in finance and commercial real estate, I help businesses find the perfect spaces to grow and thrive.",
+        "experience": [
+            {
+                "company": "Bay Area Realty",
+                "role": "Commercial Real Estate Specialist",
+                "years": "2017-Present",
+                "details": "Specialized in leasing and selling commercial properties, including office spaces and retail locations."
+            },
+            {
+                "company": "Golden Gate Properties",
+                "role": "Real Estate Agent",
+                "years": "2013-2017",
+                "details": "Assisted clients in the purchase and sale of residential properties, gaining extensive market knowledge."
+            }
+        ],
+        "profile_picture": "https://i.ibb.co/sjySTk9/brixagency-1-5.png"
+    }
+]

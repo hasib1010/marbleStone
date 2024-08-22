@@ -2,24 +2,30 @@ import React from 'react';
 import { IoPersonSharp } from "react-icons/io5";
 import image5 from '../../../../assets/images/aboutimg/img3.png';
 import { FaArrowRight } from "react-icons/fa";
+
 const OurMission = () => {
     return (
-        <div className='flex justify-between my-40'>
+        <div className='flex lg:flex-row md:flex-col-reverse flex-col-reverse justify-between lg:my-40'>
             <div className='flex-1'>
-                <img className='rounded-2xl   ml-8' src={image5} alt="" />
+                <img className='rounded-2xl lg:ml-8 lg:mx-0 mx-auto w-fit' src={image5} alt="Mission Image" />
             </div>
-            <div className='flex-1 flex flex-col justify-between gap-[200px'>
+            <div className='flex-1 flex flex-col items-center lg:items-start justify-between lg:gap-[200px] gap-5'>
                 <div>
-                    <h1 className='flex items-center bg-[#EEEFF1] w-fit rounded-full px-4 py-2 gap-2 text-[14px] font-medium'><IoPersonSharp className='text-[#FFFFFFF5] bg-[#A4A6B0] text-3xl rounded-full p-[6px]'></IoPersonSharp> Our Mission</h1>
-                    <h1 className='max-w-[507px] text-5xl font-medium mt-6'>We have only one goal: To help you find your dream home</h1>
+                    <h1 className='flex mx-auto lg:mx-0 items-center bg-[#EEEFF1] w-fit rounded-full px-4 py-2 gap-2 text-[14px] font-medium'>
+                        <IoPersonSharp className='text-[#FFFFFFF5] bg-[#A4A6B0] text-3xl rounded-full p-[6px]'></IoPersonSharp> Our Mission
+                    </h1>
+                    <h1 className='max-w-[507px] lg:text-5xl text-center lg:text-left text-3xl font-medium mt-6'>
+                        We have only one goal: To help you find your dream home
+                    </h1>
                 </div>
                 <div className='flex flex-col justify-between gap-[24px]'>
-                    <p className='max-w-[480.098px]'>Lorem ipsum dolor sit amet consectetur. Gravida elementum dolor semper felis pulvinar feugiat risus adipiscing dictum. Ultricies nec elementum nisi ut. Cras diam odio sed auctor pellentesque. Sit nisl ipsum id convallis tristique. Malesuada.</p>
+                    <p className='max-w-[480.098px]'>
+                        At Marblestone Property Group, our mission is to make your dream home a reality. We are dedicated to providing personalized real estate solutions that meet your unique needs. Whether you're buying, selling, or investing, we strive to offer unparalleled service and expertise every step of the way. Your perfect home is our priority.
+                    </p>
                     <button
-
-                        className="px-4 py-2 w-fit text-base font-medium rounded-full flex items-center  gap-3  bg-[#990A05] text-white "
+                        className="px-4 py-2 w-fit mx-auto lg:mx-0 mb-4 text-base font-medium rounded-full flex items-center gap-3 bg-[#990A05] text-white"
                     >
-                       Start exploring  <FaArrowRight className='bg-white text-black rounded-full p-[3px] text-xl'></FaArrowRight>
+                        Start exploring <FaArrowRight className='bg-white text-black rounded-full p-[3px] text-xl'></FaArrowRight>
                     </button>
                 </div>
             </div>

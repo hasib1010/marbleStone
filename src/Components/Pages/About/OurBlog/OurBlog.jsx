@@ -34,16 +34,16 @@ const BlogCard = ({ image, category, title, date, symbol: Symbol, id }) => {
 
 const OurBlog = () => {
     return (
-        <div className="text-gray-800 mt-0 md:mt-16">
-            <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row items-center justify-between mb-6">
+        <div className="text-gray-800  md:mt-16 mt-10">
+            <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-0">
+                <div className="flex flex-col md:flex-row w-fit mx-auto lg:mx-0 items-center justify-between mb-6">
                     <span className="bg-[#EEEFF1] py-2 px-3 rounded-full flex items-center justify-center gap-2 text-lg md:text-xl font-medium">
                         <FaPencilAlt className="text-white bg-slate-300 rounded-full text-2xl p-1" />
                         Our blog
                     </span>
                 </div>
-                <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-                    <h1 className="text-5xl  font-medium mb-4 md:mb-0">Success Stories</h1>
+                <div className="flex flex-col lg:flex-row  items-center justify-between mb-8">
+                    <h1 className="lg:text-5xl text-2xl  font-medium mb-4 md:mb-0">Success Stories</h1>
                     <Link className="text-gray-600 hover:text-gray-800 text-sm font-semibold" to={'/blogs'}>Browse all articles &rarr;</Link>
 
                 </div>

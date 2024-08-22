@@ -7,6 +7,8 @@ import image2 from "../../../assets/images/aboutimg/img2.png"
 import OurValue from './OurValue/OurValue';
 import OurMission from './OurMission/OurMission';
 import OurBlog from './OurBlog/OurBlog';
+import Faq1 from './FAQ/Faq1';
+import OurTeam from './OurTeam/Ourteam';
 
 const About = () => {
 
@@ -83,6 +85,8 @@ const About = () => {
                 <OurValue />
                 <OurMission />
                 <OurBlog />
+                <Faq1></Faq1>
+                <OurTeam></OurTeam>
             </div>
         </div>
     );
