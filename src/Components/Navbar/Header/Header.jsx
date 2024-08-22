@@ -20,7 +20,7 @@ const Header = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1f1f1f80] to-[#282626d9] z-10" />
             
             {/* Content */}
-            <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 z-20">
+            <div className="relative container mx-auto px-4 md:px-8 z-20">
                 <div className="flex flex-col lg:flex-row justify-between mt-[24px] md:mt-[44px]">
                     <h3 className="text-[36px] md:text-[48px] lg:text-[72px] font-medium text-white leading-tight lg:leading-[82.8px]">
                         Discover Your Dream Home <br className="hidden lg:block" /> in Chicago's Southside

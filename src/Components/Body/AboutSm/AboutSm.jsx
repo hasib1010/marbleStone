@@ -10,7 +10,7 @@ import Marquee from "react-fast-marquee";
 
 const AboutSm = () => {
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:mt-32 md:mt-7 mt-5">
+    <div className="container mx-auto px-4 md:px-8 lg:mt-32 md:mt-7 mt-5">
       <p className="text-center text-[#A4A6B0] text-sm md:text-base">As seen on:</p>
 
       <Marquee speed={50} gradient={false}>

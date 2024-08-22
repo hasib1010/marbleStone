@@ -34,15 +34,15 @@ const FaqSection = () => {
                                 ].map((item, index) => (
                                     <div key={index} className={`accordion lg:p-12 md:p-4 p-3 shadow-sm  rounded-lg bg-white ${openIndex === index ? 'active' : ''}`}>
                                         <button
-                                            className="accordion-toggle group inline-flex text-left items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-gray-400"
+                                            className="accordion-toggle group inline-flex text-left items-center gap-2 justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-gray-400"
                                             onClick={() => handleToggle(index)}
                                             aria-controls={`collapse-${index}`}
                                         >
                                             <h5 className='lg:text-xl md:text-xl text-base font-medium'>{index + 1}. {item.title}</h5>
                                             {openIndex === index ? (
-                                                <FaMinus className="text-gray-900 transition duration-500 group-hover:text-gray-400" />
+                                                <FaMinus className="text-gray-900 text-sm transition duration-500 " />
                                             ) : (
-                                                <FaPlus className="text-gray-900 transition duration-500 group-hover:text-gray-400" />
+                                                <FaPlus className="text-gray-900 text-sm transition duration-500 " />
                                             )}
                                         </button>
                                         <div

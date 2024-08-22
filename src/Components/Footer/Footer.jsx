@@ -9,24 +9,24 @@ import { PiBagSimpleFill, PiChatCircleTextFill } from "react-icons/pi";
 
 const Footer = () => {
     return (
-        <footer className='bg-[#14161C] text-white mx-6 p-8 rounded-2xl'>
+        <footer className='bg-[#14161C] text-white lg:mx-6 lg:p-8 md:p-2 p-1 rounded-2xl'>
             <div className='container mx-auto px-4'>
-                <div className='flex flex-col md:flex-row justify-between gap-12'>
+                <div className='lg:flex md:grid md:grid-cols-2 flex-col md:flex-row justify-between '>
                     {/* Newsletter and Social Media */}
-                    <div className='flex flex-col gap-6 md:w-1/3'>
-                        <h5 className='text-2xl md:text-4xl font-normal'>Discover exclusive real estate opportunities</h5>
-                        <p className='text-base md:text-lg'>
+                    <div className='flex flex-col lg:gap-6 md:gap-3 gap-2  lg:w-full flex-1'>
+                        <h5 className='text-xl lg:text-4xl md:text-xl font-normal lg:w-[410px]'>Discover exclusive real estate opportunities</h5>
+                        <p className='text-base md:text-base lg:text-lg lg:w-[410px]'>
                             Stay updated with the latest real estate trends, exclusive listings, and valuable tips. Subscribe to our newsletter for all the latest updates delivered straight to your inbox.
                         </p>
 
-                        <div className='flex flex-col md:flex-row items-center gap-4 md:gap-6'>
-                            <div className='flex items-center w-full max-w-full overflow-hidden'>
+                        <div className='flex flex-col md:flex-row lg:items-center gap-4 md:gap-6'>
+                            <div className='flex items-center lg:w-[410px]  overflow-hidden'>
                                 <input
                                     type="email"
                                     placeholder="Enter your email address"
                                     className='bg-gray-800 border-none text-white px-4 py-2 rounded-l-full placeholder-white placeholder:text-sm md:placeholder:text-base flex-grow'
                                 />
-                                <button className='bg-white text-[#14161C] text-base font-medium rounded-r-full px-4 py-2 flex items-center gap-2 hover:bg-gray-600'>
+                                <button className='bg-white text-[#14161C] text-base font-medium rounded-r-full px-2 gap-1 py-2 flex items-center  hover:bg-gray-600'>
                                     Subscribe
                                     <HiOutlineArrowSmRight className='text-xl' />
                                 </button>
@@ -34,7 +34,7 @@ const Footer = () => {
                         </div>
 
 
-                        <div className='flex gap-4 text-xl'>
+                        <div className='flex gap-4 text-xl mb-3'>
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><BsTwitterX /></a>
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
@@ -43,10 +43,10 @@ const Footer = () => {
                     </div>
 
                     {/* Footer Links */}
-                    <div className='flex flex-col md:w-2/3 md:flex-row justify-between gap-12'>
+                    <div className='flex flex-col  md:flex-row justify-between   flex-1'>
                         <div className='flex flex-col gap-4'>
-                            <h4 className='text-xl font-medium mb-4'>Main Page</h4>
-                            <ul className='space-y-2 text-sm'>
+                            <h4 className='lg:text-xl md:text-lg  font-medium mb-2'>Main Page</h4>
+                            <ul className='flex flex-col gap-3 text-sm'>
                                 <li><Link to='/'>Home</Link></li>
                                 <li><Link to='/about'>About</Link></li>
                                 <li><Link to='/properties'>Properties</Link></li>
@@ -57,8 +57,8 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <h4 className='text-xl font-medium mb-4'>Agents</h4>
-                            <ul className='space-y-2 text-sm'>
+                            <h4 className='lg:text-xl md:text-lg  font-medium mb-4'>Agents</h4>
+                            <ul className='flex flex-col gap-3 text-sm'>
                                 <li><Link to='/agents'>Agents</Link></li>
                                 <li><Link to='/agent-single'>Agent Single</Link></li>
                                 <li><Link to='/blog'>Blog</Link></li>
@@ -69,8 +69,8 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <h4 className='text-xl font-medium mb-4'>Resources</h4>
-                            <ul className='space-y-2 text-sm'>
+                            <h4 className='lg:text-xl md:text-lg  font-medium mb-4'>Resources</h4>
+                            <ul className='flex flex-col gap-3 text-sm'>
                                 <li><Link to='/faqs'>FAQs</Link></li>
                                 <li><Link to='/property-management'>Property Management</Link></li>
                                 <li><Link to='/owner-resource-page'>Owner Resource Page</Link></li>
@@ -81,8 +81,8 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Section */}
-                <div className='flex flex-col md:flex-row items-center justify-between mt-12'>
-                    <div className='flex items-center gap-4'>
+                <div className='flex lg:flex-row md:flex-row flex-col mt-4 justify-between items-center '>
+                    <div className='flex flex-col items-center gap-4'>
                         <img className='h-12 md:h-14' src={logo} alt="Logo" />
                         <p className='text-base md:text-xl mt-2'>Powered by DataSolve</p>
                     </div>

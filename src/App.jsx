@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className=' mx-auto bg-[#FAFAFB]'>
       <Header></Header>
-      <div className='max-w-[1400px] mx-auto'>
+      <div className='container mx-auto'>
         <AboutSm></AboutSm>
         <AboutUs></AboutUs>
         <WhyUs></WhyUs>
