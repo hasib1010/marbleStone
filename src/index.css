@@ -32,3 +32,7 @@
 .carousel-indicators{
     display: none;
 }
+.active_tabX{
+    background: #14161C;
+    color: white;
+}
