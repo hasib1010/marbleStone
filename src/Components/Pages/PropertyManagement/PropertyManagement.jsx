@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Overview from './Tabs/Overview';
+import Marketing from './Tabs/Marketing';
 
 const PropertyManagement = () => {
     const [toggleTab, setToggleTab] = useState(1);
@@ -37,12 +38,12 @@ const PropertyManagement = () => {
                     ))}
                 </div>
                 {/* content */}
-                <div className='px-4'>
+                <div className='px-4 max-w-[1200px] mx-auto'>
                     <div className={`${toggleTab === 1 ? "block" : "hidden"}`}>
                         <Overview />
                     </div>
                     <div className={`${toggleTab === 2 ? "block" : "hidden"}`}>
-                        2
+                       <Marketing></Marketing>
                     </div>
                     <div className={`${toggleTab === 3 ? "block" : "hidden"}`}>
                         3

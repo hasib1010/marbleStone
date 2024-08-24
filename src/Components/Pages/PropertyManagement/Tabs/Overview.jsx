@@ -1,9 +1,7 @@
 import React from 'react';
 import banner1 from '../../../../assets/images/tabimage/banner1.png';
 import { IoIosCheckmarkCircle } from "react-icons/io";
-import { FaPersonShelter, FaStar } from "react-icons/fa6";
-import { FaLightbulb } from "react-icons/fa";
-import { GiNetworkBars } from "react-icons/gi";
+import { FaPersonShelter, FaStar } from "react-icons/fa6"; 
 import { RiHomeGearFill, RiTeamFill } from "react-icons/ri";
 import { GrAnnounce } from 'react-icons/gr';
 import { MdBedroomParent } from 'react-icons/md';
