@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Overview from './Tabs/Overview';
 import Marketing from './Tabs/Marketing';
+import TenantScreening from './Tabs/TenantScreening';
 
 const PropertyManagement = () => {
     const [toggleTab, setToggleTab] = useState(1);
@@ -46,7 +47,7 @@ const PropertyManagement = () => {
                        <Marketing></Marketing>
                     </div>
                     <div className={`${toggleTab === 3 ? "block" : "hidden"}`}>
-                        3
+                      <TenantScreening></TenantScreening>
                     </div>
                     <div className={`${toggleTab === 4 ? "block" : "hidden"}`}>
                         4
