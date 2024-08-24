@@ -3,6 +3,7 @@ import Navbar from '../../Navbar/Navbar';
 import Overview from './Tabs/Overview';
 import Marketing from './Tabs/Marketing';
 import TenantScreening from './Tabs/TenantScreening';
+import RentCollection from './Tabs/RentCollection';
 
 const PropertyManagement = () => {
     const [toggleTab, setToggleTab] = useState(1);
@@ -44,13 +45,13 @@ const PropertyManagement = () => {
                         <Overview />
                     </div>
                     <div className={`${toggleTab === 2 ? "block" : "hidden"}`}>
-                       <Marketing></Marketing>
+                        <Marketing></Marketing>
                     </div>
                     <div className={`${toggleTab === 3 ? "block" : "hidden"}`}>
-                      <TenantScreening></TenantScreening>
+                        <TenantScreening></TenantScreening>
                     </div>
                     <div className={`${toggleTab === 4 ? "block" : "hidden"}`}>
-                        4
+                        <RentCollection></RentCollection>
                     </div>
                     <div className={`${toggleTab === 5 ? "block" : "hidden"}`}>
                         5
