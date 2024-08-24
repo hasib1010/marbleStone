@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import banner from '../../../../assets/images/tabimage/banner4.png';
-import { IoIosCheckmarkCircle } from 'react-icons/io';
+import banner from '../../../../assets/images/tabimage/banner4.png'; 
 import arrow from './../../../..//assets/logo/Element.png';
 import { AiOutlineMail } from 'react-icons/ai';
 import { IoCallSharp } from 'react-icons/io5';

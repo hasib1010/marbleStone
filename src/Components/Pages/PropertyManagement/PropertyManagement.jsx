@@ -5,6 +5,9 @@ import Marketing from './Tabs/Marketing';
 import TenantScreening from './Tabs/TenantScreening';
 import RentCollection from './Tabs/RentCollection';
 import Maintenance from './Tabs/Maintenance';
+import FinancialReporting from './Tabs/FinancialReporting';
+import { SlLocationPin } from 'react-icons/sl';
+import InquiryForm from './InquiryForm';
 
 const PropertyManagement = () => {
     const [toggleTab, setToggleTab] = useState(1);
@@ -58,10 +61,25 @@ const PropertyManagement = () => {
                        <Maintenance></Maintenance>
                     </div>
                     <div className={`${toggleTab === 6 ? "block" : "hidden"}`}>
-                        6
+                      <FinancialReporting></FinancialReporting>
                     </div>
                 </div>
+                <div className='text-white bg-[#14161C] my-10 lg:px-24 lg:py-20 p-5 rounded-3xl'>
+                <h4 className='lg:text-5xl text-2xl text-center lg:text-left font-medium'>Areas We Serve</h4>
+                    <ul className='flex flex-wrap items-center  justify-evenly   mt-10  '>
+                        <li className='flex items-center pr-12 gap-3'><SlLocationPin className='text-xl'></SlLocationPin> Chicago</li>
+                        <li className='flex items-center pr-12 gap-3'><SlLocationPin className='text-xl'></SlLocationPin> South Shore</li>
+                        <li className='flex items-center pr-12 gap-3'><SlLocationPin className='text-xl'></SlLocationPin> South Chicago</li>
+                        <li className='flex items-center  gap-3'><SlLocationPin className='text-xl'></SlLocationPin> Eastside</li> <br />
+                       </ul>
+                       <ul className='flex flex-wrap items-center  justify-evenly lg:py-10  '>
+                        <li className='flex items-center pr-8 gap-3'><SlLocationPin className='text-xl'></SlLocationPin> Hegewisch</li>
+                        <li className='flex items-center pr-8 gap-3'><SlLocationPin className='text-xl'></SlLocationPin> Chatham</li>
+                        <li className='flex items-center pr-8 gap-3'><SlLocationPin className='text-xl'></SlLocationPin> Woodlawn</li>
+                    </ul>
+                </div>
             </div>
+            <InquiryForm></InquiryForm>
         </div>
     );
 };
