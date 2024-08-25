@@ -7,15 +7,20 @@ import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [sideMenuDropdownOpen, setSideMenuDropdownOpen] = useState(false);
+    const [sideMenuDropdownOpen2, setSideMenuDropdownOpen2] = useState(false);
     const location = useLocation();
 
     const toggleSideMenuDropdown = () => {
         setSideMenuDropdownOpen(!sideMenuDropdownOpen);
     };
+    const toggleSideMenuDropdown2 = () => {
+        setSideMenuDropdownOpen2(!sideMenuDropdownOpen2);
+    };
 
     const isActive = (path) => {
-        return location.pathname === path ? 'text-red-500 rounded-full bg-white px-4 py-1' : ''; // Replace 'text-red-500' with your preferred active link style
+        return location.pathname.startsWith(path) ? 'text-red-500' : '';
     };
+
 
     return (
         <div className="relative">
@@ -25,9 +30,27 @@ const Navbar = () => {
                         <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                     </Link>
                     <div className="hidden lg:flex items-center space-x-12">
-                        <Link to="/property-management">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`}>Property Management</li>
-                        </Link>
+
+                        <div className="relative">
+                            <div className="flex items-center">
+                                <Link className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`} to={'/property-management'}>
+                                    <button
+                                        className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`}
+                                    >
+                                        Property Management
+                                    </button>
+                                </Link>
+                                <BsChevronDown onClick={toggleSideMenuDropdown2} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen2 ? 'rotate-180' : ''}`} />
+                            </div>
+                            {sideMenuDropdownOpen2 && (
+                                <ul className="absolute left-0 top-2 ml-10 mt-2 w-48 rounded-md py-2 z-50">
+                                    <Link to="/property-management/pricing">
+                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Pricing</li>
+                                    </Link>
+                                </ul>
+                            )}
+                        </div>
+
                         <Link to="/owners">
                             <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/owners')}`}>Owners</li>
                         </Link>
@@ -98,9 +121,27 @@ const Navbar = () => {
                     </button>
                     <div className="flex flex-col items-start justify-start mt-10 h-full space-y-4 ">
                         <Link onClick={() => setIsOpen(false)} className="list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 " to={'/'}><img src={logo} alt="" /></Link>
-                        <Link to="/property-management" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/property-management')}`}>Property Management</li>
-                        </Link>
+
+                        <div className="relative">
+                            <div className="flex items-center ml-12">
+                                <Link onClick={() => setIsOpen(false)} className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`} to={'/property-management'}>
+                                    <button
+                                        className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`}
+                                    >
+                                        Property Management
+                                    </button>
+                                </Link>
+                                <BsChevronDown onClick={toggleSideMenuDropdown2} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen2 ? 'rotate-180' : ''}`} />
+                            </div>
+                            {sideMenuDropdownOpen2 && (
+                                <ul className="block left-0 top-2 ml-20 mt-2   rounded-md py-2 z-50">
+                                    <Link onClick={() => setIsOpen(false)} to="/property-management/pricing">
+                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Pricing</li>
+                                    </Link>
+                                </ul>
+                            )}
+                        </div>
+
                         <Link to="/owners" onClick={() => setIsOpen(false)}>
                             <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/owners')}`}>Owners</li>
                         </Link>
