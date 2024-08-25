@@ -6,184 +6,200 @@ import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [sideMenuDropdownOpen, setSideMenuDropdownOpen] = useState(false);
-    const [sideMenuDropdownOpen2, setSideMenuDropdownOpen2] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null); // Track only one dropdown at a time
+
     const location = useLocation();
 
-    const toggleSideMenuDropdown = () => {
-        setSideMenuDropdownOpen(!sideMenuDropdownOpen);
-    };
-    const toggleSideMenuDropdown2 = () => {
-        setSideMenuDropdownOpen2(!sideMenuDropdownOpen2);
+    const toggleDropdown = (dropdownName) => {
+        setOpenDropdown((prev) => prev === dropdownName ? null : dropdownName);
     };
 
     const isActive = (path) => {
         return location.pathname.startsWith(path) ? 'text-red-500' : '';
     };
 
+    const isDropdownActive = (dropdownLinks) => {
+        return dropdownLinks.some(link => location.pathname.startsWith(link));
+    };
+
+    const Dropdown = ({ title, link, dropdownName, dropdownLinks, children }) => (
+        <div className="relative">
+            <div className="flex items-center cursor-pointer" onClick={() => toggleDropdown(dropdownName)}>
+                <Link className={`lg:text-[16px] font-medium leading-5 ${isDropdownActive(dropdownLinks) ? 'text-red-500' : 'text-white'}`} to={link}>
+                    {title}
+                </Link>
+                <BsChevronDown 
+                    className={`text-white ml-2 text-xl transition-transform ${openDropdown === dropdownName ? 'rotate-180' : ''}`} 
+                />
+            </div>
+            {openDropdown === dropdownName && (
+                <ul className="absolute left-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
+                    {children}
+                </ul>
+            )}
+        </div>
+    );
+
+    const DropdownItem = ({ to, children }) => (
+        <Link to={to}>
+            <li className="block px-4 py-2 text-black font-medium cursor-pointer">{children}</li>
+        </Link>
+    );
 
     return (
-        <div className="relative">
+        <div className="relative list-none">
             <div className="container mx-auto md:px-10 px-5 lg:px-0">
                 <div className="flex items-center justify-between py-7">
                     <Link to="/">
                         <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                     </Link>
                     <div className="hidden lg:flex items-center space-x-12">
+                        <Dropdown
+                            title="Property Management"
+                            link="/property-management"
+                            dropdownName="propertyManagement"
+                            dropdownLinks={[
+                                '/property-management',
+                                '/property-management/pricing',
+                            ]}
+                        >
+                            <DropdownItem to="/property-management/pricing">Pricing</DropdownItem>
+                        </Dropdown>
 
-                        <div className="relative">
-                            <div className="flex items-center">
-                                <Link className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`} to={'/property-management'}>
-                                    <button
-                                        className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`}
-                                    >
-                                        Property Management
-                                    </button>
-                                </Link>
-                                <BsChevronDown onClick={toggleSideMenuDropdown2} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen2 ? 'rotate-180' : ''}`} />
-                            </div>
-                            {sideMenuDropdownOpen2 && (
-                                <ul className="absolute left-0 top-2 ml-10 mt-2 w-48 rounded-md py-2 z-50">
-                                    <Link to="/property-management/pricing">
-                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Pricing</li>
-                                    </Link>
-                                </ul>
-                            )}
-                        </div>
+                        <Dropdown
+                            title="Owners"
+                            link="/owners"
+                            dropdownName="owners"
+                            dropdownLinks={[
+                                '/owners',
+                                '/owners/owner-resources',
+                                '/owners/portal',
+                            ]}
+                        >
+                            <DropdownItem to="/owners/owner-resources">Owner Resources</DropdownItem>
+                            <DropdownItem to="/owners/portal">Owner Portal</DropdownItem>
+                        </Dropdown>
 
-                        <Link to="/owners">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/owners')}`}>Owners</li>
-                        </Link>
-                        <Link to="/residents">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/residents')}`}>Residents</li>
+                        <Dropdown
+                            title="Residents"
+                            link="/residents"
+                            dropdownName="residents"
+                            dropdownLinks={[
+                                '/residents',
+                                '/residents/residents-resources',
+                                '/residents/residents-portal',
+                                '/residents/maintenance',
+                            ]}
+                        >
+                            <DropdownItem to="/residents/residents-resources">Resident Resources</DropdownItem>
+                            <DropdownItem to="/residents/residents-portal">Resident Portal</DropdownItem>
+                            <DropdownItem to="/residents/maintenance">Maintenance Request</DropdownItem>
+                        </Dropdown>
+
+                        <Link to="/blogs">
+                            <li className={`lg:text-[16px] font-medium leading-5 text-white ${isActive('/blogs')}`}>Blogs</li>
                         </Link>
                         <Link to="/rentals">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/rentals')}`}>Rentals</li>
+                            <li className={`lg:text-[16px] font-medium leading-5 text-white ${isActive('/rentals')}`}>Rentals</li>
                         </Link>
                         <Link to="/apply">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/apply')}`}>Apply</li>
+                            <li className={`lg:text-[16px] font-medium leading-5 text-white ${isActive('/apply')}`}>Apply</li>
                         </Link>
-
-                        {/* Resources Dropdown */}
-                        <div className="relative">
-                            <div className="flex items-center">
-                                <Link to={'/resources'}>
-                                    <button
-                                        className={`list-none text-white font-medium lg:text-[16px] leading-5 flex items-center ${isActive('/resources')}`}
-                                    >
-                                        Resources
-                                    </button>
-                                </Link>
-                                <BsChevronDown onClick={toggleSideMenuDropdown} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen ? 'rotate-180' : ''}`} />
-                            </div>
-                            {sideMenuDropdownOpen && (
-                                <ul className="absolute left-0 top-2 mt-2 w-48 rounded-md py-2 z-50">
-                                    <Link to="/resources/owner-resources">
-                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Owner Resources</li>
-                                    </Link>
-                                    <Link to="/resources/resident-resources">
-                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Resident Resources</li>
-                                    </Link>
-                                </ul>
-                            )}
-                        </div>
-
                         <Link to="/about">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/about')}`}>About</li>
+                            <li className={`lg:text-[16px] font-medium leading-5 text-white ${isActive('/about')}`}>About</li>
                         </Link>
                         <Link to="/contact">
-                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/contact')}`}>Contact</li>
+                            <li className={`lg:text-[16px] font-medium leading-5 text-white ${isActive('/contact')}`}>Contact</li>
                         </Link>
                         <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
                     </div>
 
-                    {/* Menu icon */}
+                    {/* Mobile Menu icon */}
                     <div className="lg:hidden flex items-center">
                         <button onClick={() => setIsOpen(!isOpen)}>
-                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={!isOpen ? "M4 6h16M4 12h16M4 18h16" : "M6 18L18 6M6 6l12 12"} />
                             </svg>
                         </button>
                     </div>
                 </div>
 
-                {/* Side Menu */}
-                <div className={`fixed top-0 right-0 h-full w-full bg-black text-white transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
+                {/* Mobile Side Menu */}
+                <div className={`fixed top-0 right-0 h-full w-full bg-white text-black transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="absolute top-10 md:top-8 right-5 md:right-10 w-10 h-10 flex items-center justify-center text-white"
+                        className="absolute top-10 right-5 w-10 h-10 flex items-center justify-center text-black"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
-                    <div className="flex flex-col items-start justify-start mt-10 h-full space-y-4 ">
-                        <Link onClick={() => setIsOpen(false)} className="list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 " to={'/'}><img src={logo} alt="" /></Link>
-
-                        <div className="relative">
-                            <div className="flex items-center ml-12">
-                                <Link onClick={() => setIsOpen(false)} className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`} to={'/property-management'}>
-                                    <button
-                                        className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`}
-                                    >
-                                        Property Management
-                                    </button>
-                                </Link>
-                                <BsChevronDown onClick={toggleSideMenuDropdown2} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen2 ? 'rotate-180' : ''}`} />
-                            </div>
-                            {sideMenuDropdownOpen2 && (
-                                <ul className="block left-0 top-2 ml-20 mt-2   rounded-md py-2 z-50">
-                                    <Link onClick={() => setIsOpen(false)} to="/property-management/pricing">
-                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Pricing</li>
-                                    </Link>
-                                </ul>
-                            )}
-                        </div>
-
-                        <Link to="/owners" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/owners')}`}>Owners</li>
+                    <div className="flex flex-col items-start justify-start mt-10 h-full space-y-4">
+                        <Link onClick={() => setIsOpen(false)} className="list-none ml-12 py-2 lg:text-[16px] font-medium leading-5" to={'/'}>
+                            <img src={logo} alt="Logo" />
                         </Link>
-                        <Link to="/residents" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/residents')}`}>Residents</li>
+
+                        <Dropdown
+                            title="Property Management"
+                            link="/property-management"
+                            dropdownName="propertyManagement"
+                            dropdownLinks={[
+                                '/property-management',
+                                '/property-management/pricing',
+                            ]}
+                        >
+                            <DropdownItem to="/property-management/pricing">Pricing</DropdownItem>
+                        </Dropdown>
+
+                        <Dropdown
+                            title="Owners"
+                            link="/owners"
+                            dropdownName="owners"
+                            dropdownLinks={[
+                                '/owners',
+                                '/owners/owner-resources',
+                                '/owners/portal',
+                            ]}
+                        >
+                            <DropdownItem to="/owners/owner-resources">Owner Resources</DropdownItem>
+                            <DropdownItem to="/owners/portal">Owner Portal</DropdownItem>
+                        </Dropdown>
+
+                        <Dropdown
+                            title="Residents"
+                            link="/residents"
+                            dropdownName="residents"
+                            dropdownLinks={[
+                                '/residents',
+                                '/residents/residents-resources',
+                                '/residents/residents-portal',
+                                '/residents/maintenance',
+                            ]}
+                        >
+                            <DropdownItem to="/residents/residents-resources">Resident Resources</DropdownItem>
+                            <DropdownItem to="/residents/residents-portal">Resident Portal</DropdownItem>
+                            <DropdownItem to="/residents/maintenance">Maintenance Request</DropdownItem>
+                        </Dropdown>
+
+                        <Link to="/blogs" onClick={() => setIsOpen(false)}>
+                            <li className={`ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/blogs')}`}>Blogs</li>
                         </Link>
                         <Link to="/rentals" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/rentals')}`}>Rentals</li>
+                            <li className={`ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/rentals')}`}>Rentals</li>
                         </Link>
                         <Link to="/apply" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/apply')}`}>Apply</li>
+                            <li className={`ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/apply')}`}>Apply</li>
                         </Link>
-                        <div className="relative ml-12">
-                            <div className="flex items-center">
-                                <Link to={'/resources'}>
-                                    <button
-                                        className={`list-none text-white font-medium lg:text-[16px] leading-5 flex items-center ${isActive('/resources')}`}
-                                    >
-                                        Resources
-                                    </button>
-                                </Link>
-                                <BsChevronDown onClick={toggleSideMenuDropdown} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen ? 'rotate-180' : ''}`} />
-                            </div>
-                            {sideMenuDropdownOpen && (
-                                <ul className="block rounded-md px-10 py-2 z-50">
-                                    <Link to="/resources/owner-resources">
-                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Owner Resources</li>
-                                    </Link>
-                                    <Link to="/resources/resident-resources">
-                                        <li className="block px-4 py-2 text-white font-medium cursor-pointer">Resident Resources</li>
-                                    </Link>
-                                </ul>
-                            )}
-                        </div>
                         <Link to="/about" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/about')}`}>About</li>
+                            <li className={`ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/about')}`}>About</li>
                         </Link>
                         <Link to="/contact" onClick={() => setIsOpen(false)}>
-                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/contact')}`}>Contact</li>
+                            <li className={`ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/contact')}`}>Contact</li>
                         </Link>
-                        <button className="flex pl-0 items-center justify-center gap-2 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
-                            Book a call <BsArrowRight className='text-3xl bg-white text-black rounded-full p-1' />
+                        <button className="flex items-center justify-center gap-2 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                            Book a call <BsArrowRight className="text-white bg-[#C32723] rounded-full p-2 w-8 h-8" />
                         </button>
                     </div>
                 </div>
