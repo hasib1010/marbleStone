@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "./../../assets/logo/Group.png";
 import arrow from './../../assets/logo/Element.png';
 import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
@@ -7,9 +7,14 @@ import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [sideMenuDropdownOpen, setSideMenuDropdownOpen] = useState(false);
+    const location = useLocation();
 
     const toggleSideMenuDropdown = () => {
         setSideMenuDropdownOpen(!sideMenuDropdownOpen);
+    };
+
+    const isActive = (path) => {
+        return location.pathname === path ? 'text-red-500 rounded-full bg-white px-4 py-1' : ''; // Replace 'text-red-500' with your preferred active link style
     };
 
     return (
@@ -20,52 +25,52 @@ const Navbar = () => {
                         <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                     </Link>
                     <div className="hidden lg:flex items-center space-x-12">
-                        <NavLink to="/property-management">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">Property Management</li>
-                        </NavLink>
-                        <NavLink to="/owners">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">Owners</li>
-                        </NavLink>
-                        <NavLink to="/residents">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">Residents</li>
-                        </NavLink>
-                        <NavLink to="/rentals">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">Rentals</li>
-                        </NavLink>
-                        <NavLink to="/apply">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">Apply</li>
-                        </NavLink>
+                        <Link to="/property-management">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/property-management')}`}>Property Management</li>
+                        </Link>
+                        <Link to="/owners">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/owners')}`}>Owners</li>
+                        </Link>
+                        <Link to="/residents">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/residents')}`}>Residents</li>
+                        </Link>
+                        <Link to="/rentals">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/rentals')}`}>Rentals</li>
+                        </Link>
+                        <Link to="/apply">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/apply')}`}>Apply</li>
+                        </Link>
 
                         {/* Resources Dropdown */}
                         <div className="relative">
                             <div className="flex items-center">
-                                <NavLink to={'/resources'}>
+                                <Link to={'/resources'}>
                                     <button
-                                        className="list-none  text-white font-medium lg:text-[16px] leading-5   flex items-center"
+                                        className={`list-none text-white font-medium lg:text-[16px] leading-5 flex items-center ${isActive('/resources')}`}
                                     >
                                         Resources
                                     </button>
-                                </NavLink>
+                                </Link>
                                 <BsChevronDown onClick={toggleSideMenuDropdown} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen ? 'rotate-180' : ''}`} />
                             </div>
                             {sideMenuDropdownOpen && (
-                                <ul className="absolute left-0 top-2 mt-2 w-48  rounded-md  py-2 z-50">
-                                    <NavLink to="/resources/owner-resources">
+                                <ul className="absolute left-0 top-2 mt-2 w-48 rounded-md py-2 z-50">
+                                    <Link to="/resources/owner-resources">
                                         <li className="block px-4 py-2 text-white font-medium cursor-pointer">Owner Resources</li>
-                                    </NavLink>
-                                    <NavLink to="/resources/resident-resources">
+                                    </Link>
+                                    <Link to="/resources/resident-resources">
                                         <li className="block px-4 py-2 text-white font-medium cursor-pointer">Resident Resources</li>
-                                    </NavLink>
+                                    </Link>
                                 </ul>
                             )}
                         </div>
 
-                        <NavLink to="/about">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">About</li>
-                        </NavLink>
-                        <NavLink to="/contact">
-                            <li className="list-none text-white lg:text-[16px] font-medium leading-5">Contact</li>
-                        </NavLink>
+                        <Link to="/about">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/about')}`}>About</li>
+                        </Link>
+                        <Link to="/contact">
+                            <li className={`list-none lg:text-[16px] font-medium leading-5 text-white ${isActive('/contact')}`}>Contact</li>
+                        </Link>
                         <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
@@ -91,50 +96,51 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
-                    <div className="flex flex-col items-start justify-center h-full space-y-4 mt-1">
-                        <NavLink to="/property-management" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Property Management</li>
-                        </NavLink>
-                        <NavLink to="/owners" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Owners</li>
-                        </NavLink>
-                        <NavLink to="/residents" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Residents</li>
-                        </NavLink>
-                        <NavLink to="/rentals" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Rentals</li>
-                        </NavLink>
-                        <NavLink to="/apply" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Apply</li>
-                        </NavLink>
+                    <div className="flex flex-col items-start justify-start mt-10 h-full space-y-4 ">
+                        <Link onClick={() => setIsOpen(false)} className="list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 " to={'/'}><img src={logo} alt="" /></Link>
+                        <Link to="/property-management" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/property-management')}`}>Property Management</li>
+                        </Link>
+                        <Link to="/owners" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/owners')}`}>Owners</li>
+                        </Link>
+                        <Link to="/residents" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/residents')}`}>Residents</li>
+                        </Link>
+                        <Link to="/rentals" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/rentals')}`}>Rentals</li>
+                        </Link>
+                        <Link to="/apply" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/apply')}`}>Apply</li>
+                        </Link>
                         <div className="relative ml-12">
                             <div className="flex items-center">
-                                <NavLink to={'/resources'}>
+                                <Link to={'/resources'}>
                                     <button
-                                        className="list-none  text-white font-medium lg:text-[16px] leading-5   flex items-center"
+                                        className={`list-none text-white font-medium lg:text-[16px] leading-5 flex items-center ${isActive('/resources')}`}
                                     >
                                         Resources
                                     </button>
-                                </NavLink>
+                                </Link>
                                 <BsChevronDown onClick={toggleSideMenuDropdown} className={`text-white cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen ? 'rotate-180' : ''}`} />
                             </div>
                             {sideMenuDropdownOpen && (
-                                <ul className="absolute left-full top-10 mt-2 w-48  rounded-md   py-2 z-50">
-                                    <NavLink to="/owner-resources">
+                                <ul className="block rounded-md px-10 py-2 z-50">
+                                    <Link to="/resources/owner-resources">
                                         <li className="block px-4 py-2 text-white font-medium cursor-pointer">Owner Resources</li>
-                                    </NavLink>
-                                    <NavLink to="/resident-resources">
+                                    </Link>
+                                    <Link to="/resources/resident-resources">
                                         <li className="block px-4 py-2 text-white font-medium cursor-pointer">Resident Resources</li>
-                                    </NavLink>
+                                    </Link>
                                 </ul>
                             )}
                         </div>
-                        <NavLink to="/about" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">About</li>
-                        </NavLink>
-                        <NavLink to="/contact" onClick={() => setIsOpen(false)}>
-                            <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Contact</li>
-                        </NavLink>
+                        <Link to="/about" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/about')}`}>About</li>
+                        </Link>
+                        <Link to="/contact" onClick={() => setIsOpen(false)}>
+                            <li className={`list-none ml-12 py-2 lg:text-[16px] font-medium leading-5 ${isActive('/contact')}`}>Contact</li>
+                        </Link>
                         <button className="flex pl-0 items-center justify-center gap-2 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                             Book a call <BsArrowRight className='text-3xl bg-white text-black rounded-full p-1' />
                         </button>

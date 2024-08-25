@@ -3,8 +3,7 @@ import Navbar from '../../Navbar/Navbar'; // Ensure this path is correct
 import r from "../../../assets/images/resourse/r.png"; // Ensure this path is correct
 import { TiAttachment } from 'react-icons/ti';
 import { FaDownload } from 'react-icons/fa';
-import arrow from '../../../assets/logo/Element.png';
-import { Link } from 'react-router-dom';
+import arrow from '../../../assets/logo/Element.png'; 
 
 const Resources = () => {
     return (
@@ -12,17 +11,17 @@ const Resources = () => {
             <div className='bg-[#14161C] p-10 md:p-0 lg:p-0 w-full mx-auto rounded-2xl h-fit'>
                 <Navbar />
                 <div className='lg:py-16 lg:mb-24 pb-3'>
-                    <h4 className='max-w-[854.75px] mx-auto text-center my-2 text-white text-3xl md:text-4xl lg:text-7xl font-medium'>
+                    <h4 className='lg:max-w-[854.75px] mx-auto text-center my-2 text-white text-3xl md:text-4xl lg:text-7xl font-medium'>
                         Owner Resources
                     </h4>
-                    <p className='max-w-[982px] mx-auto text-center my-2 text-[#A4A6B0] text-sm md:text-base lg:text-lg'>
+                    <p className='lg:max-w-[982px] w-2/3 mx-auto text-center my-2 text-[#A4A6B0] text-sm md:text-base lg:text-lg'>
                         Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa.
                     </p>
                 </div>
             </div>
             <div className="container mx-auto">
-                <h3 className='text-5xl mb-11 font-medium'>Info You Need</h3>
-                <div className='flex  gap-6 justify-evenly my-10'>
+                <h3 className='lg:text-5xl text-2xl mt-3 lg:mt-0 mb-11 text-center lg:text-left font-medium'>Info You Need</h3>
+                <div className='flex flex-col lg:flex-row  gap-6 justify-evenly my-10'>
                     <div className='  flex flex-col  gap-8 justify-between'>
                         <img className=' ' src={r} alt="Resource" />
                         <div className='flex flex-col gap-6 p-8 bg-white rounded-xl'>
@@ -53,7 +52,7 @@ const Resources = () => {
                             <br />
                             Jared Kott, Managing Partner
                         </p>
-                        <div className='flex items-center gap-6'>
+                        <div className='flex flex-col lg:flex-row md:flex-row mt-3 items-center gap-6'>
                             <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
                                 <span className=" ">Owner Portal</span>
                                 <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
@@ -66,8 +65,8 @@ const Resources = () => {
                     </div>
                 </div>
                 <div className='max-w-[588px] flex flex-col items-center mx-auto gap-8 px-24 py-20 shadow-lg rounded-xl mb-10'>
-                    <h4 className=' '>Have a Question?</h4>
-                    <div className='flex items-center gap-6'>
+                    <h4 className='lg:text-5xl md:text-3xl text-2xl  font-medium '>Have a Question?</h4>
+                    <div className='flex flex-col lg:flex-row md:flex-row mt-3 items-center gap-6'>
                         <a href="/about/#ownerFaq" className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                             <span>Owner FAQs</span>
                             <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />

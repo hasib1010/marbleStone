@@ -13,6 +13,7 @@ import BlogLayout from './Components/Pages/Blogs/BlogLayout.jsx';
 import About from './Components/Pages/About/About.jsx';
 import PropertyManagement from './Components/Pages/PropertyManagement/PropertyManagement.jsx';
 import Resources from './Components/Pages/Resources/Resources.jsx';
+import ResidentResources from './Components/Pages/Resources/ResidentResources.jsx';
 
 const router = createBrowserRouter([
   
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/resources/resident-resources",
-        element: <Resources></Resources>
+        element: <ResidentResources></ResidentResources>
       }
     ],
   },
