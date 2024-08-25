@@ -7,8 +7,10 @@ import WhyUs from "./Components/Body/WhyUs/WhyUs";
 import OurProcess from './Components/Body/OurProcess/OurProcess';
 import Testimonials from './Components/Body/Testimonials/Testimonials';
 import BlogSection from './Components/Body/Blog/Blog'; 
+import useScrollToTop from './Components/Hooks/useScrollToTop ';
 
 const App = () => {
+  
   return (
     <div className=' mx-auto bg-[#FAFAFB]'>
       <Header></Header>

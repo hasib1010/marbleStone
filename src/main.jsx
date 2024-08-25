@@ -15,6 +15,7 @@ import PropertyManagement from './Components/Pages/PropertyManagement/PropertyMa
 import Resources from './Components/Pages/Resources/Resources.jsx';
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <Root></Root>,
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/resources",
+        element: <Resources></Resources>
+      },
+      {
+        path: "/resources/owner-resources",
+        element: <Resources></Resources>
+      },
+      {
+        path: "/resources/resident-resources",
         element: <Resources></Resources>
       }
     ],

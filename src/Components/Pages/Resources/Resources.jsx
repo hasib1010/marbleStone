@@ -3,7 +3,8 @@ import Navbar from '../../Navbar/Navbar'; // Ensure this path is correct
 import r from "../../../assets/images/resourse/r.png"; // Ensure this path is correct
 import { TiAttachment } from 'react-icons/ti';
 import { FaDownload } from 'react-icons/fa';
-import arrow from '../../../assets/logo/Element.png';   
+import arrow from '../../../assets/logo/Element.png';
+import { Link } from 'react-router-dom';
 
 const Resources = () => {
     return (
@@ -21,9 +22,9 @@ const Resources = () => {
             </div>
             <div className="container mx-auto">
                 <h3 className='text-5xl mb-11 font-medium'>Info You Need</h3>
-                <div className='flex  gap-6'>
-                    <div className='flex-1'>
-                        <img className='mb-8' src={r} alt="Resource" />
+                <div className='flex  gap-6 justify-evenly my-10'>
+                    <div className='  flex flex-col  gap-8 justify-between'>
+                        <img className=' ' src={r} alt="Resource" />
                         <div className='flex flex-col gap-6 p-8 bg-white rounded-xl'>
                             <h4 className='text-2xl font-medium'>Resources & Forms</h4>
                             <div className='flex items-center gap-2 mx-6 cursor-pointer'>
@@ -36,7 +37,7 @@ const Resources = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex-1'>
+                    <div className='max-w-[690px] flex flex-col justify-between'>
                         <p>
                             To our future client:
                             <br /><br />
@@ -64,6 +65,22 @@ const Resources = () => {
                         </div>
                     </div>
                 </div>
+                <div className='max-w-[588px] flex flex-col items-center mx-auto gap-8 px-24 py-20 shadow-lg rounded-xl mb-10'>
+                    <h4 className=' '>Have a Question?</h4>
+                    <div className='flex items-center gap-6'>
+                        <a href="/about/#ownerFaq" className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                            <span>Owner FAQs</span>
+                            <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                        </a>
+
+                        <a href='/about'>
+                            <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                                <span className=" ">Contact Us</span>
+                                <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                            </button></a>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

@@ -36,3 +36,14 @@
     background: #14161C;
     color: white;
 }
+html {
+    scroll-behavior: smooth;
+}
+
+.active{
+    background: red;
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 5px;
+}

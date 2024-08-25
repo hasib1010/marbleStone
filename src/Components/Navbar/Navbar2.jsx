@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from "./../../assets/logo/Group2.png";
 import arrow from './../../assets/logo/Element.png';
 import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
@@ -15,56 +15,57 @@ const Navbar2 = () => {
         <div className="relative">
         <div className="container mx-auto md:px-10 px-5 lg:px-0">
             <div className="flex items-center justify-between py-7">
+        
                 <Link to="/">
                     <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                 </Link>
                 <div className="hidden lg:flex items-center space-x-12">
-                    <Link to="/property-management">
+                    <NavLink to="/property-management">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">Property Management</li>
-                    </Link>
-                    <Link to="/owners">
+                    </NavLink>
+                    <NavLink to="/owners">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">Owners</li>
-                    </Link>
-                    <Link to="/residents">
+                    </NavLink>
+                    <NavLink to="/residents">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">Residents</li>
-                    </Link>
-                    <Link to="/rentals">
+                    </NavLink>
+                    <NavLink to="/rentals">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">Rentals</li>
-                    </Link>
-                    <Link to="/apply">
+                    </NavLink>
+                    <NavLink to="/apply">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">Apply</li>
-                    </Link>
+                    </NavLink>
 
                     {/* Resources Dropdown */}
                     <div className="relative">
                         <div className="flex items-center">
-                            <Link to={'/resources'}>
+                            <NavLink to={'/resources'}>
                                 <button
                                     className="list-none  text-black font-medium lg:text-[16px] leading-5   flex items-center"
                                 >
                                     Resources
                                 </button>
-                            </Link>
+                            </NavLink>
                             <BsChevronDown onClick={toggleSideMenuDropdown} className={`text-vlack cursor-pointer text-xl ml-2 transition-transform ${sideMenuDropdownOpen ? 'rotate-180' : ''}`} />
                         </div>
                         {sideMenuDropdownOpen && (
                             <ul className="absolute left-0 top-2 mt-2 w-48  rounded-md  py-2 z-50">
-                                <Link to="/owner-resources">
+                                <NavLink to="/owner-resources">
                                     <li className="block px-4 py-2 text-gray-800 font-medium hover:bg-gray-200 cursor-pointer">Owner Resources</li>
-                                </Link>
-                                <Link to="/resident-resources">
+                                </NavLink>
+                                <NavLink to="/resident-resources">
                                     <li className="block px-4 py-2 text-gray-800 font-medium hover:bg-gray-200 cursor-pointer">Resident Resources</li>
-                                </Link>
+                                </NavLink>
                             </ul>
                         )}
                     </div>
 
-                    <Link to="/about">
+                    <NavLink to="/about">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">About</li>
-                    </Link>
-                    <Link to="/contact">
+                    </NavLink>
+                    <NavLink to="/contact">
                         <li className="list-none text-black lg:text-[16px] font-medium leading-5">Contact</li>
-                    </Link>
+                    </NavLink>
                     <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                         Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                     </button>
@@ -91,21 +92,21 @@ const Navbar2 = () => {
                     </svg>
                 </button>
                 <div className="flex flex-col items-start justify-center h-full space-y-4 mt-1">
-                    <Link to="/property-management" onClick={() => setIsOpen(false)}>
+                    <NavLink to="/property-management" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Property Management</li>
-                    </Link>
-                    <Link to="/owners" onClick={() => setIsOpen(false)}>
+                    </NavLink>
+                    <NavLink to="/owners" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Owners</li>
-                    </Link>
-                    <Link to="/residents" onClick={() => setIsOpen(false)}>
+                    </NavLink>
+                    <NavLink to="/residents" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Residents</li>
-                    </Link>
-                    <Link to="/rentals" onClick={() => setIsOpen(false)}>
+                    </NavLink>
+                    <NavLink to="/rentals" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Rentals</li>
-                    </Link>
-                    <Link to="/apply" onClick={() => setIsOpen(false)}>
+                    </NavLink>
+                    <NavLink to="/apply" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Apply</li>
-                    </Link>
+                    </NavLink>
                     <div className="relative">
                         <div className="flex">
                             <button
@@ -117,21 +118,21 @@ const Navbar2 = () => {
                         </div>
                         {sideMenuDropdownOpen && (
                             <ul className="absolute left-full top-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                                <Link to="/owner-resources">
+                                <NavLink to="/owner-resources">
                                     <li className="block px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer">Owner Resources</li>
-                                </Link>
-                                <Link to="/resident-resources">
+                                </NavLink>
+                                <NavLink to="/resident-resources">
                                     <li className="block px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer">Resident Resources</li>
-                                </Link>
+                                </NavLink>
                             </ul>
                         )}
                     </div>
-                    <Link to="/about" onClick={() => setIsOpen(false)}>
+                    <NavLink to="/about" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">About</li>
-                    </Link>
-                    <Link to="/contact" onClick={() => setIsOpen(false)}>
+                    </NavLink>
+                    <NavLink to="/contact" onClick={() => setIsOpen(false)}>
                         <li className="list-none pl-12 py-2 lg:text-[16px] font-medium leading-5 hover:bg-gray-700">Contact</li>
-                    </Link>
+                    </NavLink>
                     <button className="flex pl-0 items-center justify-center gap-2 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                         Book a call <BsArrowRight className='text-3xl bg-white text-black rounded-full p-1' />
                     </button>

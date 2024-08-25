@@ -10,11 +10,11 @@ const Faq1 = () => {
     };
 
     return (
-        <section className="py-4 md:py-4 lg:py-8 my-20">
+        <section id='ownerFaq' className="py-4 md:py-4 lg:py-8 my-20">
             <div className="mx-auto max-w-7xl p-4 sm:p-6 lg:p-0">
                 <div className="flex flex-col    lg:flex-row lg:items-start items-center  lg:gap-[98px]">
 
-                    <div className='text-center'>
+                    <div  className='text-center'>
                         <h1 className='text-5xl font-medium'>Owner FAQs</h1>
                         <p className='max-w-[600px] mt-4'>Find answers to some of the most common questions property owners ask us.</p>
                     </div>
