@@ -15,6 +15,7 @@ import PropertyManagement from './Components/Pages/PropertyManagement/PropertyMa
 import Resources from './Components/Pages/Resources/Resources.jsx';
 import ResidentResources from './Components/Pages/Resources/ResidentResources.jsx';
 import Contact from './Components/Pages/Contact/Contact.jsx';
+import Properties from './Components/Pages/Properties/Properties.jsx';
 
 const router = createBrowserRouter([
   
@@ -68,6 +69,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element:<Contact/>
+      }
+      ,
+      {
+        path: "/rentals",
+        element:<Properties/>
       }
     ],
   },
