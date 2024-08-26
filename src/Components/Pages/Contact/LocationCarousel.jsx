@@ -10,7 +10,7 @@ const LocationCarousel = () => {
     const settings = {
         infinite: true, // Enables infinite looping
         speed: 500,
-        slidesToShow: 1.5, // Show 2.5 slides by default
+        slidesToShow: 2.5, // Show 2.5 slides by default
         slidesToScroll: 1,
         centerMode: true,
         centerPadding: '0px',
@@ -76,11 +76,11 @@ const LocationCarousel = () => {
                             <img src={slide.imageUrl} alt={slide.location} className="w-full h-[250px] lg:h-[300px] object-cover rounded-xl" />
                             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                             <div className="absolute bottom-0 left-0 w-full p-4 text-white z-10">
-                                <h2 className="text-lg lg:text-xl font-bold">{slide.location}</h2>
-                                <p className="text-xs lg:text-sm">Come and visit our office. We are always here to welcome you.</p>
+                                <h2 className="text-xs sm:text-sm md:text-base lg:text-xl font-bold">{slide.location}</h2>
+                                <p className="text-xs sm:text-sm md:text-sm lg:text-sm">Come and visit our office. We are always here to welcome you.</p>
                                 <div className="flex items-center mt-1 lg:mt-2">
-                                    <FaMapMarkerAlt className="text-white mr-1 text-sm lg:text-lg" />
-                                    <span className='text-xs lg:text-sm'>{slide.location}</span>
+                                    <FaMapMarkerAlt className="text-xs sm:text-sm md:text-base lg:text-lg mr-1" />
+                                    <span className='text-xs sm:text-sm md:text-sm lg:text-sm'>{slide.location}</span>
                                 </div>
                             </div>
                         </div>
