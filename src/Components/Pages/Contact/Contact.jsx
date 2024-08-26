@@ -144,19 +144,24 @@ function Contact() {
                 </div>
             </div>
             <div className='container mx-auto'>
-                <h3 className='flex items-center text-xl font-medium gap-2 px-3 lg:mt-40 mt-10   py-2 lg:mb-10 bg-[#EEEFF1] w-fit rounded-full'><FaLocationDot className='text-4xl text-white bg-[#A4A6B0] p-2 rounded-full' /> Our offices</h3>
-                <div className='flex justify-between flex-col p-4 lg:p-0   lg:items-start items-end lg:my-10'>
-                    <div>
-                        <h3 className='lg:text-5xl text-2xl font-medium'>Come and visit our offices</h3>
-                        <p className='max-w-[480.098px] mt-4'>Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas a aliquam arcu arcu nunc pretium id.</p>
-                    </div>
-                    <button type="submit" value={"submit"} className="flex w-fit h-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
-                        <span className=" ">Contact Us</span>
-                        <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
-                    </button>
+            <h3 className='flex items-center text-xl font-medium gap-2 px-3 lg:mt-40 mt-10 py-2 lg:mb-10 bg-[#EEEFF1] w-fit rounded-full'>
+                <FaLocationDot className='text-4xl text-white bg-[#A4A6B0] p-2 rounded-full' /> Our Offices
+            </h3>
+            <div className='flex justify-between flex-col p-4 lg:p-0 lg:items-start items-end lg:my-10'>
+                <div>
+                    <h3 className='lg:text-5xl text-2xl font-medium mb-6'>Visit Our Offices</h3>
+                    <p className='max-w-[480px] mt-4'>
+                        We have several offices to serve you better. Here are the details of our locations:
+                    </p>
+                    
                 </div>
-                <LocationCarousel></LocationCarousel>
+                <button type="submit" value={"submit"} className="lg:mt-6 mt-0 flex w-fit h-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                    <span>Contact Us</span>
+                    <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                </button>
             </div>
+            <LocationCarousel />
+        </div>
         </div >
     );
 }

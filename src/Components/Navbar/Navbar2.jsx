@@ -23,11 +23,9 @@ const Navbar2 = () => {
     };
 
     const Dropdown = ({ title, link, dropdownName, dropdownLinks, children }) => (
-        <div
-
-            className="relative">
+        <div className="relative">
             <div className="flex items-center cursor-pointer" onClick={() => toggleDropdown(dropdownName)}>
-                <Link className={`lg:text-[16px] font-medium leading-5 py-2 ${isDropdownActive(dropdownLinks) ? 'text-red-500' : 'text-black'}`} to={link}>
+                <Link className={`lg:text-[16px] py-2 font-medium leading-5 ${isActive(link)}`} to={link}>
                     {title}
                 </Link>
                 <BsChevronDown
@@ -35,7 +33,7 @@ const Navbar2 = () => {
                 />
             </div>
             {openDropdown === dropdownName && (
-                <ul  className="absolute left-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
+                <ul className="absolute left-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
                     {React.Children.map(children, (child) =>
                         React.cloneElement(child, { closeDropdown: () => setOpenDropdown(null) })
                     )}
@@ -44,12 +42,24 @@ const Navbar2 = () => {
         </div>
     );
 
-    const DropdownItem = ({ to, children, closeDropdown }) => (
-        <Link to={to} onClick={closeDropdown} className='text-black'>
-            <li className="block px-4 py-2 text-black font-medium cursor-pointer">{children}</li>
-        </Link>
-    );
-
+    const DropdownItem = ({ to, href, children, closeDropdown }) => {
+        if (href) {
+            // External link
+            return (
+                <a href={href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={closeDropdown}>
+                    {children}
+                </a>
+            );
+        }
+    
+        // Internal link
+        return (
+            <Link to={to} onClick={closeDropdown}>
+                <li className="block px-4 py-2 text-black font-medium cursor-pointer">{children}</li>
+            </Link>
+        );
+    };
+    
     return (
         <div className="relative list-none">
             <div className="container mx-auto md:px-10 px-5 lg:px-0">
@@ -77,11 +87,11 @@ const Navbar2 = () => {
                             dropdownLinks={[
                                 '/owners',
                                 '/owners/owner-resources',
-                                '/owners/portal',
+                                'https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F',
                             ]}
                         >
                             <DropdownItem to="/owners/owner-resources">Owner Resources</DropdownItem>
-                            <DropdownItem to="/owners/portal">Owner Portal</DropdownItem>
+                            <DropdownItem href=" https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F">Owner Portal</DropdownItem>
                         </Dropdown>
 
                         <Dropdown
@@ -91,13 +101,13 @@ const Navbar2 = () => {
                             dropdownLinks={[
                                 '/residents',
                                 '/residents/residents-resources',
-                                '/residents/residents-portal',
-                                '/residents/maintenance',
+                                'https://marblestonepg.managebuilding.com/Resident/portal/login',
+                                'https://app.propertymeld.com/tenant/marblestone-pg',
                             ]}
                         >
                             <DropdownItem to="/residents/residents-resources">Resident Resources</DropdownItem>
-                            <DropdownItem to="/residents/residents-portal">Resident Portal</DropdownItem>
-                            <DropdownItem to="/residents/maintenance">Maintenance Request</DropdownItem>
+                            <DropdownItem href="https://marblestonepg.managebuilding.com/Resident/portal/login">Resident Portal</DropdownItem>
+                            <DropdownItem href="https://app.propertymeld.com/tenant/marblestone-pg">Maintenance Request</DropdownItem>
                         </Dropdown>
 
                         <Dropdown
@@ -107,20 +117,20 @@ const Navbar2 = () => {
                             dropdownLinks={[
                                 '/rentals',
                                 '/rentals/properties',
-                                '/rentals/apply',
+                                'https://rentbutter.com/apply/marblestone',
                             ]}
                         >
                             <DropdownItem to="/rentals/properties">Properties</DropdownItem>
-                            <DropdownItem to="/rentals/apply">Apply</DropdownItem>
+                            <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
                         </Dropdown>
 
                         <Link to="/blogs">
                             <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/blogs')}`}>Blogs</li>
                         </Link>
 
-                        <Link to="/apply">
-                            <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/apply')}`}>Apply</li>
-                        </Link>
+                        <a target='_blank' href="https://rentbutter.com/apply/marblestone">
+                        <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
+                    </a>
                         <Link to="/about">
                             <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/about')}`}>About</li>
                         </Link>
@@ -176,11 +186,11 @@ const Navbar2 = () => {
                             dropdownLinks={[
                                 '/owners',
                                 '/owners/owner-resources',
-                                '/owners/portal',
+                                'https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F',
                             ]}
                         >
                             <DropdownItem to="/owners/owner-resources">Owner Resources</DropdownItem>
-                            <DropdownItem to="/owners/portal">Owner Portal</DropdownItem>
+                            <DropdownItem href="https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F">Owner Portal</DropdownItem>
                         </Dropdown>
 
                         <Dropdown
@@ -188,15 +198,16 @@ const Navbar2 = () => {
                             link="/residents"
                             dropdownName="residents"
                             dropdownLinks={[
+                               
                                 '/residents',
                                 '/residents/residents-resources',
-                                '/residents/residents-portal',
-                                '/residents/maintenance',
+                                'https://marblestonepg.managebuilding.com/Resident/portal/login',
+                                'https://app.propertymeld.com/tenant/marblestone-pg',
                             ]}
                         >
                             <DropdownItem to="/residents/residents-resources">Resident Resources</DropdownItem>
-                            <DropdownItem to="/residents/residents-portal">Resident Portal</DropdownItem>
-                            <DropdownItem to="/residents/maintenance">Maintenance Request</DropdownItem>
+                            <DropdownItem href="https://marblestonepg.managebuilding.com/Resident/portal/login">Resident Portal</DropdownItem>
+                            <DropdownItem href="https://app.propertymeld.com/tenant/marblestone-pg">Maintenance Request</DropdownItem>
                         </Dropdown>
                         <Dropdown
 
@@ -206,27 +217,27 @@ const Navbar2 = () => {
                             dropdownLinks={[
                                 '/rentals',
                                 '/rentals/properties',
-                                '/rentals/apply',
+                                'https://rentbutter.com/apply/marblestone',
                             ]}
                         >
                             <DropdownItem to="/rentals/properties">Properties</DropdownItem>
-                            <DropdownItem to="/rentals/apply">Apply</DropdownItem>
+                            <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
                         </Dropdown>
 
                         <Link to="/blogs" onClick={() => setIsOpen(false)}>
                             <li className={`py-2 lg:text-[16px] font-medium leading-5 ${isActive('/blogs')}`}>Blogs</li>
                         </Link>
 
-                        <Link to="/apply" onClick={() => setIsOpen(false)}>
-                            <li className={`py-2 lg:text-[16px] font-medium leading-5 ${isActive('/apply')}`}>Apply</li>
-                        </Link>
+                        <a target='_blank' href="https://rentbutter.com/apply/marblestone">
+                        <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
+                    </a>
                         <Link to="/about" onClick={() => setIsOpen(false)}>
                             <li className={`py-2 lg:text-[16px] font-medium leading-5 ${isActive('/about')}`}>About</li>
                         </Link>
                         <Link to="/contact" onClick={() => setIsOpen(false)}>
                             <li className={`py-2 lg:text-[16px] font-medium leading-5 ${isActive('/contact')}`}>Contact</li>
                         </Link>
-                        <button className="flex items-center justify-center gap-2 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                        <button className="flex w-fit items-center justify-center gap-2 py-2 mt-4  px-4 rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                             Book a call <BsArrowRight className="text-white bg-[#C32723] rounded-full p-2 w-8 h-8" />
                         </button>
                     </div>

@@ -1,92 +1,81 @@
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { IoLocationSharp } from 'react-icons/io5';
 
 const LocationCarousel = () => {
-    const sliderRef = useRef(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const settings = {
-        infinite: true, // Enables infinite looping
-        speed: 500,
-        slidesToShow: 2.5, // Show 2.5 slides by default
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: '0px',
-        responsive: [
-            {
-                breakpoint: 1024, // Tablets and small desktops
-                settings: {
-                    slidesToShow: 2, // Show 2 slides
-                    centerPadding: '10px', // Padding for center mode
-                }
-            },
-            {
-                breakpoint: 768, // Tablets and smaller devices
-                settings: {
-                    slidesToShow: 1, // Show 1 slide
-                    centerPadding: '10px', // Reduced padding
-                }
-            },
-            {
-                breakpoint: 480, // Mobile devices
-                settings: {
-                    slidesToShow: 1, // Show 1 slide
-                    centerPadding: '5px', // Further reduced padding
-                }
-            }
-        ],
-        afterChange: current => {
-            console.log('Current slide:', current);
-        }
-    };
-
-    const handleSlideClick = index => {
-        if (sliderRef.current) {
-            sliderRef.current.slickGoTo(index);
-        }
-    };
-
-    // Array of slide data
     const slides = [
         {
             location: 'San Francisco, CA',
-            imageUrl: 'https://i.ibb.co/wrtcSVn/istockphoto-1494439599-612x612.webp'
+            imageUrl: 'https://i.ibb.co/wrtcSVn/istockphoto-1494439599-612x612.webp',
         },
         {
             location: 'New York, NY',
-            imageUrl: 'https://i.ibb.co/9NXCM8k/pexels-seven11nash-380768.jpg'
+            imageUrl: 'https://i.ibb.co/9NXCM8k/pexels-seven11nash-380768.jpg',
         },
         {
             location: 'Los Angeles, CA',
-            imageUrl: 'https://i.ibb.co/2kJ4GSQ/3d-rendering-business-meeting-working-room-office-building-105762-1972.jpg'
-        }
+            imageUrl: 'https://i.ibb.co/2kJ4GSQ/3d-rendering-business-meeting-working-room-office-building-105762-1972.jpg',
+        },
     ];
 
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    };
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+    };
+
     return (
-        <div className="container mx-auto lg:mb-40 px-5 lg:px-0">
-            <Slider {...settings} ref={sliderRef}>
-                {slides.map((slide, index) => (
-                    <div key={slide.location} className="p-4">
-                        <div
-                            className="bg-gray-800 rounded-xl overflow-hidden relative cursor-pointer"
-                            onClick={() => handleSlideClick(index)}
-                        >
-                            <img src={slide.imageUrl} alt={slide.location} className="w-full h-[250px] lg:h-[300px] object-cover rounded-xl" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                            <div className="absolute bottom-0 left-0 w-full p-4 text-white z-10">
-                                <h2 className="text-xs sm:text-sm md:text-base lg:text-xl font-bold">{slide.location}</h2>
-                                <p className="text-xs sm:text-sm md:text-sm lg:text-sm">Come and visit our office. We are always here to welcome you.</p>
-                                <div className="flex items-center mt-1 lg:mt-2">
-                                    <FaMapMarkerAlt className="text-xs sm:text-sm md:text-base lg:text-lg mr-1" />
-                                    <span className='text-xs sm:text-sm md:text-sm lg:text-sm'>{slide.location}</span>
-                                </div>
-                            </div>
+        <div className="relative carousel-container px-4 lg:px-0">
+            <div className="carousel-content flex flex-wrap gap-6 mb-10  lg:flex-nowrap lg:h-fit lg:w-full lg:justify-between  ">
+                {/* Main Slide */}
+                <div
+                    className="carousel-slide basis-4/5 relative main-slide    flex-shrink-0 lg:w-[954.563px] lg:h-[440.139px] mx-auto w-full h-[300px] md:w-[600px] md:h-[350px]" 
+                >
+                    <img
+                        src={slides[currentIndex].imageUrl}
+                        alt={slides[currentIndex].location}
+                        className="slide-image   h-full w-full object-cover rounded-2xl"
+                    />
+                    <div className="absolute inset-0 flex flex-col justify-end">
+                        <div className="slide-info absolute bottom-5 z-50 left-5 text-white">
+                            <h2 className="text-base md:text-lg lg:text-xl font-medium mb-2">{slides[currentIndex].location}</h2>
+                            <p className="mb-4 text-xs md:text-sm lg:text-base">
+                                Come and visit our office. We are always here to welcome you.
+                            </p>
+                            <p className='flex items-center gap-3 text-3xl'><IoLocationSharp></IoLocationSharp> {slides[currentIndex].location}</p>
                         </div>
+                        {/* Overlay */}
+                        <div className="rounded-b-2xl absolute inset-x-0 z-30 bottom-0 h-2/4 bg-gradient-to-t from-black to-transparent"></div>
                     </div>
-                ))}
-            </Slider>
+                </div>
+                {/* Secondary Slide */}
+                <div
+                    className="opacity-45 lg:block hidden carousel-slide secondary-slide flex-shrink-0 lg:w-[300px] lg:h-[441.075px] w-full h-[200px] md:h-[300px]  bg-left bg-cover bg-no-repeat rounded-xl cursor-pointer"
+                    onClick={handleNext}
+                    style={{
+                        backgroundImage: `url(${slides[(currentIndex + 1) % slides.length].imageUrl})`,
+                        backgroundPosition: 'left center',
+                        backgroundSize: 'cover',
+                    }}
+                />
+
+                {/* Navigation Buttons (Only visible on mobile and tablet) */}
+                <button
+                    className=" absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full lg:hidden"
+                    onClick={handlePrev}
+                >
+                    &lt;
+                </button>
+                <button
+                    className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full lg:hidden"
+                    onClick={handleNext}
+                >
+                    &gt;
+                </button>
+            </div>
         </div>
     );
 };
