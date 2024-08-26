@@ -5,6 +5,10 @@ import { MdCall, MdEmail, MdOutlineEmail } from 'react-icons/md';
 import { IoPerson } from 'react-icons/io5';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+import { FaLocationDot } from "react-icons/fa6";
+
+import arrow from '../../../assets/logo/Element.png';
+import LocationCarousel from './LocationCarousel';
 
 function Contact() {
     return (
@@ -13,11 +17,11 @@ function Contact() {
                 <div className="mx-auto container">
                     <Navbar />
                     <h1 className='text-center text-white text-2xl lg:text-7xl font-medium'>Contact Us</h1>
-                    <p className='max-w-[562.047px] mx-auto mt-4 text-white'>
+                    <p className='max-w-[562.047px] mx-auto mt-4 text-white mb-9'>
                         We're here to help! Whether you have a question about our services, need assistance, or just want to give feedback, feel free to reach out to us.
                     </p>
 
-                    <div className='flex items-center gap-16 '>
+                    <div className='flex items-center flex-col lg:flex-row justify-between lg:pb-[100px] lg:gap-16 gap-6 '>
                         <div className='bg-white px-12 py-11 rounded-2xl'>
                             <div className="mb-6">
                                 <div className="flex gap-7 lg:flex-row flex-col">
@@ -70,17 +74,20 @@ function Contact() {
                                                 className="w-full p-2 rounded-md focus:outline-none border"
                                             />
                                         </div>
+
                                     </div>
+
                                 </div>
                                 <div>
                                     <label className="block font-medium mb-1">Inquiry Type</label>
-                                    <select className='w-full pl-10 my-4' name="inquiryType">
+                                    <select className='w-full pl-10 my-4 border-0 focus:ring-0 focus:outline-none ' name="inquiryType">
                                         <option className='text-[#464851]' value="general">General Inquiry</option>
                                         <option className='text-[#464851]' value="technical">Technical Support</option>
                                         <option className='text-[#464851]' value="property">Property Inquiry</option>
                                         <option className='text-[#464851]' value="rental">Rental Inquiry</option>
                                         <option className='text-[#464851]' value="other">Other</option>
                                     </select>
+
                                 </div>
                                 <div className="mb-4 w-full">
                                     <label className="block font-medium mb-1">Comments</label>
@@ -93,15 +100,19 @@ function Contact() {
                                         />
                                     </div>
                                 </div>
+                                <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                                    <span className=" ">Send message</span>
+                                    <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                                </button>
                             </div>
                         </div>
-                        <div className='text-white flex flex-col max-w-[700.074px] gap-4 items-start justify-center'>
-                            <h4 className='text-xl font-medium'>Reach Us Directly</h4>
+                        <div className='text-white flex p-10 lg:p-0 flex-col max-w-[700.074px] gap-4 items-start justify-center'>
+                            <h4 className='text-3xl font-medium'>Reach Us Directly</h4>
                             <p>
                                 Have a question? Reach out to us directly via phone or email, and we’ll get back to you as soon as possible.
                             </p>
-                            <div className='flex justify-evenly items-center'>
-                                <div className='flex items-center gap-2'>
+                            <div className='flex justify-evenly gap-5 lg:items-center flex-col lg:flex-row'>
+                                <div className='flex  items-center gap-2'>
                                     <MdEmail className='text-xl' />
                                     <div>
                                         <h6>Email Us</h6>
@@ -116,7 +127,7 @@ function Contact() {
                                     </div>
                                 </div>
                             </div>
-                            <hr className='w-full' /> 
+                            <hr className='w-full' />
                             <h6 className='text-xl'>Follow Us on Social Media</h6>
                             <p>
                                 Stay connected and follow us on social media for updates and more.
@@ -132,7 +143,21 @@ function Contact() {
 
                 </div>
             </div>
-        </div>
+            <div className='container mx-auto'>
+                <h3 className='flex items-center text-xl font-medium gap-2 px-3 lg:mt-40 mt-10   py-2 lg:mb-10 bg-[#EEEFF1] w-fit rounded-full'><FaLocationDot className='text-4xl text-white bg-[#A4A6B0] p-2 rounded-full' /> Our offices</h3>
+                <div className='flex justify-between flex-col p-4 lg:p-0   lg:items-end lg:my-10'>
+                    <div>
+                        <h3 className='lg:text-5xl text-2xl font-medium'>Come and visit our offices</h3>
+                        <p className='max-w-[480.098px] mt-4'>Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas a aliquam arcu arcu nunc pretium id.</p>
+                    </div>
+                    <button type="submit" value={"submit"} className="flex w-fit h-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                        <span className=" ">Contact Us</span>
+                        <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                    </button>
+                </div>
+                <LocationCarousel></LocationCarousel>
+            </div>
+        </div >
     );
 }
 
