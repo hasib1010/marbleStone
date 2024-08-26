@@ -145,7 +145,7 @@ function Contact() {
             </div>
             <div className='container mx-auto'>
                 <h3 className='flex items-center text-xl font-medium gap-2 px-3 lg:mt-40 mt-10   py-2 lg:mb-10 bg-[#EEEFF1] w-fit rounded-full'><FaLocationDot className='text-4xl text-white bg-[#A4A6B0] p-2 rounded-full' /> Our offices</h3>
-                <div className='flex justify-between flex-col p-4 lg:p-0   lg:items-end lg:my-10'>
+                <div className='flex justify-between flex-col p-4 lg:p-0   lg:items-start items-end lg:my-10'>
                     <div>
                         <h3 className='lg:text-5xl text-2xl font-medium'>Come and visit our offices</h3>
                         <p className='max-w-[480.098px] mt-4'>Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas a aliquam arcu arcu nunc pretium id.</p>

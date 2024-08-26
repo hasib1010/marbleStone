@@ -8,17 +8,39 @@ const LocationCarousel = () => {
     const sliderRef = useRef(null);
 
     const settings = {
-    infinite: true, // This enables infinite looping
-    speed: 500,
-    slidesToShow: 2.5,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0px',
-    afterChange: current => {
-        console.log('Current slide:', current);
-    }
-};
-
+        infinite: true, // Enables infinite looping
+        speed: 500,
+        slidesToShow: 1.5, // Show 2.5 slides by default
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '0px',
+        responsive: [
+            {
+                breakpoint: 1024, // Tablets and small desktops
+                settings: {
+                    slidesToShow: 2, // Show 2 slides
+                    centerPadding: '10px', // Padding for center mode
+                }
+            },
+            {
+                breakpoint: 768, // Tablets and smaller devices
+                settings: {
+                    slidesToShow: 1, // Show 1 slide
+                    centerPadding: '10px', // Reduced padding
+                }
+            },
+            {
+                breakpoint: 480, // Mobile devices
+                settings: {
+                    slidesToShow: 1, // Show 1 slide
+                    centerPadding: '5px', // Further reduced padding
+                }
+            }
+        ],
+        afterChange: current => {
+            console.log('Current slide:', current);
+        }
+    };
 
     const handleSlideClick = index => {
         if (sliderRef.current) {
@@ -43,7 +65,7 @@ const LocationCarousel = () => {
     ];
 
     return (
-        <div className="container mx-auto lg:mb-40 px-5 lg:px-0 ">
+        <div className="container mx-auto lg:mb-40 px-5 lg:px-0">
             <Slider {...settings} ref={sliderRef}>
                 {slides.map((slide, index) => (
                     <div key={slide.location} className="p-4">
@@ -51,14 +73,14 @@ const LocationCarousel = () => {
                             className="bg-gray-800 rounded-xl overflow-hidden relative cursor-pointer"
                             onClick={() => handleSlideClick(index)}
                         >
-                            <img src={slide.imageUrl} alt={slide.location} className="w-full h-[250px] object-cover rounded-xl" />
+                            <img src={slide.imageUrl} alt={slide.location} className="w-full h-[250px] lg:h-[300px] object-cover rounded-xl" />
                             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                             <div className="absolute bottom-0 left-0 w-full p-4 text-white z-10">
-                                <h2 className="lg:text-xl font-bold">{slide.location}</h2>
-                                <p className="text-sm">Come and visit our office. We are always here to welcome you.</p>
-                                <div className="flex items-center lg:mt-2">
-                                    <FaMapMarkerAlt className="text-white mr-1" />
-                                    <span className='text-sm'>{slide.location}</span>
+                                <h2 className="text-lg lg:text-xl font-bold">{slide.location}</h2>
+                                <p className="text-xs lg:text-sm">Come and visit our office. We are always here to welcome you.</p>
+                                <div className="flex items-center mt-1 lg:mt-2">
+                                    <FaMapMarkerAlt className="text-white mr-1 text-sm lg:text-lg" />
+                                    <span className='text-xs lg:text-sm'>{slide.location}</span>
                                 </div>
                             </div>
                         </div>
