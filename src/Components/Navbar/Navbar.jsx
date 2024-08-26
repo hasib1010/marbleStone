@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from "react-router-dom";
-import logo from "./../../assets/logo/Group.png";
+import { Link, useLocation } from 'react-router-dom';
+import logo from './../../assets/logo/Group.png';
 import arrow from './../../assets/logo/Element.png';
 import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
 
@@ -11,21 +11,19 @@ const Navbar = () => {
     const location = useLocation();
 
     const toggleDropdown = (dropdownName) => {
-        setOpenDropdown((prev) => prev === dropdownName ? null : dropdownName);
+        setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
     };
 
     const isActive = (path) => {
-        return location.pathname.startsWith(path) ? 'text-red-500' : '';
-    };
-    
-    const isDropdownActive = (dropdownLinks) => {
-        return dropdownLinks.some(link => location.pathname.startsWith(link));
+        const isActivePath = location.pathname.startsWith(path);
+        console.log(`Checking if ${path} is active: ${isActivePath}`);
+        return isActivePath ? 'text-red-500' : 'text-white';
     };
 
     const Dropdown = ({ title, link, dropdownName, dropdownLinks, children }) => (
         <div className="relative">
             <div className="flex items-center cursor-pointer" onClick={() => toggleDropdown(dropdownName)}>
-                <Link className={`lg:text-[16px] py-2 font-medium leading-5 ${isDropdownActive(dropdownLinks) ? 'text-red-500' : 'text-white'}`} to={link}>
+                <Link className={`lg:text-[16px] py-2 font-medium leading-5 ${isActive(link)}`} to={link}>
                     {title}
                 </Link>
                 <BsChevronDown
@@ -113,19 +111,19 @@ const Navbar = () => {
                         </Dropdown>
 
                         <Link to="/blogs">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 text-white ${isActive('/blogs')}`}>Blogs</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/blogs')}`}>Blogs</li>
                         </Link>
 
                         <Link to="/apply">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 text-white ${isActive('/apply')}`}>Apply</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
                         </Link>
                         <Link to="/about">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 text-white ${isActive('/about')}`}>About</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/about')}`}>About</li>
                         </Link>
                         <Link to="/contact">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 text-white ${isActive('/contact')}`}>Contact</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/contact')}`}>Contact</li>
                         </Link>
-                        <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium  leading-5 bg-[#990A05] text-white">
+                        <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
                     </div>
@@ -151,7 +149,7 @@ const Navbar = () => {
                         </svg>
                     </button>
                     <div className="flex flex-col items-start justify-start mt-10 h-full space-y-4">
-                        <Link onClick={() => setIsOpen(false)} className="list-none  lg:text-[16px] font-medium py-2 leading-5" to={'/'}>
+                        <Link onClick={() => setIsOpen(false)} className="list-none lg:text-[16px] font-medium py-2 leading-5" to={'/'}>
                             <img src={logo} alt="Logo" />
                         </Link>
 
@@ -212,19 +210,19 @@ const Navbar = () => {
                         </Dropdown>
 
                         <Link to="/blogs" onClick={() => setIsOpen(false)}>
-                            <li className={` lg:text-[16px] font-medium py-2 leading-5 ${isActive('/blogs')}`}>Blogs</li>
-                        </Link> 
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/blogs')}`}>Blogs</li>
+                        </Link>
 
                         <Link to="/apply" onClick={() => setIsOpen(false)}>
-                            <li className={` lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
                         </Link>
 
                         <Link to="/about" onClick={() => setIsOpen(false)}>
-                            <li className={` lg:text-[16px] font-medium py-2 leading-5 ${isActive('/about')}`}>About</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/about')}`}>About</li>
                         </Link>
 
                         <Link to="/contact" onClick={() => setIsOpen(false)}>
-                            <li className={` lg:text-[16px] font-medium py-2 leading-5 ${isActive('/contact')}`}>Contact</li>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/contact')}`}>Contact</li>
                         </Link>
 
                         <button className="flex items-center justify-center gap-2 py-2 mt-4 w-full rounded-3xl lg:text-[16px] font-medium py-2 leading-5 bg-[#990A05] text-white">
