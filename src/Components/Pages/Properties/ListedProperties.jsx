@@ -91,15 +91,14 @@ function ListedProperties({ searchParams }) {
         setFilteredProperties(filtered);
     };
 
-    // Calculate the index range for the current page
+    
     const indexOfLastProperty = currentPage * propertiesPerPage;
     const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
     const currentProperties = filteredProperties.slice(indexOfFirstProperty, indexOfLastProperty);
 
-    // Calculate the total number of pages
+     
     const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
-
-    // Handle page change
+ 
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
@@ -114,7 +113,7 @@ function ListedProperties({ searchParams }) {
                 <h4 className='max-w-[345.25px] font-medium text-5xl my-10'>All available properties</h4>
                 <p className='max-w-[562.047px]'>Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa.</p>
             </div>
-            <div className='grid grid-cols-3 gap-24'>
+            <div className='grid grid-cols-2 gap-14 '> 
                 {/* Property cards */}
                 {currentProperties.map(item => (
                     <PropertyCardLayout key={item.id} item={item} />
