@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const isActive = (path) => {
         const isActivePath = location.pathname.startsWith(path);
-        console.log(`Checking if ${path} is active: ${isActivePath}`);
+       
         return isActivePath ? 'text-red-500' : 'text-white';
     };
 

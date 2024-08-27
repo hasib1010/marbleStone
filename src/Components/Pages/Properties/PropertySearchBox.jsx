@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const PropertySearchBox = () => {
+const PropertySearchBox = ({ onSearch }) => {
     // State to hold input values
     const [search, setSearch] = useState('');
     const [minRent, setMinRent] = useState('');
@@ -11,9 +11,9 @@ const PropertySearchBox = () => {
     const [petsPolicy, setPetsPolicy] = useState('');
     const [sortOptions, setSortOptions] = useState('');
 
-    // Function to handle search (replace with actual implementation)
-    const handleSearch = () => {
-        console.log('Searching with params:', {
+    // Effect to call handleSearch when necessary
+    useEffect(() => {
+        onSearch({
             search,
             minRent,
             maxRent,
@@ -23,13 +23,7 @@ const PropertySearchBox = () => {
             petsPolicy,
             sortOptions
         });
-        // Implement your search logic or API call here
-    };
-
-    // Effect to call handleSearch whenever input values change
-    useEffect(() => {
-        handleSearch();
-    }, [search, minRent, maxRent, bed, bath, propertyType, petsPolicy, sortOptions]);
+    }, [search, minRent, maxRent, bed, bath, propertyType, petsPolicy, sortOptions, onSearch]);
 
     return (
         <div className="w-[83%] mx-auto p-6 focus:ring-0 focus:outline-none  backdrop-blur-xl mt-6  rounded-lg shadow-md">
@@ -44,7 +38,7 @@ const PropertySearchBox = () => {
                             placeholder="Search for properties"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg w-full"
                         />
                     </div>
                     <div className="flex flex-col w-fit">
@@ -73,15 +67,18 @@ const PropertySearchBox = () => {
                     </div>
                     <div className="flex flex-col w-fit">
                         <label htmlFor="bed" className="block text-white font-medium">Beds</label>
-                        <input
-                            type="number"
-                            id="bed"
-                            placeholder="Beds"
-                            min="0"
-                            value={bed}
+                        <select
+                            id="property-type"
+                            value={propertyType}
                             onChange={(e) => setBed(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg"
-                        />
+                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
+                        >
+                            <option value="">Bed Rooms</option>
+                            <option value={1}>1 Bed Room</option>
+                            <option value={2}>2 Bed Rooms</option>
+                            <option value={3}>3 Bed Rooms</option>
+                            <option value={4}>4 Bed Rooms</option>
+                        </select>
                     </div>
                     <div className="flex flex-col w-fit">
                         <label htmlFor="bath" className="block text-white font-medium">Baths</label>
@@ -123,8 +120,8 @@ const PropertySearchBox = () => {
                             className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
                         >
                             <option value="">Select Policy</option>
-                            <option value="allowed">Allowed</option>
-                            <option value="not-allowed">Not Allowed</option>
+                            <option value={true}>Allowed</option>
+                            <option value={false}>Not Allowed</option>
                             <option value="negotiable">Negotiable</option>
                         </select>
                     </div>

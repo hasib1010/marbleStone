@@ -1,6 +1,5 @@
-
+import React, { useCallback, useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
-import React, { useState } from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import PropertySearchBox from './PropertySearchBox';
@@ -8,10 +7,17 @@ import ListedProperties from './ListedProperties';
 
 function Properties() {
     const [activeButton, setActiveButton] = useState("cta1");
+    const [searchParams, setSearchParams] = useState({});
 
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
+
+    const handleSearch = useCallback((params) => {
+        setSearchParams(params);
+    }, []); // empty dependency array ensures it's only created once
+
+
     return (
         <div>
             <div className="relative mx-auto lg:mb-20 bg-[#FAFAFB]
@@ -23,8 +29,7 @@ function Properties() {
                     <Navbar></Navbar>
                     <h1 className='lg:text-7xl text-2xl font-medium text-white text-center lg:mt-12 max-w-[854.75px] mx-auto'>Check on all properties we have available</h1>
                     <div className='max-w-[640px] mx-auto flex flex-col items-center gap-5 text-center mt-9'>
-                        <p className='text-white '>
-
+                        <p className='text-white'>
                             Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas a aliquam arcu arcu nunc pretium id semper ut volutpat. Id gravida aenean.
                         </p>
                         <div className='flex gap-3'>
@@ -58,16 +63,11 @@ function Properties() {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <PropertySearchBox></PropertySearchBox>
-                        <div>
-
-                        </div>
-                    </div>
+                    <PropertySearchBox onSearch={handleSearch} />
                 </div>
             </div>
             <div className='mt-32 mb-20 container mx-auto'>
-                <ListedProperties></ListedProperties>
+                <ListedProperties searchParams={searchParams} />
             </div>
         </div>
     )

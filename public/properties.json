@@ -229,9 +229,32 @@
       "forRentOrSale": "Rent",
       "aboutProperty": "This historic townhouse is located in the heart of Old Town Alexandria, offering a unique blend of classic charm and modern amenities. The property includes three bedrooms and two bathrooms, with original hardwood floors and crown molding throughout. The living room features a fireplace, while the kitchen has been updated with modern appliances and granite countertops. The townhouse also includes a private patio, perfect for enjoying a morning coffee or evening meal. With its prime location, residents can enjoy easy access to the shops, restaurants, and waterfront parks of Old Town. This property is ideal for those who appreciate history and desire the convenience of urban living.",
       "amenities": ["Fireplace", "Private Patio", "Hardwood Floors"]
-    },
+    }
+    ,
     {
       "id": 12,
+      "price": 1100,
+      "bed": 2,
+      "bath": 1,
+      "propertyType": "Apartment",
+      "petsPolicy": true,
+      "location": "French Quarter, New Orleans, LA",
+      "title": "Quaint Apartment in the French Quarter",
+      "thumbnail": "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+      "imageGallery": [
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This quaint two-bedroom apartment is located in the historic French Quarter of New Orleans. The property features a mix of old-world charm and modern conveniences, with original brick walls, high ceilings, and updated fixtures. The apartment includes one bathroom, a cozy living area, and a compact kitchen that’s perfect for small meals. The building is pet-friendly, and residents will enjoy the vibrant atmosphere of the French Quarter, with its live music, cafes, and unique shops. The property also offers a few amenities, including secure entry and a rooftop terrace with views of the city. This apartment is ideal for anyone looking to immerse themselves in the culture and history of New Orleans.",
+      "amenities": ["Rooftop Terrace", "Secure Entry", "Pet-Friendly"]
+    }
+    ,
+    {
+      "id": 13,
       "price": 1100,
       "bed": 2,
       "bath": 1,

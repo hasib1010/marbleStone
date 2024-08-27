@@ -4,7 +4,7 @@ import { GiPriceTag } from 'react-icons/gi';
 import { IoLocationSharp } from 'react-icons/io5';
 
 function PropertyCardLayout({ item }) {
-    console.log(item);
+   
     const { thumbnail, forRentOrSale, location, title } = item
     const renderCategoryIcon = (forRentOrSale) => {
         switch (forRentOrSale) {
@@ -34,6 +34,9 @@ function PropertyCardLayout({ item }) {
       <p className="text-black text-sm gap-3 font-medium flex items-center">
         <IoLocationSharp className='text-xl' /> {location}
       </p>
+      <div className='hidden'>
+            {}
+      </div>
     </div>
   </div>
 </div>
