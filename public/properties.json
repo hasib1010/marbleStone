@@ -1,0 +1,255 @@
+[
+    {
+      "id": 1,
+      "price": 1200,
+      "bed": 2,
+      "bath": 1,
+      "propertyType": "Apartment",
+      "petsPolicy": true,
+      "location": "Downtown, San Francisco, CA",
+      "title": "Modern Apartment in Downtown",
+      "thumbnail": "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+      "imageGallery": [
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This modern apartment is located in the heart of downtown San Francisco, offering a vibrant urban lifestyle. The property features two spacious bedrooms, a well-designed bathroom, and an open-concept living area that maximizes natural light. The kitchen is equipped with modern appliances, perfect for those who love to cook. Located just steps away from public transportation, restaurants, and shopping centers, this apartment is ideal for those who want to be in the center of it all. The building offers a range of amenities, including a gym, pool, and concierge service, making it a convenient and luxurious place to live.",
+      "amenities": ["Gym", "Pool", "Concierge"]
+    },
+    {
+      "id": 2,
+      "price": 320000,
+      "bed": 3,
+      "bath": 2,
+      "propertyType": "Condo",
+      "petsPolicy": false,
+      "location": "Midtown, New York, NY",
+      "title": "Spacious Condo in Midtown",
+      "thumbnail": "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+      "imageGallery": [
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png"
+      ],
+      "forRentOrSale": "Sale",
+      "aboutProperty": "Located in the heart of Midtown, New York, this spacious condo offers stunning city views and an array of modern amenities. The property boasts three large bedrooms, each with ample closet space, and two full bathrooms featuring high-end fixtures. The open living area is perfect for entertaining, with floor-to-ceiling windows that flood the space with natural light. The kitchen is fully equipped with stainless steel appliances and granite countertops, ideal for any home chef. Residents will enjoy the convenience of a doorman, a state-of-the-art gym, and a rooftop lounge where they can relax and take in panoramic views of the city. This condo is perfect for anyone looking for luxury living in one of New York's most sought-after neighborhoods.",
+      "amenities": ["Rooftop Lounge", "Doorman", "Gym"]
+    },
+    {
+      "id": 3,
+      "price": 850,
+      "bed": 1,
+      "bath": 1,
+      "propertyType": "Studio",
+      "petsPolicy": true,
+      "location": "Capitol Hill, Seattle, WA",
+      "title": "Cozy Studio in Capitol Hill",
+      "thumbnail": "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+      "imageGallery": [
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/QJwSFJV/Rectangle-11.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "Nestled in the vibrant Capitol Hill neighborhood of Seattle, this cozy studio apartment is perfect for singles or couples. Despite its compact size, the studio offers a well-designed layout that maximizes space, including a comfortable living area, a small but functional kitchen, and a modern bathroom. The property is pet-friendly, making it a great option for animal lovers. With a location that’s just a short walk from shops, cafes, and nightlife, this studio offers the perfect blend of comfort and convenience. The building also provides a few key amenities, including a washer/dryer facility and secure parking, making it an ideal choice for those seeking affordable urban living.",
+      "amenities": ["Washer/Dryer", "Pet-Friendly", "Parking"]
+    },
+    {
+      "id": 4,
+      "price": 4500000,
+      "bed": 4,
+      "bath": 3,
+      "propertyType": "House",
+      "petsPolicy": false,
+      "location": "Beverly Hills, CA",
+      "title": "Luxurious House in Beverly Hills",
+      "thumbnail": "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+      "imageGallery": [
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png"
+      ],
+      "forRentOrSale": "Sale",
+      "aboutProperty": "This luxurious Beverly Hills home is the epitome of elegance and sophistication. With four spacious bedrooms and three bathrooms, this property is designed to provide the ultimate in comfort and style. The grand entryway leads to a formal living room with high ceilings and large windows that offer stunning views of the beautifully landscaped grounds. The gourmet kitchen is equipped with top-of-the-line appliances, marble countertops, and custom cabinetry, perfect for hosting dinner parties. The master suite includes a spa-like bathroom with a soaking tub and a walk-in closet. Outside, the property features a large pool, a home theater, and a private garden, providing the perfect oasis for relaxation. Located in one of the most prestigious neighborhoods in Los Angeles, this home offers both privacy and luxury, making it a perfect retreat for those seeking the best in upscale living.",
+      "amenities": ["Pool", "Home Theater", "Gourmet Kitchen"]
+    },
+    {
+      "id": 5,
+      "price": 2200,
+      "bed": 3,
+      "bath": 2,
+      "propertyType": "Townhouse",
+      "petsPolicy": true,
+      "location": "Brooklyn, NY",
+      "title": "Charming Townhouse in Brooklyn",
+      "thumbnail": "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+      "imageGallery": [
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/QJwSFJV/Rectangle-11.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This charming townhouse in the heart of Brooklyn offers the perfect blend of historic character and modern convenience. The property features three bedrooms and two bathrooms, with a layout that is both functional and stylish. The living room boasts original hardwood floors and a fireplace, creating a warm and inviting atmosphere. The kitchen is newly renovated, with stainless steel appliances and quartz countertops. One of the highlights of this property is the private backyard, perfect for summer barbecues or gardening. The townhouse is located in a quiet neighborhood, yet is just a short walk from local shops, restaurants, and public transportation. With its combination of space, location, and charm, this property is a rare find in Brooklyn.",
+      "amenities": ["Backyard", "Basement", "Washer/Dryer"]
+    },
+    {
+      "id": 6,
+      "price": 950,
+      "bed": 1,
+      "bath": 1,
+      "propertyType": "Apartment",
+      "petsPolicy": false,
+      "location": "Downtown, Denver, CO",
+      "title": "Affordable Apartment in Downtown Denver",
+      "thumbnail": "https://i.ibb.co/QJwSFJV/Rectangle-11.png",
+      "imageGallery": [
+        "https://i.ibb.co/QJwSFJV/Rectangle-11.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This affordable one-bedroom apartment is located in the heart of downtown Denver, offering convenient access to the city's best amenities. The apartment features a spacious living area with large windows that let in plenty of natural light, a cozy bedroom, and a modern bathroom. The kitchen is equipped with essential appliances and provides enough space for meal preparation. The building is well-maintained and offers a few key amenities, including secure entry, a laundry room, and on-site parking. Located within walking distance of shops, restaurants, and public transportation, this apartment is ideal for anyone looking for a budget-friendly option in a prime location.",
+      "amenities": ["Secure Entry", "Laundry Room", "Parking"]
+    },
+    {
+      "id": 7,
+      "price": 275000,
+      "bed": 3,
+      "bath": 2,
+      "propertyType": "House",
+      "petsPolicy": true,
+      "location": "Austin, TX",
+      "title": "Charming Bungalow in Austin",
+      "thumbnail": "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+      "imageGallery": [
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png"
+      ],
+      "forRentOrSale": "Sale",
+      "aboutProperty": "This charming bungalow in Austin, Texas, offers a perfect blend of classic design and modern updates. The property includes three bedrooms, two bathrooms, and a spacious living area with original hardwood floors. The kitchen is newly renovated, featuring granite countertops and stainless steel appliances. The master suite offers a private retreat with an ensuite bathroom and a walk-in closet. Outside, the bungalow boasts a large deck and a fenced backyard, ideal for outdoor entertaining or relaxing. Located in a friendly neighborhood, this home is close to local parks, schools, and shops, making it an ideal choice for families or anyone looking for a cozy and comfortable home in Austin.",
+      "amenities": ["Large Deck", "Fenced Backyard", "Walk-In Closet"]
+    },
+    {
+      "id": 8,
+      "price": 750000,
+      "bed": 4,
+      "bath": 3,
+      "propertyType": "Villa",
+      "petsPolicy": false,
+      "location": "Scottsdale, AZ",
+      "title": "Luxury Villa in Scottsdale",
+      "thumbnail": "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+      "imageGallery": [
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png"
+      ],
+      "forRentOrSale": "Sale",
+      "aboutProperty": "This luxury villa in Scottsdale, Arizona, offers an exquisite living experience in one of the most sought-after locations in the area. The property features four spacious bedrooms and three bathrooms, each designed with attention to detail and high-end finishes. The villa includes a gourmet kitchen with custom cabinetry, a large island, and top-of-the-line appliances. The living room opens up to a beautifully landscaped backyard with a private pool, and a covered patio area perfect for outdoor dining. The home is located in a quiet, upscale neighborhood, close to golf courses, shopping, and dining options. Whether you're looking to entertain guests or simply enjoy a peaceful lifestyle, this property has everything you need.",
+      "amenities": ["Private Pool", "Covered Patio", "Gourmet Kitchen"]
+    },
+    {
+      "id": 9,
+      "price": 1800,
+      "bed": 2,
+      "bath": 2,
+      "propertyType": "Condo",
+      "petsPolicy": false,
+      "location": "Downtown, Miami, FL",
+      "title": "Stylish Condo in Downtown Miami",
+      "thumbnail": "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+      "imageGallery": [
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/QJwSFJV/Rectangle-11.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This stylish two-bedroom condo is located in the vibrant downtown area of Miami, offering stunning views of the city skyline. The property includes two modern bathrooms, an open-concept living area, and a sleek kitchen with stainless steel appliances. The condo is designed with a contemporary aesthetic, featuring floor-to-ceiling windows that allow for plenty of natural light. Residents will have access to a range of luxury amenities, including a rooftop pool, a fitness center, and a residents' lounge. The location is unbeatable, with easy access to Miami's best restaurants, nightlife, and cultural attractions. This condo is perfect for anyone looking to experience the best of city living in Miami.",
+      "amenities": ["Rooftop Pool", "Fitness Center", "Residents' Lounge"]
+    },
+    {
+      "id": 10,
+      "price": 500000,
+      "bed": 5,
+      "bath": 4,
+      "propertyType": "Single Family Home",
+      "petsPolicy": true,
+      "location": "Charlotte, NC",
+      "title": "Spacious Family Home in Charlotte",
+      "thumbnail": "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+      "imageGallery": [
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/QJwSFJV/Rectangle-11.png"
+      ],
+      "forRentOrSale": "Sale",
+      "aboutProperty": "This spacious five-bedroom home in Charlotte, North Carolina, is perfect for a growing family. The property includes four full bathrooms, a large living room with a fireplace, and a fully equipped kitchen with modern appliances. The home also features a formal dining room, a home office, and a large master suite with a walk-in closet and ensuite bathroom. Outside, the property boasts a large backyard, a two-car garage, and a deck that’s perfect for outdoor entertaining. Located in a quiet, family-friendly neighborhood, this home offers plenty of space and comfort for every member of the family. With its blend of modern amenities and classic charm, this property is a wonderful place to call home.",
+      "amenities": ["Backyard", "Deck", "Fireplace"]
+    },
+    {
+      "id": 11,
+      "price": 2500,
+      "bed": 3,
+      "bath": 2,
+      "propertyType": "Townhouse",
+      "petsPolicy": false,
+      "location": "Old Town, Alexandria, VA",
+      "title": "Historic Townhouse in Old Town Alexandria",
+      "thumbnail": "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+      "imageGallery": [
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png",
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/QJwSFJV/Rectangle-11.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This historic townhouse is located in the heart of Old Town Alexandria, offering a unique blend of classic charm and modern amenities. The property includes three bedrooms and two bathrooms, with original hardwood floors and crown molding throughout. The living room features a fireplace, while the kitchen has been updated with modern appliances and granite countertops. The townhouse also includes a private patio, perfect for enjoying a morning coffee or evening meal. With its prime location, residents can enjoy easy access to the shops, restaurants, and waterfront parks of Old Town. This property is ideal for those who appreciate history and desire the convenience of urban living.",
+      "amenities": ["Fireplace", "Private Patio", "Hardwood Floors"]
+    },
+    {
+      "id": 12,
+      "price": 1100,
+      "bed": 2,
+      "bath": 1,
+      "propertyType": "Apartment",
+      "petsPolicy": true,
+      "location": "French Quarter, New Orleans, LA",
+      "title": "Quaint Apartment in the French Quarter",
+      "thumbnail": "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+      "imageGallery": [
+        "https://i.ibb.co/qxf6qSj/Rectangle-11-3.png",
+        "https://i.ibb.co/Wt9mjZY/Rectangle-11-4.png",
+        "https://i.ibb.co/Tr7NcJd/Rectangle-11-2.png",
+        "https://i.ibb.co/Ykm7TWQ/Rectangle-11-5.png",
+        "https://i.ibb.co/CJrmp0H/Rectangle-11-1.png"
+      ],
+      "forRentOrSale": "Rent",
+      "aboutProperty": "This quaint two-bedroom apartment is located in the historic French Quarter of New Orleans. The property features a mix of old-world charm and modern conveniences, with original brick walls, high ceilings, and updated fixtures. The apartment includes one bathroom, a cozy living area, and a compact kitchen that’s perfect for small meals. The building is pet-friendly, and residents will enjoy the vibrant atmosphere of the French Quarter, with its live music, cafes, and unique shops. The property also offers a few amenities, including secure entry and a rooftop terrace with views of the city. This apartment is ideal for anyone looking to immerse themselves in the culture and history of New Orleans.",
+      "amenities": ["Rooftop Terrace", "Secure Entry", "Pet-Friendly"]
+    }
+  ]
+  

@@ -23,14 +23,13 @@ const About = () => {
         }
       }
     };
-
-    // Delay scrolling to ensure all content is loaded
+ 
     const timer = setTimeout(() => {
       scrollToHash();
-    }, 100); // Adjust delay as needed
+    }, 100);  
 
-    return () => clearTimeout(timer); // Cleanup timer on unmount
-  }, []); // Empty dependency array means this runs once on mount
+    return () => clearTimeout(timer); 
+  }, []);  
 
   const [activeButton, setActiveButton] = useState("cta1");
 
