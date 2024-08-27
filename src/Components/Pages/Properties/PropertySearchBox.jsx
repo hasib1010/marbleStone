@@ -68,18 +68,19 @@ const PropertySearchBox = ({ onSearch }) => {
                     <div className="flex flex-col w-fit">
                         <label htmlFor="bed" className="block text-white font-medium">Beds</label>
                         <select
-                            id="property-type"
-                            value={propertyType}
+                            id="bed"
+                            value={bed}
                             onChange={(e) => setBed(e.target.value)}
                             className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
                         >
                             <option value="">Bed Rooms</option>
-                            <option value={1}>1 Bed Room</option>
-                            <option value={2}>2 Bed Rooms</option>
-                            <option value={3}>3 Bed Rooms</option>
-                            <option value={4}>4 Bed Rooms</option>
+                            <option value="1">1 Bed Room</option>
+                            <option value="2">2 Bed Rooms</option>
+                            <option value="3">3 Bed Rooms</option>
+                            <option value="4">4 Bed Rooms</option>
                         </select>
                     </div>
+                     
                     <div className="flex flex-col w-fit">
                         <label htmlFor="bath" className="block text-white font-medium">Baths</label>
                         <input

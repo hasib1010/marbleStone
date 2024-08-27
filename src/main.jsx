@@ -16,6 +16,7 @@ import Resources from './Components/Pages/Resources/Resources.jsx';
 import ResidentResources from './Components/Pages/Resources/ResidentResources.jsx';
 import Contact from './Components/Pages/Contact/Contact.jsx';
 import Properties from './Components/Pages/Properties/Properties.jsx';
+import PropertyLayout from './Components/Pages/Properties/PropertyLayout.jsx';
 
 const router = createBrowserRouter([
   
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
       {
         path: "/rentals",
         element:<Properties/>
+      }
+      ,
+      {
+        path: "/rentals/:id",
+        element: <PropertyLayout></PropertyLayout>
       }
     ],
   },
