@@ -12,7 +12,7 @@ function PropertyDetails({ property }) {
     const amenities = Array.isArray(property.amenities) ? property.amenities : [];
 
     return (
-        <div className='container mx-auto mb-20'>
+        <div className='container mx-auto mb-20 px-5 lg:px-0'>
             <h1>Properties {'>'} Property Details</h1>
             {property.imageGallery && property.imageGallery.length > 0 ? (
                 <div className='image-gallery my-3 mb-14'>
@@ -43,12 +43,12 @@ function PropertyDetails({ property }) {
                 <p>No images available</p>
             )}
 
-            <div className='grid grid-cols-6 gap-24'>
+            <div className='lg:grid lg:grid-cols-6 gap-24'>
                 <div className='col-span-4'>
                     <h4 className='flex items-center font-medium gap-2'>
                         <IoLocationSharp /> {property.location}
                     </h4>
-                    <h3 className='text-5xl font-medium my-4'>{property.title}</h3>
+                    <h3 className='lg:text-5xl font-medium my-4'>{property.title}</h3>
                     <p className='max-w-[653px] my-6'>{property.highlights}</p>
                     <div className='flex items-center gap-6 my-7'>
                         <h3 className='flex items-center gap-2 text-[#A4A6B0] font-medium'>
@@ -68,7 +68,7 @@ function PropertyDetails({ property }) {
                     <h4 className='text-4xl font-medium my-4'>About the property</h4>
                     <p>{property.aboutProperty}</p>
                     <h4 className='text-4xl font-medium my-4'>Amenities</h4>
-                    <div className='grid grid-cols-3'>
+                    <div className='grid lg:grid-cols-3 grid-cols-2'>
                         {amenities.length > 0 ? (
                             amenities.map((item, index) => (
                                 <p className='flex items-center my-10 gap-2 text-xl w-fit shadow-md px-5 py-1 rounded-full font-medium' key={index}><FaRegLightbulb className='text-4xl text-white bg-black p-1 rounded-full' /> {item}</p>

@@ -69,8 +69,6 @@ function ListedProperties({ searchParams }) {
             filtered = filtered.filter(property => property.petsPolicy === (petsPolicy === 'true'));
         }
 
-        console.log("Filtered properties before sorting:", filtered);
-
         // Sorting logic
         if (sortOptions) {
             switch (sortOptions) {
@@ -94,7 +92,6 @@ function ListedProperties({ searchParams }) {
             }
         }
 
-        console.log("Filtered properties after sorting:", filtered);
         setFilteredProperties(filtered);
     };
 
@@ -109,23 +106,27 @@ function ListedProperties({ searchParams }) {
     };
 
     return (
-        <div>
+        <div className='px-3 lg:px-0'>
             <h1 className='flex gap-2 bg-[#EEEFF1] w-fit px-3 py-2 text-xl font-medium rounded-full items-center'>
                 <FaHouse className='text-white bg-[#A4A6B0] p-[6px] text-3xl rounded-full ' />
-                All properties
+                All Properties
             </h1>
-            <div className='flex items-center justify-between mt-5'>
-                <h4 className='max-w-[345.25px] font-medium text-5xl my-10'>All available properties</h4>
-                <p className='max-w-[562.047px]'>Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa.</p>
+            <div className='lg:flex items-center justify-between lg:mt-5'>
+                <h4 className='max-w-[345.25px] font-medium lg:text-5xl text-2xl lg:my-10 my-2'>
+                    Explore Our Listings
+                </h4>
+                <p className=' lg:max-w-[562.047px]'>
+                    Browse through our extensive collection of properties available for rent or sale. Whether you're looking for a cozy apartment or a spacious family home, we have options to suit every need and budget.
+                </p>
             </div>
-            <div className='grid grid-cols-2 gap-14 '>
+            <div className='grid lg:grid-cols-2 lg:gap-14 '>
                 {/* Property cards */}
                 {currentProperties.length > 0 ? (
                     currentProperties.map(item => (
                         <PropertyCardLayout key={item.id} item={item} />
                     ))
                 ) : (
-                    <p>No properties found</p>
+                    <p>No properties found matching your criteria. Please try adjusting your filters.</p>
                 )}
             </div>
             {/* Page navigation */}

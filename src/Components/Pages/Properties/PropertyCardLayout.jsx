@@ -20,7 +20,7 @@ function PropertyCardLayout({ item }) {
     return (
         <Link to={`/rentals/${id}`}>
             <div className=' '>
-                <div className="bg-white rounded-lg   mx-3   cursor-pointer overflow-hidden py-2 px-4 relative   transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+                <div className="bg-white rounded-lg   lg:mx-3   cursor-pointer overflow-hidden py-2 lg:px-4 relative   transition-transform duration-300 ease-in-out transform lg:hover:scale-105 lg:hover:shadow-lg">
                     <img
                         src={thumbnail}
                         alt=""
@@ -28,7 +28,7 @@ function PropertyCardLayout({ item }) {
                     />
                     <div>
                         <span className="bg-black text-white absolute top-5 left-8 text-sm md:text-base font-medium py-1 px-5 rounded-full flex items-center">
-                            <Symbol className="mr-2 text-lg md:text-xl" />
+                            <Symbol className="mr-2 lg:text-lg md:text-xl" />
                             {renderCategoryIcon(forRentOrSale)} <span>{forRentOrSale}</span>
                         </span>
                         <h2 className="text-lg mt-2 md:text-xl font-bold mb-2">{title}</h2>
