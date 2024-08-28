@@ -11,15 +11,15 @@ function PropertyLayout() {
             .then(res => res.json())
             .then(data => {
                 const propertyInfo = data.find(item => item.id === parseInt(id));
-               seProperty(propertyInfo); 
+                seProperty(propertyInfo);
             })
     }, []);
     console.log(property);
-    
+
     return (
         <div>
-           <Navbar2></Navbar2>
-           <PropertyDetails property={property}></PropertyDetails>
+            <Navbar2></Navbar2>
+            <PropertyDetails property={property}></PropertyDetails>
         </div>
     )
 }

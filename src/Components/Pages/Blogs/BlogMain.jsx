@@ -1,18 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar2 from '../../Navbar/Navbar2';
 import { FaSearch, FaStar } from "react-icons/fa";
 import { HiOutlineArrowSmRight } from "react-icons/hi";
-import { useLoaderData } from 'react-router-dom';
-import BlogSlide from './BlogSlide';
 import mac from "../../../assets/images/mac.png";
 import LatestPost from './LatestPost';
+import BlogSlide from './BlogSlide';
+import { ClipLoader } from 'react-spinners';
 
 const BlogMain = () => {
-    const blogData = useLoaderData();
+    const [loading, setLoading] = useState(true);
+    const [blogData, setBlogData] = useState({ blogs: [] });
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchBlogData = async () => {
+            try {
+                const response = await fetch('/data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('Fetched data:', data); // Debug: Check the data structure
+                setBlogData(data); // Set the entire data object
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error); // Debug: Check the error
+                setError(error.message);
+                setLoading(false);
+            }
+        };
+    
+        fetchBlogData();
+    }, []);
+
+    if (loading) {
+        return (
+            <div className='flex justify-center items-center min-h-screen bg-[#FAFAFB]'>
+                <ClipLoader size={150} color={"#123abc"} loading={loading} />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className='flex justify-center items-center min-h-screen bg-[#FAFAFB]'>
+                <p>Error: {error}</p>
+            </div>
+        );
+    }
 
     return (
         <div className='h-fit bg-[#FAFAFB]'>
-            <Navbar2 /> {/* Navbar Component */}
+            <Navbar2 />
             <div className='max container mx-auto px-4'>
                 <h2 className='lg:text-7xl font-medium my-4'>News & Articles</h2>
                 <div className='flex lg:flex-row md:flex-row flex-col-reverse justify-between my-7'>
@@ -33,7 +72,7 @@ const BlogMain = () => {
                     </div>
                 </div>
 
-                <BlogSlide blogData={blogData} /> {/* Passing the prop */}
+                <BlogSlide blogData={blogData} />
             </div>
 
             <div className='bg-[#14161C] container mx-auto lg:p-28 md:p-10 p-5 rounded-2xl text-white relative my-20 flex lg:flex-row md:flex-col flex-col justify-between'>

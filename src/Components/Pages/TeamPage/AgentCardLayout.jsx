@@ -1,13 +1,14 @@
 import React from 'react';
-import { IoMailOutline } from "react-icons/io5";
-import { IoMdCall } from "react-icons/io";
+import { IoMdCall } from 'react-icons/io';
+import { IoMailOutline } from 'react-icons/io5';
 import { PiPlus } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
-const AgentCard = ({ agent }) => {
-    console.log(agent);
-    const {  name, position, profile_picture } = agent;
+
+function AgentCardLayout({person}) {
+    
+    const {id, name, position, profile_picture } = person;
     return (
-        <Link    className="hover:transition-transform hover:scale-105 duration-300">
+        <Link to={`/team/${id}`}   className="hover:transition-transform hover:scale-105 duration-300">
             <div className="relative flex flex-col items-center gap-6 bg-white shadow-sm px-28 py-10 rounded-xl min-h-[380px]  animate-fadeIn">
                 <img className="rounded-full" src={profile_picture} alt="" />
                 <h3 className="lg:text-2xl text-xl text-center text-[#464851] font-medium">{name}</h3>
@@ -19,9 +20,7 @@ const AgentCard = ({ agent }) => {
                 <PiPlus className="text-white bg-black text-4xl p-1 rounded-full absolute top-5 right-7 cursor-pointer "></PiPlus>
             </div>
         </Link>
-
-    );
+    )
 }
 
-
-export default AgentCard;
+export default AgentCardLayout;

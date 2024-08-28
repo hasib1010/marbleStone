@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar2 from '../../Navbar/Navbar2';
 import { FaPeopleGroup } from 'react-icons/fa6';   
-import Team from '../About/OurTeam/Team';
+import TeamLayout from './TeamLayout';
+  
 
 function TeamPage() {
     return (
@@ -13,7 +14,7 @@ function TeamPage() {
                 <p className='text-center mt-4 mb-12'>We can use this page for both, one for only agents and one for the MPG team.</p> 
             </div>
             <div>
-                 <Team></Team>
+                  <TeamLayout></TeamLayout>
             </div>
         </div>
     )

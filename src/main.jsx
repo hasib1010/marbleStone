@@ -16,8 +16,10 @@ import Resources from './Components/Pages/Resources/Resources.jsx';
 import ResidentResources from './Components/Pages/Resources/ResidentResources.jsx';
 import Contact from './Components/Pages/Contact/Contact.jsx';
 import Properties from './Components/Pages/Properties/Properties.jsx';
-import PropertyLayout from './Components/Pages/Properties/PropertyLayout.jsx';  
+import PropertyLayout from './Components/Pages/Properties/PropertyLayout.jsx';
 import TeamPage from './Components/Pages/TeamPage/TeamPage.jsx';
+import AgentDetails from './Components/Pages/TeamPage/AgentDetails.jsx';
+import { data } from 'autoprefixer';
 
 const router = createBrowserRouter([
   
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
         element: <About></About>,
       }, {
         path: "/blogs",
-        loader: () => fetch('data.json'),
+        // loader: () => fetch('data.json').then(res=>res.json()),
         element: <BlogMain></BlogMain>
       },
       {
@@ -86,6 +88,11 @@ const router = createBrowserRouter([
       {
         path: "/team",
         element: <TeamPage></TeamPage>
+      }
+      ,
+      {
+        path: "/team/:id",
+        element:<AgentDetails></AgentDetails>
       }
     ],
   },
