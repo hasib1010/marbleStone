@@ -9,13 +9,14 @@ function Properties() {
     const [activeButton, setActiveButton] = useState("cta1");
     const [searchParams, setSearchParams] = useState({});
 
+
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
 
     const handleSearch = useCallback((params) => {
         setSearchParams(params);
-    }, []); // empty dependency array ensures it's only created once
+    }, []);  
 
 
     return (

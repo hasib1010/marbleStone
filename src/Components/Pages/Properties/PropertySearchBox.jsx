@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react';
 
 const PropertySearchBox = ({ onSearch }) => {
-    // State to hold input values
-    const [search, setSearch] = useState('');
-    const [minRent, setMinRent] = useState('');
-    const [maxRent, setMaxRent] = useState('');
-    const [bed, setBed] = useState('');
-    const [bath, setBath] = useState('');
-    const [propertyType, setPropertyType] = useState('');
-    const [petsPolicy, setPetsPolicy] = useState('');
-    const [sortOptions, setSortOptions] = useState('');
+    const [search, setSearch] = useState(sessionStorage.getItem('search') || '');
+    const [minRent, setMinRent] = useState(sessionStorage.getItem('minRent') || '');
+    const [maxRent, setMaxRent] = useState(sessionStorage.getItem('maxRent') || '');
+    const [bed, setBed] = useState(sessionStorage.getItem('bed') || '');
+    const [bath, setBath] = useState(sessionStorage.getItem('bath') || '');
+    const [forRentOrSale, setForRentOrSale] = useState(sessionStorage.getItem('forRentOrSale') || '');
+    const [petsPolicy, setPetsPolicy] = useState(sessionStorage.getItem('petsPolicy') || '');
+    const [sortOptions, setSortOptions] = useState(sessionStorage.getItem('sortOptions') || '');
 
-    // Effect to call handleSearch when necessary
     useEffect(() => {
-        onSearch({
+        const searchData = {
             search,
-            minRent,
-            maxRent,
-            bed,
-            bath,
-            propertyType,
-            petsPolicy,
-            sortOptions
+            minRent: minRent ? parseInt(minRent, 10) : '',
+            maxRent: maxRent ? parseInt(maxRent, 10) : '',
+            bed: bed ? parseInt(bed, 10) : '',
+            bath: bath ? parseInt(bath, 10) : '',
+            forRentOrSale: forRentOrSale || '',
+            petsPolicy: petsPolicy ? (petsPolicy === 'true') : '',
+            sortOptions: sortOptions || ''
+        };
+
+        // Save state to sessionStorage
+        Object.keys(searchData).forEach(key => {
+            sessionStorage.setItem(key, searchData[key]);
         });
-    }, [search, minRent, maxRent, bed, bath, propertyType, petsPolicy, sortOptions, onSearch]);
+
+        onSearch(searchData);
+    }, [search, minRent, maxRent, bed, bath, forRentOrSale, petsPolicy, sortOptions, onSearch]);
 
     return (
-        <div className="w-[83%] mx-auto p-6 focus:ring-0 focus:outline-none  backdrop-blur-xl mt-6  rounded-lg shadow-md">
+        <div className="w-[83%] mx-auto p-6 focus:ring-0 focus:outline-none backdrop-blur-xl mt-6 rounded-lg shadow-md">
             <form>
                 {/* First Line */}
                 <div className="grid lg:grid-cols-6 gap-4 mb-6">
@@ -50,7 +55,7 @@ const PropertySearchBox = ({ onSearch }) => {
                             min="0"
                             value={minRent}
                             onChange={(e) => setMinRent(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg"
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg"
                         />
                     </div>
                     <div className="flex flex-col w-fit">
@@ -62,7 +67,7 @@ const PropertySearchBox = ({ onSearch }) => {
                             min="0"
                             value={maxRent}
                             onChange={(e) => setMaxRent(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg"
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg"
                         />
                     </div>
                     <div className="flex flex-col w-fit">
@@ -71,45 +76,46 @@ const PropertySearchBox = ({ onSearch }) => {
                             id="bed"
                             value={bed}
                             onChange={(e) => setBed(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg w-full"
                         >
                             <option value="">Bed Rooms</option>
-                            <option value="1">1 Bed Room</option>
-                            <option value="2">2 Bed Rooms</option>
-                            <option value="3">3 Bed Rooms</option>
-                            <option value="4">4 Bed Rooms</option>
+                            <option value={1}>1 Bed Room</option>
+                            <option value={2}>2 Bed Rooms</option>
+                            <option value={3}>3 Bed Rooms</option>
+                            <option value={4}>4 Bed Rooms</option>
                         </select>
                     </div>
-                     
                     <div className="flex flex-col w-fit">
                         <label htmlFor="bath" className="block text-white font-medium">Baths</label>
-                        <input
-                            type="number"
+                        <select
                             id="bath"
-                            placeholder="Baths"
-                            min="0"
                             value={bath}
                             onChange={(e) => setBath(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg"
-                        />
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg w-full"
+                        >
+                            <option value="">Baths</option>
+                            <option value={1}>1 Bath Room</option>
+                            <option value={2}>2 Bath Rooms</option>
+                            <option value={3}>3 Bath Rooms</option>
+                            <option value={4}>4 Bath Rooms</option>
+                            <option value={5}>5 Bath Rooms</option>
+                        </select>
                     </div>
                 </div>
 
                 {/* Second Line */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                     <div>
-                        <label htmlFor="property-type" className="block mb-1 text-white font-medium">Property Type:</label>
+                        <label htmlFor="forRentOrSale" className="block mb-1 text-white font-medium">Property For:</label>
                         <select
-                            id="property-type"
-                            value={propertyType}
-                            onChange={(e) => setPropertyType(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
+                            id="forRentOrSale"
+                            value={forRentOrSale}
+                            onChange={(e) => setForRentOrSale(e.target.value)}
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg w-full"
                         >
-                            <option value="">Select Type</option>
-                            <option value="apartment">Apartment</option>
-                            <option value="house">House</option>
-                            <option value="condo">Condo</option>
-                            <option value="townhouse">Townhouse</option>
+                            <option value="">Select</option>
+                            <option value="Sale">For Sale</option>
+                            <option value="Rent">For rent</option>
                         </select>
                     </div>
                     <div>
@@ -118,12 +124,11 @@ const PropertySearchBox = ({ onSearch }) => {
                             id="pets-policy"
                             value={petsPolicy}
                             onChange={(e) => setPetsPolicy(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg w-full"
                         >
                             <option value="">Select Policy</option>
-                            <option value={true}>Allowed</option>
-                            <option value={false}>Not Allowed</option>
-                            <option value="negotiable">Negotiable</option>
+                            <option value="true">Allowed</option>
+                            <option value="false">Not Allowed</option>
                         </select>
                     </div>
                     <div>
@@ -132,7 +137,7 @@ const PropertySearchBox = ({ onSearch }) => {
                             id="sort-options"
                             value={sortOptions}
                             onChange={(e) => setSortOptions(e.target.value)}
-                            className="p-2 focus:ring-0 focus:outline-none   rounded-lg w-full"
+                            className="p-2 focus:ring-0 focus:outline-none rounded-lg w-full"
                         >
                             <option value="price-asc">Price: Low to High</option>
                             <option value="price-desc">Price: High to Low</option>
@@ -142,8 +147,6 @@ const PropertySearchBox = ({ onSearch }) => {
                         </select>
                     </div>
                 </div>
-
-                {/* No Search button needed as search is triggered automatically */}
             </form>
         </div>
     );

@@ -9,19 +9,21 @@ function ListedProperties({ searchParams }) {
     const propertiesPerPage = 6;
 
     useEffect(() => {
+        // Fetch properties when the component mounts
         fetch("properties.json")
             .then(res => res.json())
             .then(data => {
                 setProperties(data);
-                filterProperties(data);
-            });
+                setFilteredProperties(data); // Default to showing all properties
+            })
+            .catch(err => console.error("Error fetching properties:", err));
     }, []);
 
     useEffect(() => {
+        // Filter properties based on searchParams
         filterProperties(properties);
     }, [searchParams, properties]);
 
-    // Filter properties based on search parameters
     const filterProperties = (properties) => {
         const {
             search,
@@ -29,13 +31,14 @@ function ListedProperties({ searchParams }) {
             maxRent,
             bed,
             bath,
-            propertyType,
+            forRentOrSale,
             petsPolicy,
             sortOptions
         } = searchParams;
 
         let filtered = properties;
 
+        // Filtering logic
         if (search) {
             filtered = filtered.filter(property =>
                 property.title.toLowerCase().includes(search.toLowerCase())
@@ -43,42 +46,45 @@ function ListedProperties({ searchParams }) {
         }
 
         if (minRent) {
-            filtered = filtered.filter(property => property.rent >= minRent);
+            filtered = filtered.filter(property => property.price >= parseFloat(minRent));
         }
 
         if (maxRent) {
-            filtered = filtered.filter(property => property.rent <= maxRent);
+            filtered = filtered.filter(property => property.price <= parseFloat(maxRent));
         }
 
         if (bed) {
-            filtered = filtered.filter(property => property.beds >= bed);
+            filtered = filtered.filter(property => property.bed >= parseInt(bed, 10));
         }
 
         if (bath) {
-            filtered = filtered.filter(property => property.baths >= bath);
+            filtered = filtered.filter(property => property.bath >= parseInt(bath, 10));
         }
 
-        if (propertyType) {
-            filtered = filtered.filter(property => property.type === propertyType);
+        if (forRentOrSale) {
+            filtered = filtered.filter(property => property.forRentOrSale === forRentOrSale);
         }
 
         if (petsPolicy) {
-            filtered = filtered.filter(property => property.petsPolicy === petsPolicy);
+            filtered = filtered.filter(property => property.petsPolicy === (petsPolicy === 'true'));
         }
 
+        console.log("Filtered properties before sorting:", filtered);
+
+        // Sorting logic
         if (sortOptions) {
             switch (sortOptions) {
                 case 'price-asc':
-                    filtered.sort((a, b) => a.rent - b.rent);
+                    filtered.sort((a, b) => a.price - b.price);
                     break;
                 case 'price-desc':
-                    filtered.sort((a, b) => b.rent - a.rent);
+                    filtered.sort((a, b) => b.price - a.price);
                     break;
                 case 'beds-asc':
-                    filtered.sort((a, b) => a.beds - b.beds);
+                    filtered.sort((a, b) => a.bed - b.bed);
                     break;
                 case 'beds-desc':
-                    filtered.sort((a, b) => b.beds - a.beds);
+                    filtered.sort((a, b) => b.bed - a.bed);
                     break;
                 case 'newest':
                     filtered.sort((a, b) => new Date(b.listedDate) - new Date(a.listedDate));
@@ -88,17 +94,16 @@ function ListedProperties({ searchParams }) {
             }
         }
 
+        console.log("Filtered properties after sorting:", filtered);
         setFilteredProperties(filtered);
     };
 
-    
     const indexOfLastProperty = currentPage * propertiesPerPage;
     const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
     const currentProperties = filteredProperties.slice(indexOfFirstProperty, indexOfLastProperty);
 
-     
     const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
- 
+
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
@@ -113,11 +118,15 @@ function ListedProperties({ searchParams }) {
                 <h4 className='max-w-[345.25px] font-medium text-5xl my-10'>All available properties</h4>
                 <p className='max-w-[562.047px]'>Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa.</p>
             </div>
-            <div className='grid grid-cols-2 gap-14 '> 
+            <div className='grid grid-cols-2 gap-14 '>
                 {/* Property cards */}
-                {currentProperties.map(item => (
-                    <PropertyCardLayout key={item.id} item={item} />
-                ))}
+                {currentProperties.length > 0 ? (
+                    currentProperties.map(item => (
+                        <PropertyCardLayout key={item.id} item={item} />
+                    ))
+                ) : (
+                    <p>No properties found</p>
+                )}
             </div>
             {/* Page navigation */}
             {totalPages > 1 && (
