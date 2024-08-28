@@ -3,6 +3,7 @@ import { FaKey } from 'react-icons/fa';
 import { GiPriceTag } from 'react-icons/gi';
 import { IoLocationSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { GoPlus } from "react-icons/go";
 
 function PropertyCardLayout({ item }) {
 
@@ -31,6 +32,7 @@ function PropertyCardLayout({ item }) {
                             <Symbol className="mr-2 lg:text-lg md:text-xl" />
                             {renderCategoryIcon(forRentOrSale)} <span>{forRentOrSale}</span>
                         </span>
+                        <span className='absolute top-5 right-8'><GoPlus className='bg-white rounded-full text-4xl'></GoPlus></span>
                         <h2 className="text-lg mt-2 md:text-xl font-bold mb-2">{title}</h2>
                         <div className="flex my-4 md:flex-row lg:flex-row justify-between md:items-center">
                             <p className="text-black text-sm gap-3 font-medium flex items-center">
