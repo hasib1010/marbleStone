@@ -115,11 +115,11 @@ const Navbar = () => {
                             dropdownName="rentals"
                             dropdownLinks={[
                                 '/rentals',
-                                '/rentals/properties',
+                                '/rentals',
                                 'https://rentbutter.com/apply/marblestone',
                             ]}
                         >
-                            <DropdownItem to="/rentals/properties">Properties</DropdownItem>
+                            <DropdownItem to="/rentals">Properties</DropdownItem>
                             <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
                         </Dropdown>
 
@@ -214,11 +214,11 @@ const Navbar = () => {
                             dropdownName="rentals"
                             dropdownLinks={[
                                 '/rentals',
-                                '/rentals/properties',
+                                '/rentals ',
                                 'https://rentbutter.com/apply/marblestone',
                             ]}
                         >
-                            <DropdownItem to="/rentals/properties">Properties</DropdownItem>
+                            <DropdownItem to="/rentals">Properties</DropdownItem>
                             <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
                         </Dropdown>
 
