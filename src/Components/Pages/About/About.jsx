@@ -23,13 +23,13 @@ const About = () => {
         }
       }
     };
- 
+
     const timer = setTimeout(() => {
       scrollToHash();
-    }, 100);  
+    }, 100);
 
-    return () => clearTimeout(timer); 
-  }, []);  
+    return () => clearTimeout(timer);
+  }, []);
 
   const [activeButton, setActiveButton] = useState("cta1");
 
@@ -38,7 +38,7 @@ const About = () => {
   };
 
   return (
-    <div className='bg-[#FAFAFB]'>
+    <div className='bg-[#FAFAFB] p-4 lg:p-0'>
       <div className='mb-[56px] '>
         <Navbar2 />
       </div>
@@ -80,10 +80,10 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className='mt-14 flex flex-col md:flex-col lg:flex-row w-full justify-center gap-6 mb-20'>
+      <div className='mt-14 flex flex-col md:flex-col lg:flex-row w-fit gap-6  mx-auto  lg:mb-20 mb-5'>
         <div className=' flex flex-col items-center'>
-          <img src={image1} alt="Property 1" />
-          <div className='flex mt-[55px] lg:gap-8 md:text-center lg:text-left text-center'>
+          <img className=' lg:h-[443px] rounded-xl ' src={image1} alt="Property 1" />
+          <div className='flex mt-4 lg:gap-8 md:text-center lg:text-left text-center'>
             <div className='max-w-[200px] '>
               <h5 className='text-[18px] font-medium'>Properties Managed</h5>
               <p className='text-7xl font-medium'>10k<span className='text-[#A4A6B0]'>+</span></p>
@@ -97,7 +97,7 @@ const About = () => {
           </div>
         </div>
         <div>
-          <img src={image2} alt="Property 2" />
+          <img className='rounded-xl lg:h-[662px]' src={image2} alt="Property 2" />
         </div>
       </div>
       <div className='container mx-auto'>

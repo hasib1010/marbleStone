@@ -9,9 +9,12 @@ const Team = () => {
             .then(res => res.json())
             .then(data => setTeam(data)
             )
-    }, [])
+    }, []);
+    console.log(team);
+    
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center my-10'>
+            
             {
                 team.map(agent =>
                     <AgentCard key={agent.username} agent={agent}></AgentCard>

@@ -20,8 +20,8 @@ function Properties() {
 
 
     return (
-        <div>
-            <div className="relative mx-auto lg:mb-20   bg-[#FAFAFB]
+        <div className='bg-[#FAFAFB]'>
+            <div className="relative mx-auto lg:mb-20   
                h-fit p-5 lg:p-0  lg:h-[602px]
             bg-[url('./assets/images/RentAnimations/banner.png')] 
             bg-no-repeat bg-center bg-cover 
