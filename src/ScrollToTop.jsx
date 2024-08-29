@@ -1,28 +1,27 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const useDebounce = (callback, delay) => {
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      callback();
-    }, delay);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [callback, delay]);
-};
-
 const ScrollToTop = () => {
   const location = useLocation();
 
-  useDebounce(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }); 
-    
+  useEffect(() => {
+    // Function to handle scrolling to the hash
+    const scrollToHash = () => {
+      if (location.hash) {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    scrollToHash();
+  }, [location]);
+
   return null;
 };
 

@@ -10,7 +10,7 @@ const Faq1 = () => {
     };
 
     return (
-        <section id='ownerFaq' className="py-4 md:py-4 lg:py-8 my-20">
+        <section  className="py-4 md:py-4 lg:py-8 my-20">
             <div className="mx-auto max-w-7xl p-4 sm:p-6 lg:p-0">
                 <div className="flex flex-col    lg:flex-row lg:items-start items-center  lg:gap-[98px]">
 

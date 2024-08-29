@@ -267,7 +267,8 @@ const InquiryForm = () => {
                     </div>
                 </div>
 
-                <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                <button type="submit" value={"submit"} className="relative flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 text-white
+        transition-all transform hover:scale-105 hover:shadow-lg button-gradient button-gradient-hover ">
                     <span className=" ">Send message</span>
                     <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
                 </button>

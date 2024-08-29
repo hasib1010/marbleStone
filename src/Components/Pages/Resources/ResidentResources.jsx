@@ -4,6 +4,7 @@ import r from "../../../assets/images/resourse/r.png"; // Ensure this path is co
 import { TiAttachment } from 'react-icons/ti';
 import { FaDownload } from 'react-icons/fa';
 import arrow from '../../../assets/logo/Element.png';
+import { Link } from 'react-router-dom';
 function ResidentResources() {
     return (
         <div className='bg-[#FAFAFB] w-[98%] mx-auto'>
@@ -28,7 +29,7 @@ function ResidentResources() {
                             <h6 className='text-xl font-medium'>Find Your Perfect Home</h6>
                             <p className='max-w-[650px]'>If you are in the market for your perfect rental home, you have come to the right place. As a prospective tenant, we can help you through the process of finding and applying for the home of your dreams. Once you are a resident, we have a suite of tools to make your rental experience the best it can be.</p>
                         </div>
-                        <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                        <button type="submit" value={"submit"} className="relative flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 text-white transition-all transform hover:scale-105 hover:shadow-lg button-gradient button-gradient-hover w-fit">
                             <span className=" ">View Properties</span>
                             <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
@@ -60,7 +61,7 @@ function ResidentResources() {
                             <h6 className='text-xl font-medium'>Resources to Make Your Stay Comfortable</h6>
                             <p className='max-w-[650px]'>If you are in the market for your perfect rental home, you have come to the right place. As a prospective tenant, we can help you through the process of finding and applying for the home of your dreams. Once you are a resident, we have a suite of tools to make your rental experience the best it can be.</p>
                         </div>
-                        <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                        <button type="submit" value={"submit"} className="relative flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 text-white transition-all transform hover:scale-105 hover:shadow-lg button-gradient button-gradient-hover w-fit">
                             <span className=" ">Resident Portal</span>
                             <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
@@ -86,16 +87,16 @@ function ResidentResources() {
                 <div className='max-w-[588px] flex flex-col items-center mx-auto gap-8 px-24 py-20 shadow-lg rounded-xl mb-10'>
                     <h4 className='lg:text-5xl md:text-3xl text-2xl  font-medium '>Have a Question?</h4>
                     <div className='flex flex-col lg:flex-row md:flex-row mt-3 items-center gap-6'>
-                        <a href="/about/#ownerFaq" className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                        <Link to="/about#ownerFaq" className="relative flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 text-white transition-all transform hover:scale-105 hover:shadow-lg button-gradient button-gradient-hover w-fit">
                             <span>Owner FAQs</span>
                             <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
-                        </a>
+                        </Link>
 
-                        <a href='/about'>
-                            <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
+                        <Link to='/about'>
+                            <button type="submit" value={"submit"} className="relative flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 text-white transition-all transform hover:scale-105 hover:shadow-lg button-gradient button-gradient-hover w-fit">
                                 <span className=" ">Contact Us</span>
                                 <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
-                            </button></a>
+                            </button></Link>
                     </div>
                 </div>
             </div>

@@ -56,10 +56,17 @@ function AgentDetails() {
                             <img className='rounded-t-3xl' src={cover} alt="" />
                             <div className='flex items-end lg:gap-40 lg:justify-center gap-10 absolute -bottom-12 left-2'>
                                 <img className='rounded-full w-[100px] h-[97.857px]' src={agent.profile_picture} alt="" />
-                                <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px]  w-fit font-medium leading-5 bg-[#990A05] text-white">
-                                    <span className=" block">Contact me</span>
-                                    <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                                <button
+                                    className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px] w-fit font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105"
+                                >
+                                    <span className="block">Contact me</span>
+                                    <img
+                                        className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full transition-transform duration-300 hover:scale-110"
+                                        src={arrow}
+                                        alt="Arrow"
+                                    />
                                 </button>
+
                             </div>
                         </div>
                         <div className='pl-3 flex flex-col gap-8'>
@@ -92,7 +99,7 @@ function AgentDetails() {
                             <p>marblestonepg.com/{agent.username}</p>
                         </div>
                     </div>
-                    <div  className='text-center lg:text-left '>
+                    <div className='text-center lg:text-left '>
                         <h4 className='text-4xl font-medium'>About me</h4>
                         <p className='max-w-[653px] mt-4'>{agent.about_me}</p>
                         <h4 className='text-4xl font-medium mt-6'>My experience</h4>

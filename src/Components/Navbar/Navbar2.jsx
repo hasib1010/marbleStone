@@ -137,7 +137,7 @@ const Navbar2 = () => {
                         <Link to="/contact">
                             <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/contact')}`}>Contact</li>
                         </Link>
-                        <button className="flex items-center gap-2 pl-[16px] pr-[8px] py-[6px] rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                        <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px] w-fit font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105">
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
                     </div>
@@ -237,7 +237,7 @@ const Navbar2 = () => {
                         <Link to="/contact" onClick={() => setIsOpen(false)}>
                             <li className={`py-2 lg:text-[16px] font-medium leading-5 ${isActive('/contact')}`}>Contact</li>
                         </Link>
-                        <button className="flex w-fit items-center justify-center gap-2 py-2 mt-4  px-4 rounded-3xl lg:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                        <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px] w-fit font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105">
                             Book a call <BsArrowRight className="text-white bg-[#C32723] rounded-full p-2 w-8 h-8" />
                         </button>
                     </div>

@@ -11,32 +11,34 @@ import { Link } from "react-router-dom";
 
 const BlogCard = ({ image, category, title, date, symbol: Symbol, id }) => {
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden px-1 relative w-full ">
-            <img src={image} alt={title} className="w-[95%] mx-auto rounded-xl h-48 object-cover md:h-64" />
-            <div className="p-4 md:p-6">
-                <span className="bg-white text-black absolute top-3 left-5 text-sm md:text-base font-medium py-1 px-2 rounded-full flex items-center">
-                    <Symbol className="mr-2 text-lg md:text-xl" /> {category}
-                </span>
-                <h2 className="text-lg md:text-xl font-bold mb-2">{title}</h2>
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <p className="text-gray-600 text-sm flex items-center mb-4">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                fillRule="evenodd"
-                                d="M6 2a1 1 0 011 1v1h6V3a1 1 0 112 0v1h1a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 011-1zm0 4v11h8V6H6zM9 9a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
-                                clipRule="evenodd"
-                            />
-                        </svg> {date}
-                    </p>
-                    <Link to={`/blogs/${id}`} className="text-black hover:underline text-sm flex items-center">
-                        Read more <RiArrowRightSLine className="text-xl ml-2" />
-                    </Link>
+        <Link to={`/blogs/${id}`}>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden px-1 relative w-full ">
+                <img src={image} alt={title} className="w-[95%] mx-auto rounded-xl h-48 object-cover md:h-64" />
+                <div className="p-4 md:p-6">
+                    <span className="bg-white text-black absolute top-3 left-5 text-sm md:text-base font-medium py-1 px-2 rounded-full flex items-center">
+                        <Symbol className="mr-2 text-lg md:text-xl" /> {category}
+                    </span>
+                    <h2 className="text-lg md:text-xl font-bold mb-2">{title}</h2>
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <p className="text-gray-600 text-sm flex items-center mb-4">
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    fillRule="evenodd"
+                                    d="M6 2a1 1 0 011 1v1h6V3a1 1 0 112 0v1h1a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 011-1zm0 4v11h8V6H6zM9 9a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
+                                    clipRule="evenodd"
+                                />
+                            </svg> {date}
+                        </p>
+                        <Link to={`/blogs/${id}`} className="text-black hover:underline text-sm flex items-center">
+                            Read more <RiArrowRightSLine className="text-xl ml-2" />
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
- 
+
 const BlogSection = () => {
     return (
         <div className="text-gray-800 mt-0 md:mt-16">

@@ -31,7 +31,7 @@ const PropertySearchBox = ({ onSearch }) => {
     }, [search, minRent, maxRent, bed, bath, forRentOrSale, petsPolicy, sortOptions, onSearch]);
 
     return (
-        <div className="lg:w-[83%] mx-auto p-6 focus:ring-0 focus:outline-none backdrop-blur-md  mt-6 rounded-lg shadow-md">
+        <div className="lg:w-[83%] mx-auto p-6 focus:ring-0 focus:outline-none backdrop-blur-sm  mt-6 rounded-lg shadow-md">
             <form>
                 {/* First Line */}
                 <div className="grid lg:grid-cols-6 grid-cols-1 lg:gap-4 gap-3  mb-6">

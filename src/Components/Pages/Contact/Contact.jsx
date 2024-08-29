@@ -100,10 +100,19 @@ function Contact() {
                                         />
                                     </div>
                                 </div>
-                                <button type="submit" value={"submit"} className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white ">
-                                    <span className=" ">Send message</span>
-                                    <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
+                                <button
+                                    type="submit"
+                                    value={"submit"}
+                                    className="flex w-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105"
+                                >
+                                    <span>Send message</span>
+                                    <img
+                                        className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full transition-transform duration-300 hover:scale-110"
+                                        src={arrow}
+                                        alt="Arrow"
+                                    />
                                 </button>
+
                             </div>
                         </div>
                         <div className='text-white w-full flex p-10 lg:p-0 flex-col max-w-[700.074px] gap-4 items-start justify-center'>
@@ -144,24 +153,33 @@ function Contact() {
                 </div>
             </div>
             <div className='container mx-auto'>
-            <h3 className='flex items-center text-xl font-medium gap-2 px-3 lg:mt-40 mt-10 py-2 lg:mb-10 bg-[#EEEFF1] w-fit rounded-full'>
-                <FaLocationDot className='text-4xl text-white bg-[#A4A6B0] p-2 rounded-full' /> Our Offices
-            </h3>
-            <div className='flex justify-between flex-col p-4 lg:p-0 lg:items-start items-end lg:my-10'>
-                <div>
-                    <h3 className='lg:text-5xl text-2xl font-medium mb-6'>Visit Our Offices</h3>
-                    <p className='max-w-[480px] mt-4'>
-                        We have several offices to serve you better. Here are the details of our locations:
-                    </p>
-                    
+                <h3 className='flex items-center text-xl font-medium gap-2 px-3 lg:mt-40 mt-10 py-2 lg:mb-10 bg-[#EEEFF1] w-fit rounded-full'>
+                    <FaLocationDot className='text-4xl text-white bg-[#A4A6B0] p-2 rounded-full' /> Our Offices
+                </h3>
+                <div className='flex justify-between flex-col p-4 lg:p-0 lg:items-start items-end lg:my-10'>
+                    <div>
+                        <h3 className='lg:text-5xl text-2xl font-medium mb-6'>Visit Our Offices</h3>
+                        <p className='max-w-[480px] mt-4'>
+                            We have several offices to serve you better. Here are the details of our locations:
+                        </p>
+
+                    </div>
+                    <button
+                        type="submit"
+                        value={"submit"}
+                        className="lg:mt-6 mt-0 flex w-fit h-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white transition-colors duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105"
+                    >
+                        <span>Contact Us</span>
+                        <img
+                            className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full transition-transform duration-300 hover:scale-110"
+                            src={arrow}
+                            alt="Arrow"
+                        />
+                    </button>
+
                 </div>
-                <button type="submit" value={"submit"} className="lg:mt-6 mt-0 flex w-fit h-fit items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
-                    <span>Contact Us</span>
-                    <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
-                </button>
+                <LocationCarousel />
             </div>
-            <LocationCarousel />
-        </div>
         </div >
     );
 }

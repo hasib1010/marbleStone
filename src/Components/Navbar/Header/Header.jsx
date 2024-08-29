@@ -10,15 +10,15 @@ const Header = () => {
             bg-no-repeat bg-center bg-cover 
             rounded-[5px] md:rounded-[8px] lg:rounded-[10px] 
             w-[95%] md:w-[97%] lg:w-[98%]">
-            
+
             {/* Navbar */}
             <div className="relative z-40">
                 <Navbar />
             </div>
-            
+
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1f1f1f80] to-[#282626d9] z-10" />
-            
+
             {/* Content */}
             <div className="relative container mx-auto px-4 md:px-8 z-20">
                 <div className="flex flex-col lg:flex-row justify-between mt-[24px] md:mt-[44px]">
@@ -30,7 +30,8 @@ const Header = () => {
                             Experience the best of Southside Chicago with our premium property management services. From cozy apartments to luxurious homes, find the perfect place that fits your lifestyle and needs.
                         </p>
                         <div className="">
-                            <button className="flex items-center gap-2 px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
+                            <button className="relative flex items-center gap-2 px-4 py-2 rounded-3xl text-[16px] font-medium leading-5 text-white
+        transition-all transform hover:scale-105 hover:shadow-lg button-gradient button-gradient-hover">
                                 <span className="hidden sm:block">Get Started</span>
                                 <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
                             </button>
