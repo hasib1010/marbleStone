@@ -9,7 +9,7 @@ import { FaSearch } from "react-icons/fa";
 
 const WhyUs = () => {
     return (
-        <div className='flex flex-col md:flex-col lg:flex-row lg:gap-12 lg:justify-between mt-24 items-center mb-10 px-4 md:px-0'>
+        <div className='flex flex-col md:flex-col lg:flex-row lg:gap-12 lg:justify-between lg:mt-44 mt-10 items-center lg:mb-10 mb-3 px-4 md:px-0'>
             <div className='flex flex-col lg:gap-6 p-4 lg:w-1/2'>
                 <div className='flex w-fit items-center gap-2 bg-[#EEEFF1] py-2 px-4 rounded-full'>
                     <FaSearch className='text-3xl p-2 w-fit bg-slate-300 rounded-full text-white' />

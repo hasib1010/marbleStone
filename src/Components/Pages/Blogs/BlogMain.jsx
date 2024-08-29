@@ -20,11 +20,11 @@ const BlogMain = () => {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log('Fetched data:', data); // Debug: Check the data structure
-                setBlogData(data); // Set the entire data object
+                console.log('Fetched data:', data); 
+                setBlogData(data);
                 setLoading(false);
             } catch (error) {
-                console.error('Error fetching data:', error); // Debug: Check the error
+                console.error('Error fetching data:', error); 
                 setError(error.message);
                 setLoading(false);
             }

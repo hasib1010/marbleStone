@@ -4,12 +4,12 @@ import arrow from './../../../assets/logo/Element.png';
 
 const Header = () => {
     return (
-        <div className="relative mx-auto lg:mb-20 bg-[#FAFAFB]
+        <div className="relative   lg:mb-20 bg-[#FAFAFB]
             h-[500px] sm:h-[900px] md:h-[600px] lg:h-[900px] xl:h-[1086px]
             bg-[url('./assets/images/banner.png')] 
             bg-no-repeat bg-center bg-cover 
-            rounded-[5px] md:rounded-[8px] lg:rounded-[10px] 
-            w-[95%] md:w-[97%] lg:w-[98%]">
+             rounded-[20.009px]
+              ">
 
             {/* Navbar */}
             <div className="relative z-40">
@@ -17,7 +17,7 @@ const Header = () => {
             </div>
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1f1f1f80] to-[#282626d9] z-10" />
+            <div className="absolute rounded-[20.009px] inset-0 bg-gradient-to-b from-transparent via-[#3b393980] to-[#362d2dd9] z-10" />
 
             {/* Content */}
             <div className="relative container mx-auto px-4 md:px-8 z-20">

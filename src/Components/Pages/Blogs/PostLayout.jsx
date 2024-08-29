@@ -65,7 +65,7 @@ const PostLayout = ({ blog }) => {
                 <div className='my-14'>
                     <img className='lg:h-[490px] w-full rounded-xl' src={blog_banner_image} alt="Blog banner" />
                 </div>
-                <div className='max-w-[640px] mx-auto'>
+                <div className='max-w-[1200px] mx-auto'>
                     {
                         content.map((article, index) => (
                             <div key={index}>

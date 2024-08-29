@@ -6,7 +6,7 @@ import ScrollToTop from './ScrollToTop';
 const Root = () => {
   
     return (
-        <div className='bg-[#FAFAFB]'> 
+        <div className='bg-[#FAFAFB] mx-3 my-3'> 
         <ScrollToTop></ScrollToTop>
           <Outlet></Outlet>
           <Footer></Footer>

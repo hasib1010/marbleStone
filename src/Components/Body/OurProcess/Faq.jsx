@@ -32,7 +32,7 @@ const FaqSection = () => {
                                         content: "After your visit, if you decide to move forward, we'll guide you through the purchasing process. Our team will handle the paperwork, negotiations, and inspections to ensure a smooth transaction. With our streamlined approach, you could be settling into your new home in less than a month!"
                                     }
                                 ].map((item, index) => (
-                                    <div key={index} className={`accordion lg:p-12 md:p-4 p-3 shadow-sm  rounded-lg bg-white ${openIndex === index ? 'active' : ''}`}>
+                                    <div key={index} className={`accordion lg:p-10 md:p-4 p-3 shadow-sm  rounded-lg bg-white ${openIndex === index ? 'active' : ''}`}>
                                         <button
                                             className="accordion-toggle group inline-flex text-left items-center gap-2 justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-gray-400"
                                             onClick={() => handleToggle(index)}
