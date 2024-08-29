@@ -17,12 +17,12 @@ function Contact() {
                 <div className="mx-auto container">
                     <Navbar />
                     <h1 className='text-center text-white text-2xl lg:text-7xl font-medium'>Contact Us</h1>
-                    <p className='max-w-[562.047px] mx-auto mt-4 text-white mb-9'>
+                    <p className='max-w-[562.047px] mx-auto mt-4 text-white mb-9 px-2 '>
                         We're here to help! Whether you have a question about our services, need assistance, or just want to give feedback, feel free to reach out to us.
                     </p>
 
                     <div className='flex items-center flex-col lg:flex-row  lg:pb-[100px] lg:gap-16 gap-6 '>
-                        <div className='bg-white px-12 py-11 rounded-2xl w-full'>
+                        <div className='bg-white px-12 py-11 rounded-2xl lg:w-[70%]'>
                             <div className="mb-6">
                                 <div className="flex gap-7 lg:flex-row flex-col">
                                     <div className="mb-4 w-full">
@@ -115,7 +115,7 @@ function Contact() {
 
                             </div>
                         </div>
-                        <div className='text-white w-full flex p-10 lg:p-0 flex-col max-w-[700.074px] gap-4 items-start justify-center'>
+                        <div className='text-white lg:w-[35%] flex p-10 lg:p-0 flex-col max-w-[700.074px] gap-4 items-start justify-center'>
                             <h4 className='text-3xl font-medium'>Reach Us Directly</h4>
                             <p>
                                 Have a question? Reach out to us directly via phone or email, and we’ll get back to you as soon as possible.

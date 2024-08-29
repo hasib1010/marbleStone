@@ -9,7 +9,7 @@ import { PiBagSimpleFill, PiChatCircleTextFill } from "react-icons/pi";
 
 const Footer = () => {
     return (
-        <footer className='bg-[#14161C] text-white w-[98%] mx-auto lg:p-8 md:p-2 p-1 rounded-2xl'>
+        <footer className='bg-[#14161C] text-white w-[98%] mx-auto pt-12 lg:p-8 md:p-2 p-1 rounded-2xl'>
             <div className='container mx-auto px-4'>
                 <div className='lg:flex md:grid md:grid-cols-2 flex-col md:flex-row justify-between '>
                     {/* Newsletter and Social Media */}
