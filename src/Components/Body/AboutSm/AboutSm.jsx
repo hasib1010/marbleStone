@@ -9,11 +9,11 @@ import Carusel from './Slide';
 
 const AboutSm = () => {
   return (
-    <div className="container mx-auto px-4 md:px-8 lg:mt-[40px] md:mt-7 mt-5">
+    <div className="container mx-auto px-4 md:px-8 lg:mt-[40px] md:mt-7 mt-5  ">
       <p className="text-center text-[#A4A6B0] text-sm md:text-base">As seen on:</p>
 
       
-        <div className="my-10 flex   justify-evenly  w-full">
+        <div className="my-10 flex   justify-evenly  w-full mb-32">
           <li className="list-none">
             <img className="w-[80px] lg:w-[120px] object-contain" src={img1} alt="Company Logo" />
           </li>
