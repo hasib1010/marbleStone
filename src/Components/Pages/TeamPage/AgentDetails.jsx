@@ -50,14 +50,14 @@ function AgentDetails() {
         <div>
             <Navbar2 />
             <div className='container mx-auto'>
-                <div className='flex items-center justify-evenly mb-20 mt-10'>
+                <div className='flex items-center flex-col lg:flex-row gap-5 justify-evenly lg:mb-20 lg:mt-10'>
                     <div className='border w-fit p-3 rounded-3xl shadow-lg'>
                         <div className='w-fit h-fit relative mb-20 '>
                             <img className='rounded-t-3xl' src={cover} alt="" />
-                            <div className='flex items-end gap-40 justify-center absolute -bottom-12 left-2'>
+                            <div className='flex items-end lg:gap-40 lg:justify-center gap-10 absolute -bottom-12 left-2'>
                                 <img className='rounded-full w-[100px] h-[97.857px]' src={agent.profile_picture} alt="" />
-                                <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl text-[14px] md:text-[16px] font-medium leading-5 bg-[#990A05] text-white">
-                                    <span className="hidden sm:block">Contact me</span>
+                                <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px]  w-fit font-medium leading-5 bg-[#990A05] text-white">
+                                    <span className=" block">Contact me</span>
                                     <img className="bg-white p-2 sm:p-[8px] md:p-[10px] rounded-full" src={arrow} alt="Arrow" />
                                 </button>
                             </div>
@@ -92,7 +92,7 @@ function AgentDetails() {
                             <p>marblestonepg.com/{agent.username}</p>
                         </div>
                     </div>
-                    <div >
+                    <div  className='text-center lg:text-left '>
                         <h4 className='text-4xl font-medium'>About me</h4>
                         <p className='max-w-[653px] mt-4'>{agent.about_me}</p>
                         <h4 className='text-4xl font-medium mt-6'>My experience</h4>
@@ -107,13 +107,13 @@ function AgentDetails() {
                         </div>
                     </div>
                 </div>
-                <div className='bg-[#14161C] px-[100px] py-[120px] text-white rounded-2xl'>
+                <div className='bg-[#14161C] lg:px-[100px] lg:py-[120px] text-white rounded-2xl px-2 py-2  my-10 lg:my-0'>
                     <h4 className='text-xl flex items-center gap-2 bg-[#202127] text-white font-medium w-fit px-2 py-1 rounded-full'><GoHome className='bg-[#464851] rounded-full p-2 text-4xl'></GoHome> All properties</h4>
-                    <div className='flex items-end justify-between'>
-                        <h4 className='text-5xl font-medium'>Properties in charge of {agent.name}</h4>
+                    <div className='flex items-end justify-between px-4 mt-5'>
+                        <h4 className='lg:text-5xl max-w-[50%]  font-medium'>Properties in charge of {agent.name}</h4>
                         <Link to={"/rentals"} className='underline font-medium'>Browse all properties {">"}</Link>
                     </div>
-                    <div className='flex justify-between mt-10'>
+                    <div className='flex justify-between flex-col lg:flex-row  my-10 px-2'>
                         <Link className='' to={`/rentals/1`}>
                             <div className=' '>
                                 <div className=" rounded-lg   lg:mx-3   cursor-pointer overflow-hidden py-2 lg:px-4 relative   transition-transform duration-300 ease-in-out transform lg:hover:scale-105 lg:hover:shadow-lg">

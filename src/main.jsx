@@ -18,8 +18,7 @@ import Contact from './Components/Pages/Contact/Contact.jsx';
 import Properties from './Components/Pages/Properties/Properties.jsx';
 import PropertyLayout from './Components/Pages/Properties/PropertyLayout.jsx';
 import TeamPage from './Components/Pages/TeamPage/TeamPage.jsx';
-import AgentDetails from './Components/Pages/TeamPage/AgentDetails.jsx';
-import { data } from 'autoprefixer';
+import AgentDetails from './Components/Pages/TeamPage/AgentDetails.jsx'; 
 
 const router = createBrowserRouter([
   

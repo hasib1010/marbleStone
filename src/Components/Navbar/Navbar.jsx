@@ -60,7 +60,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="relative list-none">
+        <div className="relative list-none z-50">
             <div className="container mx-auto md:px-10 px-5 lg:px-0">
                 <div className="flex items-center justify-between py-7">
                     <Link to="/">

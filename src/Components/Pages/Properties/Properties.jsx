@@ -26,8 +26,9 @@ function Properties() {
             bg-[url('./assets/images/RentAnimations/banner.png')] 
             bg-no-repeat bg-center bg-cover 
             rounded-[5px] md:rounded-[8px] lg:rounded-[10px]  w-[95%] md:w-[97%] lg:w-[98%]">
+                <Navbar></Navbar>
                 <div className="container mx-auto">
-                    <Navbar></Navbar>
+                    
                     <h1 className='lg:text-7xl text-2xl font-medium text-white text-center lg:mt-12 max-w-[854.75px] mx-auto'>Check on all properties we have available</h1>
                     <div className='max-w-[640px] mx-auto flex flex-col items-center gap-5 text-center lg:mt-9'>
                         <p className='text-white'>

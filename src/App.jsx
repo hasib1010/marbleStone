@@ -6,8 +6,7 @@ import AboutUs from './Components/Body/AboutUs/AboutUs';
 import WhyUs from "./Components/Body/WhyUs/WhyUs";
 import OurProcess from './Components/Body/OurProcess/OurProcess';
 import Testimonials from './Components/Body/Testimonials/Testimonials';
-import BlogSection from './Components/Body/Blog/Blog'; 
-import useScrollToTop from './Components/Hooks/useScrollToTop ';
+import BlogSection from './Components/Body/Blog/Blog';  
 
 const App = () => {
   
