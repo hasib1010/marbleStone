@@ -19,6 +19,9 @@ import Properties from './Components/Pages/Properties/Properties.jsx';
 import PropertyLayout from './Components/Pages/Properties/PropertyLayout.jsx';
 import TeamPage from './Components/Pages/TeamPage/TeamPage.jsx';
 import AgentDetails from './Components/Pages/TeamPage/AgentDetails.jsx'; 
+import AdminPanel from './Components/Admin/AdminPanel.jsx';
+import Login from './Components/Admin/Login.jsx';
+import SignUp from './Components/Admin/SignUp.jsx';
 
 const router = createBrowserRouter([
   
@@ -92,6 +95,21 @@ const router = createBrowserRouter([
       {
         path: "/team/:id",
         element:<AgentDetails></AgentDetails>
+      }
+      ,
+      {
+        path: "/admin",
+        element:<AdminPanel></AdminPanel>
+      }
+      ,
+      {
+        path: "/login",
+        element:<Login></Login>
+      }
+      ,
+      {
+        path: "/register",
+        element:<SignUp></SignUp>
       }
     ],
   },
