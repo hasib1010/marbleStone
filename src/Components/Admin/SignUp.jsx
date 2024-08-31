@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar2 from '../Navbar/Navbar2';
 import axios from 'axios';
+import { AuthContext } from '../Providers/Provider';
 
 const SignUp = () => {
+    const    {createUser}  = useContext(AuthContext);
+
     const [file, setFile] = useState(null);
 
     const handleFileChange = (e) => {
@@ -21,11 +24,11 @@ const SignUp = () => {
 
         if (photo) {
             try {
-                // Create form data for ImgBB
+              
                 const imgBBFormData = new FormData();
                 imgBBFormData.append('image', photo);
 
-                // Upload image to ImgBB
+                 
                 const imgBBResponse = await axios.post('https://api.imgbb.com/1/upload', imgBBFormData, {
                     params: {
                         key: '82ff77cd3e7d27c63fdaf8824d1d2d3e'
@@ -44,14 +47,23 @@ const SignUp = () => {
                 console.error('Error uploading image:', error);
             }
         } else {
-            // Handle case where no image is provided
             console.log(email, password, name, 'No photo uploaded');
         }
+        createUser(email, password)
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(error => {
+                console.log(error);
+
+            })
+
     };
 
     return (
-        <div>
+        <div className='container mx-auto'>
             <Navbar2 />
+            <h5 className='text-5xl font-medium text-green-800 text-center my-10'>Sign Up</h5>
             <form onSubmit={handleRegister} className="w-2/4 mx-auto">
                 <div className="form-control">
                     <label className="label">
@@ -83,10 +95,10 @@ const SignUp = () => {
                     />
                 </div>
 
-                <div className="form-control mt-6">
+                <div className="form-control mt-6 mb-5">
                     <button className="btn btn-primary">Sign Up</button>
                 </div>
-                <p>Already have an account? please <Link className='text-red-600' to={'/login'}>Login</Link></p>
+                <p className='mb-5'>Already have an account? please <Link className='text-red-600' to={'/login'}>Login</Link></p>
             </form>
         </div>
     );

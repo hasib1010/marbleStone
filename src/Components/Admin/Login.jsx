@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar2 from '../Navbar/Navbar2';
 
 function Login() {
     const handleLogin = (e) => {
@@ -10,7 +11,9 @@ function Login() {
 
     }
     return (
-        <div>
+        <div className='container mx-auto mb-20'>
+            <Navbar2></Navbar2>
+            <h5 className='text-5xl font-medium text-green-800 text-center my-10'>Log in</h5>
             <form onSubmit={handleLogin} className="w-2/4  mx-auto ">
                 <div className="form-control">
                     <label className="label">
@@ -27,10 +30,10 @@ function Login() {
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
                 </div>
-                <div className="form-control mt-6">
+                <div className="form-control mt-6 mb-5">
                     <button className="btn btn-primary">Login</button>
                 </div>
-                <p>Don't have an account? please <Link className='text-red-600' to={'/register'}>Register</Link></p>
+                <p className='mb-5'>Don't have an account? please <Link className='text-red-600 ' to={'/register'}>Register</Link></p>
             </form>
         </div>
     )

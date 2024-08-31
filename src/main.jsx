@@ -18,13 +18,14 @@ import Contact from './Components/Pages/Contact/Contact.jsx';
 import Properties from './Components/Pages/Properties/Properties.jsx';
 import PropertyLayout from './Components/Pages/Properties/PropertyLayout.jsx';
 import TeamPage from './Components/Pages/TeamPage/TeamPage.jsx';
-import AgentDetails from './Components/Pages/TeamPage/AgentDetails.jsx'; 
+import AgentDetails from './Components/Pages/TeamPage/AgentDetails.jsx';
 import AdminPanel from './Components/Admin/AdminPanel.jsx';
 import Login from './Components/Admin/Login.jsx';
 import SignUp from './Components/Admin/SignUp.jsx';
+import AuthProvider from './Components/Providers/Provider.jsx';
 
 const router = createBrowserRouter([
-  
+
   {
     path: "/",
     element: <Root></Root>,
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
         element: <About></About>,
       }, {
         path: "/blogs",
-       
+
         element: <BlogMain></BlogMain>
       },
       {
@@ -74,12 +75,12 @@ const router = createBrowserRouter([
       ,
       {
         path: "/contact",
-        element:<Contact/>
+        element: <Contact />
       }
       ,
       {
         path: "/rentals",
-        element:<Properties/>
+        element: <Properties />
       }
       ,
       {
@@ -94,29 +95,31 @@ const router = createBrowserRouter([
       ,
       {
         path: "/team/:id",
-        element:<AgentDetails></AgentDetails>
+        element: <AgentDetails></AgentDetails>
       }
       ,
       {
         path: "/admin",
-        element:<AdminPanel></AdminPanel>
+        element: <AdminPanel></AdminPanel>
       }
       ,
       {
         path: "/login",
-        element:<Login></Login>
+        element: <Login></Login>
       }
       ,
       {
         path: "/register",
-        element:<SignUp></SignUp>
+        element: <SignUp></SignUp>
       }
     ],
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <AuthProvider>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </AuthProvider>
+
+
 )
