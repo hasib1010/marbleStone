@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import logo from "./../../assets/logo/Group2.png";
 import arrow from './../../assets/logo/Element.png';
 import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
+import { AuthContext } from '../Providers/Provider';
 
 const Navbar2 = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
-
+    const { user } = useContext(AuthContext);
     const location = useLocation();
+
 
     const toggleDropdown = (dropdownName) => {
         setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
@@ -51,7 +53,7 @@ const Navbar2 = () => {
                 </a>
             );
         }
-    
+
         // Internal link
         return (
             <Link to={to} onClick={closeDropdown}>
@@ -59,7 +61,7 @@ const Navbar2 = () => {
             </Link>
         );
     };
-    
+
     return (
         <div className="relative list-none">
             <div className="container mx-auto md:px-10 px-5 lg:px-0">
@@ -129,8 +131,8 @@ const Navbar2 = () => {
                         </Link>
 
                         <a target='_blank' href="https://rentbutter.com/apply/marblestone">
-                        <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
-                    </a>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
+                        </a>
                         <Link to="/about">
                             <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/about')}`}>About</li>
                         </Link>
@@ -140,6 +142,15 @@ const Navbar2 = () => {
                         <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px] w-fit font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105">
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
+                        {
+                            user ? <div className='flex flex-col items-center' >
+                                <img src={user.photoURL} alt="" />
+                                <p>{user.displayName}</p>
+                                <button>SignOut</button>
+                            </div> : ("")
+
+                        }
+
                     </div>
 
                     {/* Mobile Menu icon */}
@@ -198,7 +209,7 @@ const Navbar2 = () => {
                             link="/residents"
                             dropdownName="residents"
                             dropdownLinks={[
-                               
+
                                 '/residents',
                                 '/residents/residents-resources',
                                 'https://marblestonepg.managebuilding.com/Resident/portal/login',
@@ -229,8 +240,8 @@ const Navbar2 = () => {
                         </Link>
 
                         <a target='_blank' href="https://rentbutter.com/apply/marblestone">
-                        <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
-                    </a>
+                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
+                        </a>
                         <Link to="/about" onClick={() => setIsOpen(false)}>
                             <li className={`py-2 lg:text-[16px] font-medium leading-5 ${isActive('/about')}`}>About</li>
                         </Link>
