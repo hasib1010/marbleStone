@@ -23,6 +23,8 @@ import AdminPanel from './Components/Admin/AdminPanel.jsx';
 import Login from './Components/Admin/Login.jsx';
 import SignUp from './Components/Admin/SignUp.jsx';
 import AuthProvider from './Components/Providers/Provider.jsx';
+import PrivateRoutes from './Components/Private/PrivateRoute.jsx';
+import ProfileDashboard from './Components/Admin/Profile/ProfileDashboard.jsx';
 
 const router = createBrowserRouter([
 
@@ -100,7 +102,7 @@ const router = createBrowserRouter([
       ,
       {
         path: "/admin",
-        element: <AdminPanel></AdminPanel>
+        element: <PrivateRoutes><AdminPanel></AdminPanel></PrivateRoutes>
       }
       ,
       {
@@ -111,6 +113,13 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <SignUp></SignUp>
+      }
+      ,
+      {
+        path: "/profile_dashboard",
+        element: <PrivateRoutes>
+          <ProfileDashboard></ProfileDashboard>
+        </PrivateRoutes>
       }
     ],
   },

@@ -1,29 +1,36 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from './../../assets/logo/Group.png';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import logo from "./../../assets/logo/Group.png";
 import arrow from './../../assets/logo/Element.png';
-import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
+import { BsArrowRight, BsChevronDown, BsThreeDotsVertical } from 'react-icons/bs';
+import { AuthContext } from '../Providers/Provider';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
-
+    const [showUserActions, setShowUserActions] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
     const location = useLocation();
-
+    const handleLinkClick = () => {
+        setShowUserActions(false);  // Close user actions dropdown
+        setIsOpen(false);  // Close mobile menu
+    };
     const toggleDropdown = (dropdownName) => {
         setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
     };
 
-    const isActive = (path) => {
-        const isActivePath = location.pathname.startsWith(path);
-
-        return isActivePath ? 'text-red-500' : 'text-white';
+    const toggleUserActions = () => {
+        setShowUserActions((prev) => !prev);
     };
 
-    const Dropdown = ({ title, link, dropdownName, dropdownLinks, children }) => (
+    const isActive = (path) => {
+        return location.pathname.startsWith(path) ? 'text-red-500' : '';
+    };
+
+    const Dropdown = ({ title, link, dropdownName, children }) => (
         <div className="relative">
             <div className="flex items-center cursor-pointer" onClick={() => toggleDropdown(dropdownName)}>
-                <Link className={`lg:text-[16px] py-2 font-medium leading-5 ${isActive(link)}`} to={link}>
+                <Link className={`lg:text-[16px] py-2 text-white font-medium leading-5 ${isActive(link)}`} to={link}>
                     {title}
                 </Link>
                 <BsChevronDown
@@ -42,15 +49,12 @@ const Navbar = () => {
 
     const DropdownItem = ({ to, href, children, closeDropdown }) => {
         if (href) {
-            // External link
             return (
                 <a href={href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={closeDropdown}>
                     {children}
                 </a>
             );
         }
-
-        // Internal link
         return (
             <Link to={to} onClick={closeDropdown}>
                 <li className="block px-4 py-2 text-black font-medium cursor-pointer">{children}</li>
@@ -58,15 +62,14 @@ const Navbar = () => {
         );
     };
 
-
     return (
         <div className="relative list-none z-50">
             <div className="container mx-auto md:px-10 px-5 lg:px-0">
-                <div className="flex items-center justify-between py-7">
+                <div className="flex items-center gap-28 py-7">
                     <Link to="/">
                         <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                     </Link>
-                    <div className="hidden lg:flex items-center space-x-12">
+                    <div className="hidden lg:flex lg:items-center w-full justify-evenly  ">
                         <Dropdown
                             title="Property Management"
                             link="/property-management"
@@ -124,21 +127,48 @@ const Navbar = () => {
                         </Dropdown>
 
                         <Link to="/blogs">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/blogs')}`}>Blogs</li>
+                            <li className={`lg:text-[16px] text-white font-medium py-2 leading-5 ${isActive('/blogs')}`}>Blogs</li>
                         </Link>
 
                         <a target='_blank' href="https://rentbutter.com/apply/marblestone">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
+                            <li className={`lg:text-[16px] text-white font-medium py-2 leading-5 ${isActive('/apply')}`}>Apply</li>
                         </a>
                         <Link to="/about">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/about')}`}>About</li>
+                            <li className={`lg:text-[16px] text-white font-medium py-2 leading-5 ${isActive('/about')}`}>About</li>
+                        </Link>
+                        <Link to="/admin">
+                            <li className={`lg:text-[16px] text-white font-medium py-2 leading-5 ${isActive('/admin')}`}>Admin</li>
                         </Link>
                         <Link to="/contact">
-                            <li className={`lg:text-[16px] font-medium py-2 leading-5 ${isActive('/contact')}`}>Contact</li>
+                            <li className={`lg:text-[16px] text-white font-medium py-2 leading-5 ${isActive('/contact')}`}>Contact</li>
                         </Link>
                         <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px] w-fit font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105">
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
+                        {
+                            user && (
+                                <div className="relative">
+                                    <div className='flex items-center'>
+                                        <div
+                                            className="w-20 h-20 rounded-full bg-cover bg-center cursor-pointer"
+                                            style={{ backgroundImage: `url(${user?.photoURL || "https://i.ibb.co/dpGJZDt/avatar.webp"})` }}
+                                            onClick={toggleUserActions}
+                                        >
+                                        </div>
+                                    </div>
+                                    {showUserActions && (
+                                        <div className="absolute right-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
+                                            <Link to='/profile_dashboard' className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={() => setShowUserActions(false)}>
+                                                Profile
+                                            </Link>
+                                            <button className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={logOut}>
+                                                Sign Out
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            )
+                        }
                     </div>
 
                     {/* Mobile Menu icon */}
@@ -148,6 +178,7 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={!isOpen ? "M4 6h16M4 12h16M4 18h16" : "M6 18L18 6M6 6l12 12"} />
                             </svg>
                         </button>
+
                     </div>
                 </div>
 
@@ -241,7 +272,7 @@ const Navbar = () => {
                         <button className="flex items-center gap-2 h-fit px-4 py-2 rounded-3xl lg:text-[14px] w-fit font-medium leading-5 bg-[#990A05] text-white transition-transform duration-300 hover:bg-[#b72a1c] hover:shadow-lg hover:scale-105">
                             Book a call <BsArrowRight className="text-white bg-[#C32723] rounded-full p-2 w-8 h-8" />
                         </button>
-                        
+
 
                     </div>
                 </div>

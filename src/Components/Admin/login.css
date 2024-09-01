@@ -1,0 +1,37 @@
+/* Login.css */
+
+/* Reserved space for error message */
+.error-container {
+    height: fit-content; /* Adjust based on your error message height */
+    overflow: hidden;
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+/* Fade-out animation */
+.fade-out {
+    animation: fadeOut 2s forwards;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

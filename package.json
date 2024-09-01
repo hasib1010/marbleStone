@@ -13,6 +13,7 @@
     "@material-tailwind/react": "^2.1.9",
     "axios": "^1.7.6",
     "bootstrap": "^5.3.3",
+    "browser-image-compression": "^2.0.2",
     "firebase": "^10.13.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
@@ -27,7 +28,8 @@
     "react-spinners": "^0.14.1",
     "slick-carousel": "^1.8.1",
     "sort-by": "^0.0.2",
-    "swiper": "^11.1.9"
+    "swiper": "^11.1.9",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

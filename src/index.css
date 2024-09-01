@@ -73,3 +73,4 @@ input::-webkit-inner-spin-button {
 .button-gradient-hover:hover {
     animation: gradientShift 0.5s ease forwards;
 }
+

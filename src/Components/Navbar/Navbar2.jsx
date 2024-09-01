@@ -2,29 +2,32 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import logo from "./../../assets/logo/Group2.png";
 import arrow from './../../assets/logo/Element.png';
-import { BsArrowRight, BsChevronDown } from 'react-icons/bs';
+import { BsArrowRight, BsChevronDown, BsThreeDotsVertical } from 'react-icons/bs';
 import { AuthContext } from '../Providers/Provider';
 
 const Navbar2 = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
-    const { user } = useContext(AuthContext);
+    const [showUserActions, setShowUserActions] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
     const location = useLocation();
-
-
+    const handleLinkClick = () => {
+        setShowUserActions(false);  // Close user actions dropdown
+        setIsOpen(false);  // Close mobile menu
+    };
     const toggleDropdown = (dropdownName) => {
         setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
+    };
+
+    const toggleUserActions = () => {
+        setShowUserActions((prev) => !prev);
     };
 
     const isActive = (path) => {
         return location.pathname.startsWith(path) ? 'text-red-500' : '';
     };
 
-    const isDropdownActive = (dropdownLinks) => {
-        return dropdownLinks.some((link) => location.pathname.startsWith(link));
-    };
-
-    const Dropdown = ({ title, link, dropdownName, dropdownLinks, children }) => (
+    const Dropdown = ({ title, link, dropdownName, children }) => (
         <div className="relative">
             <div className="flex items-center cursor-pointer" onClick={() => toggleDropdown(dropdownName)}>
                 <Link className={`lg:text-[16px] py-2 font-medium leading-5 ${isActive(link)}`} to={link}>
@@ -46,15 +49,12 @@ const Navbar2 = () => {
 
     const DropdownItem = ({ to, href, children, closeDropdown }) => {
         if (href) {
-            // External link
             return (
                 <a href={href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={closeDropdown}>
                     {children}
                 </a>
             );
         }
-
-        // Internal link
         return (
             <Link to={to} onClick={closeDropdown}>
                 <li className="block px-4 py-2 text-black font-medium cursor-pointer">{children}</li>
@@ -65,19 +65,15 @@ const Navbar2 = () => {
     return (
         <div className="relative list-none">
             <div className="container mx-auto md:px-10 px-5 lg:px-0">
-                <div className="flex items-center justify-between py-7">
+                <div className="flex items-center gap-28 py-7">
                     <Link to="/">
                         <img className='w-[142.038px] h-[32px]' src={logo} alt="Logo" />
                     </Link>
-                    <div className="hidden lg:flex items-center space-x-12">
+                    <div className="hidden lg:flex lg:items-center w-full justify-evenly">
                         <Dropdown
                             title="Property Management"
                             link="/property-management"
                             dropdownName="propertyManagement"
-                            dropdownLinks={[
-                                '/property-management',
-                                '/property-management/pricing',
-                            ]}
                         >
                             <DropdownItem to="/property-management/pricing">Pricing</DropdownItem>
                         </Dropdown>
@@ -86,26 +82,15 @@ const Navbar2 = () => {
                             title="Owners"
                             link="/owners"
                             dropdownName="owners"
-                            dropdownLinks={[
-                                '/owners',
-                                '/owners/owner-resources',
-                                'https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F',
-                            ]}
                         >
                             <DropdownItem to="/owners/owner-resources">Owner Resources</DropdownItem>
-                            <DropdownItem href=" https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F">Owner Portal</DropdownItem>
+                            <DropdownItem href="https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F">Owner Portal</DropdownItem>
                         </Dropdown>
 
                         <Dropdown
                             title="Residents"
                             link="/residents"
                             dropdownName="residents"
-                            dropdownLinks={[
-                                '/residents',
-                                '/residents/residents-resources',
-                                'https://marblestonepg.managebuilding.com/Resident/portal/login',
-                                'https://app.propertymeld.com/tenant/marblestone-pg',
-                            ]}
                         >
                             <DropdownItem to="/residents/residents-resources">Resident Resources</DropdownItem>
                             <DropdownItem href="https://marblestonepg.managebuilding.com/Resident/portal/login">Resident Portal</DropdownItem>
@@ -116,11 +101,6 @@ const Navbar2 = () => {
                             title="Rentals"
                             link="/rentals"
                             dropdownName="rentals"
-                            dropdownLinks={[
-                                '/rentals',
-                                '/rentals ',
-                                'https://rentbutter.com/apply ',
-                            ]}
                         >
                             <DropdownItem to="/rentals/properties">Properties</DropdownItem>
                             <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
@@ -136,6 +116,9 @@ const Navbar2 = () => {
                         <Link to="/about">
                             <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/about')}`}>About</li>
                         </Link>
+                        <Link to="/admin">
+                            <li className={`lg:text-[16px] text-black font-medium py-2 leading-5 ${isActive('/admin')}`}>Admin</li>
+                        </Link>
                         <Link to="/contact">
                             <li className={`lg:text-[16px] font-medium leading-5 text-black ${isActive('/contact')}`}>Contact</li>
                         </Link>
@@ -143,14 +126,29 @@ const Navbar2 = () => {
                             Book a call <img className="bg-white p-[10px] rounded-full" src={arrow} alt="Arrow" />
                         </button>
                         {
-                            user ? <div className='flex flex-col items-center' >
-                                <img src={user.photoURL} alt="" />
-                                <p>{user.displayName}</p>
-                                <button>SignOut</button>
-                            </div> : ("")
-
+                            user && (
+                                <div className="relative">
+                                    <div className='flex items-center'>
+                                        <div
+                                            className="w-20 h-20 rounded-full bg-cover bg-center cursor-pointer"
+                                            style={{ backgroundImage: `url(${user?.photoURL || "https://i.ibb.co/dpGJZDt/avatar.webp"})` }}
+                                            onClick={toggleUserActions}
+                                        >
+                                        </div>
+                                    </div>
+                                    {showUserActions && (
+                                        <div className="absolute right-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
+                                            <Link to='/profile_dashboard' className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={() => setShowUserActions(false)}>
+                                                Profile
+                                            </Link>
+                                            <button className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={logOut}>
+                                                Sign Out
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            )
                         }
-
                     </div>
 
                     {/* Mobile Menu icon */}
@@ -178,14 +176,36 @@ const Navbar2 = () => {
                             <img src={logo} alt="Logo" />
                         </Link>
 
+                        <div>
+                            {
+                                user && (
+                                    <div className="relative" >
+                                        <div className='flex items-center'>
+                                            <div
+                                                className="w-20 h-20 rounded-full bg-cover bg-center cursor-pointer"
+                                                style={{ backgroundImage: `url(${user?.photoURL || "https://i.ibb.co/dpGJZDt/avatar.webp"})` }}
+                                                onClick={toggleUserActions}
+                                            >
+                                            </div>
+                                        </div>
+                                        {showUserActions && (
+                                            <div className="relative right-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
+                                                <Link to='/profile_dashboard' className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={handleLinkClick}>
+                                                    Profile
+                                                </Link>
+                                                <button className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={logOut}>
+                                                    Sign Out
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                )
+                            }
+                        </div>
                         <Dropdown
                             title="Property Management"
                             link="/property-management"
                             dropdownName="propertyManagement"
-                            dropdownLinks={[
-                                '/property-management',
-                                '/property-management/pricing',
-                            ]}
                         >
                             <DropdownItem to="/property-management/pricing">Pricing</DropdownItem>
                         </Dropdown>
@@ -194,11 +214,6 @@ const Navbar2 = () => {
                             title="Owners"
                             link="/owners"
                             dropdownName="owners"
-                            dropdownLinks={[
-                                '/owners',
-                                '/owners/owner-resources',
-                                'https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F',
-                            ]}
                         >
                             <DropdownItem to="/owners/owner-resources">Owner Resources</DropdownItem>
                             <DropdownItem href="https://marblestonepg.managebuilding.com/manager/public/authentication/login?ReturnUrl=%2Fmanager%2F">Owner Portal</DropdownItem>
@@ -208,30 +223,18 @@ const Navbar2 = () => {
                             title="Residents"
                             link="/residents"
                             dropdownName="residents"
-                            dropdownLinks={[
-
-                                '/residents',
-                                '/residents/residents-resources',
-                                'https://marblestonepg.managebuilding.com/Resident/portal/login',
-                                'https://app.propertymeld.com/tenant/marblestone-pg',
-                            ]}
                         >
                             <DropdownItem to="/residents/residents-resources">Resident Resources</DropdownItem>
                             <DropdownItem href="https://marblestonepg.managebuilding.com/Resident/portal/login">Resident Portal</DropdownItem>
                             <DropdownItem href="https://app.propertymeld.com/tenant/marblestone-pg">Maintenance Request</DropdownItem>
                         </Dropdown>
-                        <Dropdown
 
+                        <Dropdown
                             title="Rentals"
                             link="/rentals"
                             dropdownName="rentals"
-                            dropdownLinks={[
-                                '/rentals',
-                                '/rentals ',
-                                'https://rentbutter.com/apply/marblestone',
-                            ]}
                         >
-                            <DropdownItem to="/rentals ">Properties</DropdownItem>
+                            <DropdownItem to="/rentals">Properties</DropdownItem>
                             <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
                         </Dropdown>
 
