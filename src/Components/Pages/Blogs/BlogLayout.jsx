@@ -12,18 +12,19 @@ function BlogLayout() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-
-        const response = await fetch('/data.json');
+        const response = await fetch(`http://localhost:5001/blogs/${id}`);
         if (!response.ok) {
-          throw new Error('Failed to fetch blogs');
+          throw new Error('Failed to fetch blog');
         }
         const data = await response.json();
+        console.log('Fetched data:', data); // Log the fetched data
 
-        const foundBlog = data.blogs.find(blog => blog.id === parseInt(id));
-        if (!foundBlog) {
+        // Directly use the fetched blog data
+        if (!data) {
           throw new Error('Blog not found');
         }
-        setBlog(foundBlog);
+
+        setBlog(data); // Set the single blog object
       } catch (err) {
         setError(err.message);
       } finally {
@@ -34,17 +35,23 @@ function BlogLayout() {
     fetchBlog();
   }, [id]);
 
-  if (loading) return <div className='w-fit mx-auto'>
-    <span className="loading loading-dots text-green-700  h-32 w-32 mx-auto"></span>
-    </div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) {
+    return (
+      <div className='w-fit mx-auto'>
+        <span className="loading loading-dots text-green-700 h-32 w-32 mx-auto"></span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div>
-      <Navbar2></Navbar2>
-      <PostLayout blog={blog}></PostLayout>
+      <Navbar2 />
+      <PostLayout blog={blog} />
     </div>
-
   );
 }
 

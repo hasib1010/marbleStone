@@ -1,31 +1,40 @@
-import React, { useState, useEffect, useRef } from 'react'; 
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import AdminSidebar from '../AdminSidebar';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { storage } from '../../Services/firebase.config'; // Ensure this path is correct
 import generateUniqueId from 'generate-unique-id'; // Import this correctly
 import DashboardNav from '../DashboardNav/DashboardNav';
+import { AuthContext } from '../../Providers/Provider';
+import Swal from 'sweetalert2'
+
 
 function EditBlog() {
+    const { user } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         title: '',
         author: '',
+        author_avatar: '',
         published_date: '',
         blog_banner_image: '',
         blog_image: '',
         category: '',
-        subtitles: [], // Changed to array to manage multiple subtitles
-        content: [] // Changed to array to manage multiple content sections
+        subtitles: [''], // Initialize with one subtitle input
+        content: [{ title: '', body: '' }] // Initialize with one content section
     });
 
     const today = new Date().toISOString().split('T')[0];
     const fileInputRef = useRef(null);
 
     useEffect(() => {
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            published_date: today
-        }));
-    }, [today]);
+        if (user) {
+            setFormData(prevFormData => ({
+                ...prevFormData,
+                author: user.displayName,
+                author_avatar: user.photoURL, // Set this value but don't render it in the form
+                published_date: today
+            }));
+        }
+    }, [user, today]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -53,11 +62,13 @@ function EditBlog() {
     };
 
     const handleRemoveSubtitle = (index) => {
-        const updatedSubtitles = formData.subtitles.filter((_, i) => i !== index);
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            subtitles: updatedSubtitles
-        }));
+        if (formData.subtitles.length > 1) {
+            const updatedSubtitles = formData.subtitles.filter((_, i) => i !== index);
+            setFormData(prevFormData => ({
+                ...prevFormData,
+                subtitles: updatedSubtitles
+            }));
+        }
     };
 
     const handleContentChange = (index, e) => {
@@ -81,11 +92,13 @@ function EditBlog() {
     };
 
     const handleRemoveContent = (index) => {
-        const updatedContent = formData.content.filter((_, i) => i !== index);
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            content: updatedContent
-        }));
+        if (formData.content.length > 1) {
+            const updatedContent = formData.content.filter((_, i) => i !== index);
+            setFormData(prevFormData => ({
+                ...prevFormData,
+                content: updatedContent
+            }));
+        }
     };
 
     const handleFileChange = async (e, key) => {
@@ -128,7 +141,15 @@ function EditBlog() {
 
             const data = await response.json();
             console.log(data);
-            // Handle success
+            if (data.acknowledged) {
+                Swal.fire({
+                    title: 'Congratulations!',
+                    text: 'Your blog has been published',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+                
+            }
         } catch (error) {
             console.error("Error submitting form:", error);
             // Handle error
@@ -139,7 +160,7 @@ function EditBlog() {
         <div className='flex min-h-screen w-[98%] mx-auto bg-gray-100'>
             <AdminSidebar />
             <div className="flex-1 flex flex-col">
-             <DashboardNav></DashboardNav>
+                <DashboardNav />
                 <main className="flex-1 p-6">
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h1 className="text-4xl font-bold mb-4 text-gray-800">Edit Blog</h1>
@@ -158,17 +179,48 @@ function EditBlog() {
                                 />
                             </div>
                             <div>
+                                <label htmlFor="subtitles" className="block text-sm font-medium text-gray-700">Subtitles:</label>
+                                {formData.subtitles.map((subtitle, index) => (
+                                    <div key={index} className="space-y-2 mb-4">
+                                        <div>
+                                            <input
+                                                type="text"
+                                                value={subtitle}
+                                                onChange={(e) => handleSubtitleChange(index, e)}
+                                                placeholder={`Subtitle ${index + 1}`}
+                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            />
+                                        </div>
+                                        {formData.subtitles.length > 1 && (
+                                            <button
+                                                type="button"
+                                                onClick={() => handleRemoveSubtitle(index)}
+                                                className="py-1 px-2 bg-red-600 text-white font-semibold rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            >
+                                                Remove Subtitle
+                                            </button>
+                                        )}
+                                    </div>
+                                ))}
+                                <button
+                                    type="button"
+                                    onClick={handleAddSubtitle}
+                                    className="py-2 px-4 bg-green-800 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                >
+                                    Add Subtitle
+                                </button>
+                            </div>
+                            <div>
                                 <label htmlFor="author" className="block text-sm font-medium text-gray-700">Author:</label>
                                 <input
                                     type="text"
                                     id="author"
                                     name="author"
                                     value={formData.author}
-                                    onChange={handleChange}
-                                    required
                                     className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
+                            {/* Note: `author_avatar` is handled in background, not shown in form */}
                             <div>
                                 <label htmlFor="published_date" className="block text-sm font-medium text-gray-700">Published Date:</label>
                                 <input
@@ -217,37 +269,7 @@ function EditBlog() {
                                 </select>
                             </div>
                             <hr className='my-5' />
-                            <div>
-                                <label className="block text-center text-sm font-medium text-gray-700">Subtitles:</label>
-                                {formData.subtitles.map((subtitle, index) => (
-                                    <div key={index} className="space-y-2 mb-4">
-                                        <div>
-                                            <input
-                                                type="text"
-                                                value={subtitle}
-                                                onChange={(e) => handleSubtitleChange(index, e)}
-                                                placeholder="Enter subtitle"
-                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                            />
-                                        </div>
-                                        <button
-                                            type="button"
-                                            onClick={() => handleRemoveSubtitle(index)}
-                                            className="py-1 px-2 bg-red-600 text-white font-semibold rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
-                                        >
-                                            Remove Subtitle
-                                        </button>
-                                    </div>
-                                ))}
-                                <button
-                                    type="button"
-                                    onClick={handleAddSubtitle}
-                                    className="py-2 px-4 bg-green-700 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                >
-                                    Add Subtitle
-                                </button>
-                            </div>
-                            <hr className='my-5' />
+
                             <div>
                                 <label htmlFor="content" className="block text-sm font-medium text-gray-700 text-center">Content:</label>
                                 {formData.content.map((section, index) => (
@@ -276,19 +298,21 @@ function EditBlog() {
                                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             />
                                         </div>
-                                        <button
-                                            type="button"
-                                            onClick={() => handleRemoveContent(index)}
-                                            className="py-1 px-2 bg-red-600 text-white font-semibold rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
-                                        >
-                                            Remove Section
-                                        </button>
+                                        {formData.content.length > 1 && (
+                                            <button
+                                                type="button"
+                                                onClick={() => handleRemoveContent(index)}
+                                                className="py-1 px-2 bg-red-600 text-white font-semibold rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            >
+                                                Remove Section
+                                            </button>
+                                        )}
                                     </div>
                                 ))}
                                 <button
                                     type="button"
                                     onClick={handleAddContent}
-                                    className="py-2 px-4 bg-green-800 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="py-2 px-4 bg-green-800 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                                 >
                                     Add Content Section
                                 </button>

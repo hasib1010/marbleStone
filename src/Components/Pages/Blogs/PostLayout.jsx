@@ -8,7 +8,7 @@ import { HiOutlineArrowSmRight } from "react-icons/hi";
 import mac from "../../../assets/images/mac.png";
 
 const PostLayout = ({ blog }) => {
-    const { title, author, published_date, blog_banner_image, category, subtitles, content } = blog;
+    const { title, author, published_date, author_avatar, blog_banner_image, blog_image, category, subtitles, content } = blog;
 
     const renderCategoryIcon = (category) => {
         switch (category) {
@@ -44,9 +44,9 @@ const PostLayout = ({ blog }) => {
                     <div className='h-[238px] bg-white p-7 relative flex flex-col gap-5 rounded-xl shadow-md'>
                         <AiFillPlusCircle className='absolute text-5xl right-6 cursor-pointer' />
                         <div className='flex w-[375px] gap-3'>
-                            <img className='h-16 w-16 rounded-full' src="https://th.bing.com/th/id/OIP.kMQ14gs4OXX7BqCaoqruOQAAAA?cb=13&rs=1&pid=ImgDetMain" alt="avatar icon" />
+                            <img className='h-16 w-16 rounded-full' src={author_avatar ? author_avatar : "https://th.bing.com/th/id/OIP.kMQ14gs4OXX7BqCaoqruOQAAAA?cb=13&rs=1&pid=ImgDetMain"} alt="avatar icon" />
                             <div>
-                                <p className='text-2xl font-medium'>{author}</p>
+                                <p className='text-2xl font-medium'>{author ? author: "USER"}</p>
                                 <article className='text-base font-medium'>@user</article>
                             </div>
                         </div>
@@ -69,9 +69,9 @@ const PostLayout = ({ blog }) => {
                     {
                         content.map((article, index) => (
                             <div key={index}>
-                                <h2 className='text-5xl my-4 font-medium'>{article.subtitle}</h2>
-                                <p>{article.paragraph}</p>
-                                {article.blog_image && <img className='my-4 w-full rounded-md' src={article.blog_image} alt={article.subtitle} />}
+                                <h2 className='text-5xl my-4 font-medium'>{article.title}</h2>
+                                <p>{article.body}</p>
+                                {blog_image && <img className='my-4 w-full rounded-md' src={blog_image} alt={article.subtitle} />}
                                 {article.ads && <p className='my-4 w-full rounded-md bg-black text-white py-8 px-3'>{article.ads}</p>}
                             </div>
                         ))

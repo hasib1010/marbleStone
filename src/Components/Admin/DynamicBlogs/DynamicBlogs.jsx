@@ -1,7 +1,7 @@
 import React from 'react';
-import AdminSidebar from '../AdminSidebar';
-import Navbar2 from '../../Navbar/Navbar2';
+import AdminSidebar from '../AdminSidebar'; 
 import { Link } from 'react-router-dom';
+import DashboardNav from '../DashboardNav/DashboardNav';
 
 function DynamicBlogs() {
     return (
@@ -9,7 +9,7 @@ function DynamicBlogs() {
             <AdminSidebar></AdminSidebar>
 
             <div className="flex-1 flex flex-col">
-                <Navbar2 />
+                 <DashboardNav></DashboardNav>
                 <main className="flex-1 p-6">
                     <div className="bg-white p-4 rounded-lg shadow">
                         <h1 className="text-3xl font-bold mb-4">Blogs</h1>

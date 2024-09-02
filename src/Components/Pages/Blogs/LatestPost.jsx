@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoSettingsSharp } from "react-icons/io5";
 import { PiTreasureChest } from "react-icons/pi";
 import { GrAnnounce } from "react-icons/gr";
@@ -39,6 +39,11 @@ const LatestPost = ({ blogData = {} }) => {
             setCurrentPage(pageNumber);
         }
     };
+
+    // Scroll to the top when the page changes
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentPage]);
 
     return (
         <div>

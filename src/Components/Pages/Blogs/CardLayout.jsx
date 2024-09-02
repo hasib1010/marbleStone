@@ -7,7 +7,7 @@ import { MdArticle } from 'react-icons/md'; // Example icon for 'Articles'
 import { PiTreasureChest } from 'react-icons/pi'; // Example icon for 'Resources'
 
 const CardLayout = ({ blog }) => {
-    const { title, published_date, blog_image, category } = blog;
+    const {_id, title, published_date, blog_image, category } = blog;
  
     const renderCategoryIcon = (category) => {
         switch (category) {
@@ -37,7 +37,7 @@ const CardLayout = ({ blog }) => {
                         <p className="text-[#A4A6B0] text-xl font-medium flex items-center gap-2 mb-4">
                             <FaRegCalendarAlt /> {published_date}
                         </p>
-                        <Link to={`/blogs/${blog.id}`} className='text-black flex items-center gap-3 font-medium hover:underline'>
+                        <Link to={`/blogs/${_id}`} className='text-black flex items-center gap-3 font-medium hover:underline'>
                             Read More <MdKeyboardArrowRight />
                         </Link>
                         
