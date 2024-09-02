@@ -29,11 +29,11 @@ const SignUp = () => {
             });
             console.log(updatedUser);
 
-            alert('User created and profile updated successfully');
+            alert('Welcome');
             
         } catch (error) {
             console.error('Error creating user or updating profile:', error);
-            alert('Error creating user or updating profile');
+          
         } finally {
             setRegistering(false);
         }

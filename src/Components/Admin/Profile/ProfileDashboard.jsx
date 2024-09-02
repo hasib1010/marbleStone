@@ -1,58 +1,40 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { updateProfile } from 'firebase/auth';
 import { AuthContext } from '../../Providers/Provider';
 import Navbar2 from '../../Navbar/Navbar2';
 import { storage } from '../../Services/firebase.config';
-import { ref, uploadBytes } from 'firebase/storage';
-import { v4 } from 'uuid';
-
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 const ProfileDashboard = () => {
-    const { user } = useContext(AuthContext); 
+    const { user } = useContext(AuthContext);
     const [uploading, setUploading] = useState(false);
-    const [image, setImage] = useState('')
+    const [imgUrl, setImgUrl] = useState(user.photoURL || ''); // Initialize with current photoURL
+    const [image, setImage] = useState(null);
 
+    const identity = user.email;
 
     const handleFileChange = (e) => {
-        // const selectedFile = e.target.files[0];
-        // setImage(selectedFile);
+        const selectedFile = e.target.files[0];
+        setImage(selectedFile);
     };
-    const handleImageUpload = () => {
-        // const imgRef = ref(storage, `files/${v4()}`)
-        // uploadBytes(imgRef, image)
-    }
-    // const handleImageUpload = async (e) => {
-    //     e.preventDefault();
 
-    //     if (!file) {
-    //         console.error('No file selected');
-    //         return;
-    //     }
-
-    //     setUploading(true);
-
-    //     const formData = new FormData();
-    //     formData.append('image', file);
-
-    //     try {
-    //         const response = await fetch("gs://marblestone-5872a.appspot.com", {
-    //             method: "POST",
-    //             body: formData,
-    //         });
-
-    //         const data = await response.json();
-    //         console.log(data.data);
-
-    //         updateProfile(user,{
-    //             // photoURL: 
-    //         })
-    //         console.log(data);
-    //     } catch (error) {
-    //         console.error('Upload failed:', error);
-    //     } finally {
-    //         setUploading(false);
-    //     }
-    // };
+    const handleImageUpload = async () => {
+        if (image) {
+            setUploading(true);
+            const imgRef = ref(storage, `profilePictures/${identity}`);
+            try {
+                await uploadBytes(imgRef, image);
+                const url = await getDownloadURL(imgRef);
+                setImgUrl(url); // Update the image URL state
+                await updateProfile(user, { photoURL: url });
+                alert("Profile picture updated");
+            } catch (error) {
+                console.error("Error uploading image: ", error);
+            } finally {
+                setUploading(false);
+            }
+        }
+    };
 
     return (
         <div className='container mx-auto'>
@@ -78,6 +60,7 @@ const ProfileDashboard = () => {
                 <button onClick={handleImageUpload} className="btn btn-primary mt-4">
                     {uploading ? 'Uploading...' : 'Upload Photo'}
                 </button>
+                
             </div>
         </div>
     );
