@@ -8,18 +8,18 @@ import { v4 } from 'uuid';
 
 
 const ProfileDashboard = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext); 
     const [uploading, setUploading] = useState(false);
     const [image, setImage] = useState('')
 
 
     const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        setImage(selectedFile);
+        // const selectedFile = e.target.files[0];
+        // setImage(selectedFile);
     };
     const handleImageUpload = () => {
-        const imgRef = ref(storage, `files/${v4()}`)
-        uploadBytes(imgRef, image)
+        // const imgRef = ref(storage, `files/${v4()}`)
+        // uploadBytes(imgRef, image)
     }
     // const handleImageUpload = async (e) => {
     //     e.preventDefault();
