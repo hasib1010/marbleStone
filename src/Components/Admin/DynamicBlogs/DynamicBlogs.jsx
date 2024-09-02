@@ -22,7 +22,7 @@ function DynamicBlogs() {
                         <div className='flex flex-col gap-10 ml-10 '>
                             <Link to={'/admin/dynamic_blogs/edit'} className=' my-2 text-xl btn w-fit btn-info'>Post a Blog</Link>
                             <Link className=' my-2 text-xl btn w-fit btn-accent'>Edit a Blog</Link>
-                            <Link className=' my-2 text-xl btn w-fit btn-error'>delete a Blog</Link>
+                            <Link to={"/admin/dynamic_blogs/delete"} className=' my-2 text-xl btn w-fit btn-error'>Delete a Blog</Link>
 
                         </div>
 

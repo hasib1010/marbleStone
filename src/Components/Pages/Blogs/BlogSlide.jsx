@@ -39,22 +39,19 @@ const BlogSlide = ({ blogData }) => {
                 ref={swiperRef} // Attach the ref to Swiper
             >
                 {blogData.blogs.map((blog) => (
-                    <SwiperSlide key={blog.id}>
+                    <SwiperSlide key={blog._id}>
                         <div className='relative'>
                             <img className='w-full lg:h-[490px] md:h-64 h-36' src={blog.blog_banner_image} alt={blog.title} />
                             <div className="lg:absolute md:absolute relative shadow-lg lg:top-[30%] lg:right-20 rounded-lg bg-white px-12 py-10">
                                 <h4 className='max-w-[480px] font-medium lg:text-3xl'>{blog.title}</h4>
-                                <p className='lg:py-6 text-base font-normal'>
-                                    {blog.subtitles[0]} <br />
-                                    {blog.subtitles[1]}
-                                </p>
+
                                 <div className='flex justify-between items-center'>
                                     <div className='flex items-center gap-1'>
                                         <FaRegCalendarAlt className='text-[#A4A6B0]' />
                                         <p className='text-[#A4A6B0] font-medium'>{blog.published_date}</p>
                                     </div>
                                     <div>
-                                        <Link className='flex items-center gap-2 font-medium'>Read More <MdKeyboardArrowRight className='text-xl' /></Link>
+                                        <Link to={blog._id} className='flex items-center gap-2 font-medium'>Read More <MdKeyboardArrowRight className='text-xl' /></Link>
                                     </div>
                                 </div>
                             </div>

@@ -27,6 +27,7 @@ import PrivateRoutes from './Components/Private/PrivateRoute.jsx';
 import ProfileDashboard from './Components/Admin/Profile/ProfileDashboard.jsx';
 import DynamicBlogs from './Components/Admin/DynamicBlogs/DynamicBlogs.jsx';
 import EditBlog from './Components/Admin/DynamicBlogs/EditBlog.jsx';
+import DeleteBlog from './Components/Admin/DynamicBlogs/DeleteBlog/DeleteBlog.jsx';
 
 const router = createBrowserRouter([
 
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
       {
         path: "/admin/dynamic_blogs/edit",
         element: <PrivateRoutes><EditBlog></EditBlog></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/dynamic_blogs/delete",
+        element: <PrivateRoutes><DeleteBlog></DeleteBlog></PrivateRoutes>
       }
       ,
       {
