@@ -32,8 +32,7 @@ function Login() {
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage);
+                console.log(error.message);
                 setError("Invalid email or password"); // Update state with error message
             });
     };
