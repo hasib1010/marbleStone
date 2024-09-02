@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar2 from '../Navbar/Navbar2';
 import { AuthContext } from '../Providers/Provider';
-import RedirectIfLoggedIn from './RedirectIfLoggedIn'; 
+import RedirectIfLoggedIn from './RedirectIfLoggedIn';
 
 function Login() {
     const { logIn } = useContext(AuthContext);
@@ -28,11 +28,11 @@ function Login() {
 
         logIn(email, password)
             .then((userCredential) => {
-                // Redirect to the original page or home page
+               
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                console.log(error.message);
+
                 setError("Invalid email or password"); // Update state with error message
             });
     };
