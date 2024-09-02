@@ -8,7 +8,7 @@ import { v4 } from 'uuid';
 
 
 const ProfileDashboard = () => {
-    const { user } = useContext(AuthContext); 
+    const { user } = useContext(AuthContext);
     const [uploading, setUploading] = useState(false);
     const [image, setImage] = useState('')
 
