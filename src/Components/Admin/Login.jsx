@@ -2,8 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar2 from '../Navbar/Navbar2';
 import { AuthContext } from '../Providers/Provider';
-import RedirectIfLoggedIn from './RedirectIfLoggedIn';
-import './Login.css'; // Import custom CSS for animations
+import RedirectIfLoggedIn from './RedirectIfLoggedIn'; 
 
 function Login() {
     const { logIn } = useContext(AuthContext);
