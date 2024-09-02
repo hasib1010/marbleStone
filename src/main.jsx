@@ -25,6 +25,8 @@ import SignUp from './Components/Admin/SignUp.jsx';
 import AuthProvider from './Components/Providers/Provider.jsx';
 import PrivateRoutes from './Components/Private/PrivateRoute.jsx';
 import ProfileDashboard from './Components/Admin/Profile/ProfileDashboard.jsx';
+import DynamicBlogs from './Components/Admin/DynamicBlogs/DynamicBlogs.jsx';
+import EditBlog from './Components/Admin/DynamicBlogs/EditBlog.jsx';
 
 const router = createBrowserRouter([
 
@@ -36,7 +38,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App></App>,
-      }, {
+      }, 
+      {
+        path: "/home",
+        element: <App></App>,
+      }, 
+      {
         path: "/about",
         element: <About></About>,
       }, {
@@ -103,6 +110,16 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <PrivateRoutes><AdminPanel></AdminPanel></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/dynamic_blogs",
+        element: <PrivateRoutes><DynamicBlogs></DynamicBlogs></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/dynamic_blogs/edit",
+        element: <PrivateRoutes><EditBlog></EditBlog></PrivateRoutes>
       }
       ,
       {
