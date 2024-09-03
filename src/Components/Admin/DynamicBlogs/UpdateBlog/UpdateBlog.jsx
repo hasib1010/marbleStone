@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import AdminSidebar from '../AdminSidebar';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { storage } from '../../Services/firebase.config'; // Ensure this path is correct
-import generateUniqueId from 'generate-unique-id'; // Import this correctly
-import DashboardNav from '../DashboardNav/DashboardNav';
-import { AuthContext } from '../../Providers/Provider';
-import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom';
+import { storage } from '../../../Services/firebase.config'; // Ensure this path is correct
+import generateUniqueId from 'generate-unique-id'; // Import this correctly 
+import { AuthContext } from '../../../Providers/Provider';
+import Swal from 'sweetalert2';
+import AdminSidebar from '../../AdminSidebar';
+import DashboardNav from '../../DashboardNav/DashboardNav';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate to enable back navigation
 
-
-
-function EditBlog() {
-    const navigate = useNavigate()
+function UpdateBlog() {
     const { user } = useContext(AuthContext);
+    const { id } = useParams(); // Get the blog ID from the URL
+    const navigate = useNavigate(); // Create a navigate function
     const [formData, setFormData] = useState({
         title: '',
         author: '',
@@ -38,6 +37,28 @@ function EditBlog() {
             }));
         }
     }, [user, today]);
+
+    useEffect(() => {
+        if (id) {
+            // Fetch existing blog data and set form values
+            const fetchBlogData = async () => {
+                try {
+                    const response = await fetch(`http://localhost:5001/blogs/${id}`);
+                    if (!response.ok) throw new Error('Blog not found');
+                    const data = await response.json();
+                    setFormData({
+                        ...data,
+                        subtitles: data.subtitles || [''],
+                        content: data.content || [{ title: '', body: '' }]
+                    });
+                } catch (error) {
+                    console.error("Error fetching blog data:", error);
+                    // Handle error (e.g., show a message to the user)
+                }
+            };
+            fetchBlogData();
+        }
+    }, [id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -130,8 +151,8 @@ function EditBlog() {
         };
 
         try {
-            const response = await fetch("http://localhost:5001/blogs", {
-                method: "POST",
+            const response = await fetch(`http://localhost:5001/blogs/${id}`, { // Use PUT request for updating
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -144,18 +165,29 @@ function EditBlog() {
 
             const data = await response.json();
             console.log(data);
-            if (data.acknowledged) {
+            if (data.modifiedCount > 0) {
                 Swal.fire({
-                    title: 'Congratulations!',
-                    text: 'Your blog has been published',
+                    title: 'Update Successful!',
+                    text: 'Your blog has been updated',
                     icon: 'success',
                     confirmButtonText: 'Cool'
-                })
-
+                });
+            } else {
+                Swal.fire({
+                    title: 'No Changes',
+                    text: 'No changes were made to the blog',
+                    icon: 'info',
+                    confirmButtonText: 'Okay'
+                });
             }
         } catch (error) {
             console.error("Error submitting form:", error);
-            // Handle error
+            Swal.fire({
+                title: 'Error!',
+                text: 'An error occurred while updating the blog',
+                icon: 'error',
+                confirmButtonText: 'Okay'
+            });
         }
     };
 
@@ -166,8 +198,10 @@ function EditBlog() {
                 <DashboardNav />
                 <main className="flex-1 p-6">
                     <div className="bg-white p-6 rounded-lg shadow-md">
-                        <h1 className="text-4xl font-bold mb-4 text-gray-800">Edit Blog</h1>
-                        <p className="text-gray-600 mb-6">Fill in the details below to create a new blog post.</p>
+                        <h1 className="text-4xl font-bold mb-4 text-gray-800">Update Blog</h1>
+                        <p className="text-gray-600 mb-6">Fill in the details below to update blog post.</p>
+
+                        {/* Back Button */}
                         <button
                             type="button"
                             onClick={() => navigate(-1)} // Navigate back to the previous page
@@ -175,6 +209,7 @@ function EditBlog() {
                         >
                             Back
                         </button>
+
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title:</label>
@@ -228,9 +263,9 @@ function EditBlog() {
                                     name="author"
                                     value={formData.author}
                                     className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    disabled
                                 />
                             </div>
-                            {/* Note: `author_avatar` is handled in background, not shown in form */}
                             <div>
                                 <label htmlFor="published_date" className="block text-sm font-medium text-gray-700">Published Date:</label>
                                 <input
@@ -332,7 +367,7 @@ function EditBlog() {
                                     type="submit"
                                     className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 >
-                                    Post Blog
+                                    Update Blog
                                 </button>
                             </div>
                         </form>
@@ -343,4 +378,4 @@ function EditBlog() {
     );
 }
 
-export default EditBlog;
+export default UpdateBlog;

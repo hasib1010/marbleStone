@@ -38,7 +38,12 @@ const PostLayout = ({ blog }) => {
                     <div className='flex flex-col gap-8 mt-4'>
                         <h3 className='lg:text-6xl font-medium'>{title}</h3>
                         <p className='text-[#464851]'>
-                            {subtitles.join('. ')}
+                            {subtitles.map((subtitle, index) => (
+                                <span key={index}>
+                                    {subtitle}
+                                    <br /> <br />
+                                </span>
+                            ))}
                         </p>
                     </div>
                     <div className='h-[238px] bg-white p-7 relative flex flex-col gap-5 rounded-xl shadow-md'>
@@ -46,7 +51,7 @@ const PostLayout = ({ blog }) => {
                         <div className='flex w-[375px] gap-3'>
                             <img className='h-16 w-16 rounded-full' src={author_avatar ? author_avatar : "https://th.bing.com/th/id/OIP.kMQ14gs4OXX7BqCaoqruOQAAAA?cb=13&rs=1&pid=ImgDetMain"} alt="avatar icon" />
                             <div>
-                                <p className='text-2xl font-medium'>{author ? author: "USER"}</p>
+                                <p className='text-2xl font-medium'>{author ? author : "USER"}</p>
                                 <article className='text-base font-medium'>@user</article>
                             </div>
                         </div>

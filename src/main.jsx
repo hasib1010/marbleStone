@@ -28,6 +28,8 @@ import ProfileDashboard from './Components/Admin/Profile/ProfileDashboard.jsx';
 import DynamicBlogs from './Components/Admin/DynamicBlogs/DynamicBlogs.jsx';
 import EditBlog from './Components/Admin/DynamicBlogs/EditBlog.jsx';
 import DeleteBlog from './Components/Admin/DynamicBlogs/DeleteBlog/DeleteBlog.jsx';
+import UpdateBlog from './Components/Admin/DynamicBlogs/UpdateBlog/UpdateBlog.jsx';
+import ListedBlogs from './Components/Admin/DynamicBlogs/UpdateBlog/ListedBlogs.jsx';
 
 const router = createBrowserRouter([
 
@@ -121,6 +123,16 @@ const router = createBrowserRouter([
       {
         path: "/admin/dynamic_blogs/edit",
         element: <PrivateRoutes><EditBlog></EditBlog></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/dynamic_blogs/update",
+        element: <PrivateRoutes><ListedBlogs></ListedBlogs></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/dynamic_blogs/updateBlog/:id",
+        element: <PrivateRoutes><UpdateBlog></UpdateBlog></PrivateRoutes>
       }
       ,
       {
