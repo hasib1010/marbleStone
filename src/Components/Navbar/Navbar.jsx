@@ -24,13 +24,17 @@ const Navbar = () => {
     };
 
     const isActive = (path) => {
-        return location.pathname.startsWith(path) ? 'text-red-500' : '';
+        const isActive = location.pathname.startsWith(path);
+        console.log(`Path: ${path}, IsActive: ${isActive}`);
+        return isActive ? 'text-red-500' : '';
     };
+
+
 
     const Dropdown = ({ title, link, dropdownName, children }) => (
         <div className="relative">
             <div className="flex items-center cursor-pointer" onClick={() => toggleDropdown(dropdownName)}>
-                <Link className={`lg:text-[16px] py-2 text-white font-medium leading-5 ${isActive(link)}`} to={link}>
+                <Link to={link} style={{ color: location.pathname === link ? 'red' : 'white' }}>
                     {title}
                 </Link>
                 <BsChevronDown
@@ -46,6 +50,7 @@ const Navbar = () => {
             )}
         </div>
     );
+
 
     const DropdownItem = ({ to, href, children, closeDropdown }) => {
         if (href) {
@@ -125,6 +130,7 @@ const Navbar = () => {
                             <DropdownItem to="/rentals">Properties</DropdownItem>
                             <DropdownItem href="https://rentbutter.com/apply/marblestone">Apply</DropdownItem>
                         </Dropdown>
+
 
                         <Link to="/blogs">
                             <li className={`lg:text-[16px] text-white font-medium py-2 leading-5 ${isActive('/blogs')}`}>Blogs</li>
