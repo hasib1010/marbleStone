@@ -43,7 +43,7 @@ function UpdateBlog() {
             // Fetch existing blog data and set form values
             const fetchBlogData = async () => {
                 try {
-                    const response = await fetch(`http://localhost:5001/blogs/${id}`);
+                    const response = await fetch(`https://marble-stone-server.vercel.app/blogs/${id}`);
                     if (!response.ok) throw new Error('Blog not found');
                     const data = await response.json();
                     setFormData({
@@ -151,7 +151,7 @@ function UpdateBlog() {
         };
 
         try {
-            const response = await fetch(`http://localhost:5001/blogs/${id}`, { // Use PUT request for updating
+            const response = await fetch(`https://marble-stone-server.vercel.app/blogs/${id}`, { // Use PUT request for updating
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

@@ -4,47 +4,38 @@ import { PiTreasureChest } from "react-icons/pi";
 import { GrAnnounce } from "react-icons/gr";
 import { MdArticle } from "react-icons/md";
 import CardLayout from './CardLayout';
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa";
 import { BiArrowBack } from 'react-icons/bi';
 
 const LatestPost = ({ blogData = {} }) => {
-    const [selected, setSelected] = useState('All');  // Default selected item is 'All'
-    const [currentPage, setCurrentPage] = useState(1); // Track the current page
-    const blogsPerPage = 6; // Number of blogs to show per page
+    const [selected, setSelected] = useState('All');
+    const [currentPage, setCurrentPage] = useState(1);
+    const blogsPerPage = 6;
 
-    // Ensure blogData.blogs is always defined and is an array
     const blogs = Array.isArray(blogData.blogs) ? blogData.blogs : [];
 
     const handleClick = (item) => {
         setSelected(item);
-        setCurrentPage(1); // Reset to the first page when the category changes
+        setCurrentPage(1);
     };
 
-    // Filter the blogData based on the selected category
     const filteredBlogs = selected === 'All'
         ? blogs
         : blogs.filter(blog => blog.category === selected);
 
-    // Calculate the blogs to display on the current page
     const indexOfLastBlog = currentPage * blogsPerPage;
     const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
     const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
-    // Calculate the total number of pages
     const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
 
-    // Handle page change
     const handlePageChange = (pageNumber) => {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
             setCurrentPage(pageNumber);
         }
     };
 
-    // Scroll to the top when the page changes
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [currentPage]);
-
+    
     return (
         <div>
             <div className='container mx-auto my-20'>
@@ -98,21 +89,19 @@ const LatestPost = ({ blogData = {} }) => {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className='px-4 bg-black text-white rounded-full disabled:bg-white disabled:text-black py-4'
+                        className={`px-4 bg-black text-white rounded-full py-4 ${currentPage === 1 ? 'disabled:bg-white disabled:text-black' : ''}`}
                     >
                         <BiArrowBack />
                     </button>
 
-                    {/* Page Number Display */}
                     <span className='text-xl font-medium'>
                         {currentPage}/{totalPages}
                     </span>
 
-                    {/* Next Button */}
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className='px-4 bg-black text-white rounded-full disabled:bg-white disabled:text-white py-4'
+                        className={`px-4 bg-black text-white rounded-full py-4 ${currentPage === totalPages ? 'disabled:bg-white disabled:text-white' : ''}`}
                     >
                         <FaArrowRight />
                     </button>

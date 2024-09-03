@@ -9,7 +9,7 @@ function ListedBlogs() {
     const navigate = useNavigate();  
 
     useEffect(() => {
-        fetch("http://localhost:5001/blogs")
+        fetch("https://marble-stone-server.vercel.app/blogs")
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blogs);

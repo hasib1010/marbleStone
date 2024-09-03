@@ -15,7 +15,7 @@ const BlogMain = () => {
     useEffect(() => {
         const fetchBlogData = async () => {
             try {
-                const response = await fetch('http://localhost:5001/blogs');
+                const response = await fetch('https://marble-stone-server.vercel.app/blogs');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

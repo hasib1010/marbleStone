@@ -130,7 +130,7 @@ function EditBlog() {
         };
 
         try {
-            const response = await fetch("http://localhost:5001/blogs", {
+            const response = await fetch("https://marble-stone-server.vercel.app/blogs", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
