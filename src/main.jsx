@@ -30,6 +30,8 @@ import EditBlog from './Components/Admin/DynamicBlogs/EditBlog.jsx';
 import DeleteBlog from './Components/Admin/DynamicBlogs/DeleteBlog/DeleteBlog.jsx';
 import UpdateBlog from './Components/Admin/DynamicBlogs/UpdateBlog/UpdateBlog.jsx';
 import ListedBlogs from './Components/Admin/DynamicBlogs/UpdateBlog/ListedBlogs.jsx';
+import Users from './Components/Admin/Users/Users.jsx';
+import UserDetails from './Components/Admin/Users/UserDetails.jsx';
 
 const router = createBrowserRouter([
 
@@ -138,6 +140,16 @@ const router = createBrowserRouter([
       {
         path: "/admin/dynamic_blogs/delete",
         element: <PrivateRoutes><DeleteBlog></DeleteBlog></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/users",
+        element: <PrivateRoutes><Users></Users></PrivateRoutes>
+      }
+      ,
+      {
+        path: "/admin/users/:id",
+        element: <PrivateRoutes><UserDetails></UserDetails></PrivateRoutes>
       }
       ,
       {

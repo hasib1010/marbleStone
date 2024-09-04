@@ -37,7 +37,7 @@ const LatestPost = ({ blogData = {} }) => {
 
     
     return (
-        <div>
+        <div className=''>
             <div className='container mx-auto my-20'>
                 <div className='flex lg:flex-row md:flex-row flex-col m-3 items-center justify-between p-2'>
                     <h3 className='lg:text-5xl md:text-5xl text-xl font-medium'>Latest Post</h3>
@@ -73,7 +73,7 @@ const LatestPost = ({ blogData = {} }) => {
                     </div>
                 </div>
 
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-fit gap-20 my-20 mx-auto'>
+                <div className='lg:min-h-screen  grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-fit gap-20 my-20 mx-auto'>
                     {
                         currentBlogs.length === 0 ? (
                             <p>No posts available.</p>

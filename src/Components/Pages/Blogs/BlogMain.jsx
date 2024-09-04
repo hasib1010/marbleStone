@@ -31,7 +31,7 @@ const BlogMain = () => {
         };
 
         fetchBlogData();
-    }, []); 
+    }, []);
 
     if (loading) {
         return (
@@ -74,7 +74,7 @@ const BlogMain = () => {
 
                 <BlogSlide blogData={blogData} />
             </div>
-
+            {/* newsLatter section */}
             <div className='bg-[#14161C] container mx-auto lg:p-28 md:p-10 p-5 rounded-2xl text-white relative my-20 flex lg:flex-row md:flex-col flex-col justify-between'>
                 <div className='max-w-[447px] flex flex-col gap-7'>
                     <div className='flex items-center px-4 text-white gap-2 py-[10px] bg-[#202127] w-fit rounded-full'>

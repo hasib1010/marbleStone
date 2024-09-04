@@ -19,11 +19,7 @@ const DashboardNav = () => {
 
     const isActive = (path) => {
         return location.pathname.startsWith(path) ? 'text-red-500' : '';
-    };
-
-
-
-
+    }; 
 
     return (
         <div className="relative list-none">
