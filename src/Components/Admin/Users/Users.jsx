@@ -34,9 +34,7 @@ function Users() {
                                 <thead>
                                     <tr>
                                         <th>
-                                            <label>
-                                                <input type="checkbox" className="checkbox" />
-                                            </label>
+                                            
                                         </th>
                                         <th className='border text-xl text-center text-black'>Name</th>
                                         <th className='border text-xl text-center text-black'>Email</th>

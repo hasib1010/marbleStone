@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import Loader from '../Loader/Loader';
-import {auth, storage } from '../Services/firebase.config';
+import { auth, storage } from '../Services/firebase.config';
 
 export const AuthContext = createContext();
 
@@ -40,6 +40,8 @@ function AuthProvider({ children }) {
             throw error;
         }
     };
+
+    
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

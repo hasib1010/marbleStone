@@ -163,7 +163,7 @@ const router = createBrowserRouter([
       }
       ,
       {
-        path: "/profile_dashboard",
+        path: "admin/profile_dashboard",
         element: <PrivateRoutes>
           <ProfileDashboard></ProfileDashboard>
         </PrivateRoutes>

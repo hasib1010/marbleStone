@@ -164,7 +164,7 @@ const Navbar = () => {
                                     </div>
                                     {showUserActions && (
                                         <div className="absolute right-0 mt-2 w-48 rounded-md py-2 bg-white shadow-lg z-50">
-                                            <Link to='/profile_dashboard' className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={() => setShowUserActions(false)}>
+                                            <Link to='/admin/profile_dashboard' className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={() => setShowUserActions(false)}>
                                                 Profile
                                             </Link>
                                             <button className="block px-4 py-2 text-black font-medium cursor-pointer" onClick={logOut}>

@@ -10,6 +10,9 @@ function AdminSidebar() {
             <nav className="mt-6">
                 <ul>
                     <li>
+                        <Link to="/admin/profile_dashboard" className="block py-2 px-4 hover:bg-gray-700">Profile</Link>
+                    </li>
+                    <li>
                         <Link to="/admin" className="block py-2 px-4 hover:bg-gray-700">Dashboard</Link>
                     </li>
                     <li>
