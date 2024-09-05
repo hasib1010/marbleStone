@@ -1,20 +1,20 @@
 import { useContext, useState } from 'react';
-import { json, Link } from 'react-router-dom';
+import { json, Link, useNavigate } from 'react-router-dom';
 import Navbar2 from '../Navbar/Navbar2';
 import { AuthContext } from '../Providers/Provider';
 import { updateProfile } from 'firebase/auth';
-import { auth, storage } from '../Services/firebase.config'; // Ensure this is correctly configured
+import { auth, storage } from '../Services/firebase.config';
 import RedirectIfLoggedIn from './RedirectIfLoggedIn';
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
     const [registering, setRegistering] = useState(false);
-    const [error, setError] = useState(null); // State to store error messages
-
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
     const handleRegister = async (e) => {
         e.preventDefault();
         setRegistering(true);
-        setError(null); // Clear previous errors
+        setError(null);
 
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
@@ -25,9 +25,10 @@ const SignUp = () => {
 
         try {
             const userCredential = await createUser(email, password);
+
             const user = userCredential.user;
 
-            // Update the user's profile without a photo
+
             await updateProfile(user, { displayName: name });
 
             alert('Welcome');
@@ -50,11 +51,11 @@ const SignUp = () => {
                     console.error('Error:', error);
                     setError('Failed to create user data on the server.');
                 });
-
+            navigate('/admin/profile_dashboard')
         } catch (error) {
             console.error('Error creating user or updating profile:', error);
             if (error.message.includes('auth/')) {
-                // Extract Firebase error message based on the error code
+
                 const errorCode = error.message.split('/')[1];
                 switch (errorCode) {
                     case 'email-already-in-use':
@@ -75,6 +76,7 @@ const SignUp = () => {
             }
         } finally {
             setRegistering(false);
+
         }
     };
 
@@ -120,4 +122,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
- 

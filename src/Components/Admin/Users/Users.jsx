@@ -56,7 +56,7 @@ function Users() {
                                                     <div className="avatar">
                                                         <div className="mask mask-squircle h-12 w-12">
                                                             <img
-                                                                src={admin.profilePictureURL}
+                                                                src={admin.profilePictureURL || "https://i.ibb.co/dpGJZDt/avatar.webp"}
                                                                 alt="Avatar Tailwind CSS Component" />
                                                         </div>
                                                     </div>

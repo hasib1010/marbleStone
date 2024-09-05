@@ -9,6 +9,7 @@ import { FaCamera } from 'react-icons/fa'; // Icon for the edit button
 import { toast, ToastContainer } from 'react-toastify'; // Toast notifications
 import 'react-toastify/dist/ReactToastify.css'; // Import the CSS
 import Swal from 'sweetalert2';
+import { reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 
 const ProfileDashboard = () => {
     const { user } = useContext(AuthContext);
@@ -23,23 +24,55 @@ const ProfileDashboard = () => {
     console.log(user);
 
     const handleDeleteUser = async () => {
-        // Show confirmation dialog
-        const result = await Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
+        // Prompt user for password using SweetAlert
+        const { value: password } = await Swal.fire({
+            title: 'Confirm Deletion',
+            text: 'Please enter your password to confirm account deletion:',
+            input: 'password',
+            inputLabel: 'Password',
+            inputPlaceholder: 'Enter your password',
+            inputAttributes: {
+                autocapitalize: 'off',
+                autocorrect: 'off'
+            },
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: 'Confirm',
+            cancelButtonText: 'Cancel',
+            inputValidator: (value) => {
+                if (!value) {
+                    return 'Password is required!';
+                }
+            }
         });
-
-        // If the user confirmed
-        if (result.isConfirmed) {
-            try {
+    
+        // If user cancels the prompt
+        if (!password) {
+            return;
+        }
+    
+        // Create a credential with the user's email and the entered password
+        const credential = EmailAuthProvider.credential(user.email, password);
+    
+        try {
+            // Re-authenticate the user
+            await reauthenticateWithCredential(user, credential);
+    
+            // Show confirmation dialog
+            const result = await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            });
+    
+            // If the user confirmed
+            if (result.isConfirmed) {
                 // Delete the user from Firebase
                 await deleteUser(user);
-
+    
                 // Send a delete request to your backend
                 const response = await fetch(`http://localhost:5001/users/${currentUserId}`, {
                     method: "DELETE",
@@ -47,13 +80,13 @@ const ProfileDashboard = () => {
                         'Content-Type': 'application/json'
                     }
                 });
-
+    
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-
+    
                 const data = await response.json();
-
+    
                 if (data.acknowledged) {
                     // Show success message and redirect
                     await Swal.fire({
@@ -61,22 +94,22 @@ const ProfileDashboard = () => {
                         text: "Your profile has been deleted.",
                         icon: "success"
                     });
-
+    
                     // Redirect user or log out
                     window.location.href = '/'; // Redirect to home or login page
                 } else {
                     // Handle case where deletion is not acknowledged
                     throw new Error("Failed to delete user from backend.");
                 }
-            } catch (error) {
-                // Handle errors
-                console.error("Error deleting user:", error);
-                await Swal.fire({
-                    title: "Error!",
-                    text: "An error occurred while deleting your profile. Please try again.",
-                    icon: "error"
-                });
             }
+        } catch (error) {
+            // Handle errors
+            console.error("Error deleting user:", error);
+            await Swal.fire({
+                title: "Error!",
+                text: "An error occurred while deleting your profile. Please try again.",
+                icon: "error"
+            });
         }
     };
 
@@ -174,7 +207,7 @@ const ProfileDashboard = () => {
                 <div className='container mx-auto  '>
                     <h1 className='text-3xl font-bold text-center text-gray-800 mb-6'>Profile Dashboard</h1>
                     <div className='bg-white shadow-md rounded-lg p-6'>
-                        <div className='mb-6 flex flex-col w-fit mx-auto items-center'>
+                        <div className='mb-6 flex flex-col w-fit mx-auto items-center gap-5 mt-10 '>
                             <div className='relative mb-4'>
                                 <img
                                     src={
@@ -194,7 +227,7 @@ const ProfileDashboard = () => {
                                 </label>
                             </div>
                             <div>
-                                <h2 className='text-xl font-semibold text-gray-700 mb-2'>Name:</h2>
+                                <h2 className='text-base  font-semibold text-red-700 mb-2 '>Name:</h2>
                                 {editingName ? (
                                     <div className='flex items-center gap-4'>
                                         <input
@@ -221,7 +254,7 @@ const ProfileDashboard = () => {
                             </div>
                         </div>
                         <div className='w-fit mx-auto'>
-                            <h2 className='hidden text-xl font-semibold text-gray-700 mb-2'>Update Your Image:</h2>
+                            
                             <input
                                 type="file"
                                 onChange={handleFileChange}

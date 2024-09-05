@@ -22,6 +22,9 @@ function AdminSidebar() {
                         <Link to="/admin/dynamic_blogs" className="block py-2 px-4 hover:bg-gray-700">Blogs</Link>
                     </li>
                     <li>
+                        <Link to="/admin/properties" className="block py-2 px-4 hover:bg-gray-700">Properties</Link>
+                    </li>
+                    <li>
                         <Link to="/admin/settings" className="block py-2 px-4 hover:bg-gray-700">Settings</Link>
                     </li>
                 </ul>
