@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { updateProfile } from 'firebase/auth';
 import { AuthContext } from '../../Providers/Provider';
 import Navbar2 from '../../Navbar/Navbar2';
@@ -10,13 +10,23 @@ import AdminSidebar from '../AdminSidebar';
 const ProfileDashboard = () => {
     const { user } = useContext(AuthContext);
     const [uploading, setUploading] = useState(false);
-    const [imgUrl, setImgUrl] = useState(user.photoURL || '');  
+    const [imgUrl, setImgUrl] = useState(user.photoURL || '');
     const [image, setImage] = useState(null);
-    const [editingName, setEditingName] = useState(false);  
-    const [newName, setNewName] = useState(user.displayName || ''); 
-    const fileInputRef = useRef(null);  
+    const [editingName, setEditingName] = useState(false);
+    const [newName, setNewName] = useState(user.displayName || '');
+    const fileInputRef = useRef(null);
     console.log(user);
     const identity = user.email;
+    const [currentUserId, setCurrentUserId] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5001/users/email/${identity}`)
+            .then(res => res.json())
+            .then(data => setCurrentUserId(data._id))
+            .catch(error => console.error('Error fetching user ID:', error));
+    }, [identity]);
+
+    console.log('Current User ID:', currentUserId);
+
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -26,25 +36,27 @@ const ProfileDashboard = () => {
     const handleImageUpload = async () => {
         if (image) {
             setUploading(true);
-            const imgRef = ref(storage, `profilePictures/${user.identity}`);  // Use user.uid if _id is same as uid
+            const imgRef = ref(storage, `profilePictures/${user.uid}`);  // Assuming user.uid is used for identification
             try {
                 await uploadBytes(imgRef, image);
                 const url = await getDownloadURL(imgRef);
+                console.log(url);
 
                 // Update Firebase user profile
                 await updateProfile(user, { photoURL: url });
 
+
                 // Update profile picture URL in the database
-                const response = await fetch(`http://localhost:5000/users/${user.uid}`, { // Assuming user.uid is used as the ID
+                const response = await fetch(`http://localhost:5001/users/${currentUserId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        photoURL: url,
+                        profilePictureURL: url, // Ensure `url` is a valid string and not undefined
                     }),
                 });
-
+                
                 if (response.ok) {
                     alert("Profile picture updated");
                 } else {
@@ -52,7 +64,7 @@ const ProfileDashboard = () => {
                     console.error('Error updating profile picture:', error);
                     alert("Failed to update profile picture");
                 }
-                
+
                 if (fileInputRef.current) {
                     fileInputRef.current.value = '';
                 }
@@ -74,7 +86,7 @@ const ProfileDashboard = () => {
                 await updateProfile(user, { displayName: newName });
                 alert("Name updated successfully");
                 setEditingName(false);
-                
+
             } catch (error) {
                 console.error("Error updating name: ", error);
             }
